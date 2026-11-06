@@ -76,7 +76,7 @@
                 <div>
                     <h1 class="text-base sm:text-lg font-black tracking-tight leading-tight text-white flex items-center gap-2">
                         <span id="displayAppName">SchoolHub Universal</span> 
-                        <span id="displayAppSubtitle" class="text-xs font-semibold px-2 py-0.5 rounded-full bg-white/10 text-indigo-200 border border-white/10 hidden sm:inline-block">Piattaforma Multilivello (Scuola & Università)</span>
+                        <span id="displayAppSubtitle" class="text-xs font-semibold px-2 py-0.5 rounded-full bg-white/10 text-indigo-200 border border-white/10 hidden sm:inline-block">Elementari, Medie, Superiori & Università</span>
                     </h1>
                     <div class="flex items-center space-x-2 text-xs text-indigo-200 mt-1">
                         <span class="live-clock inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-sm shadow-emerald-400"></span>
@@ -85,13 +85,24 @@
                 </div>
             </div>
 
-            <!-- Selettore Multi-Classe e Admin -->
+            <!-- Selettori: Lingua, Multi-Classe e Admin -->
             <div class="flex items-center space-x-2 flex-wrap">
+                <!-- Selettore Lingua IT/EN -->
+                <div class="bg-white/10 border border-white/20 rounded-2xl px-2.5 py-1.5 flex items-center space-x-1.5 backdrop-blur-sm">
+                    <i class="fa-solid fa-globe text-indigo-300 text-xs"></i>
+                    <select id="langSelector" onchange="switchLanguage(this.value)" class="bg-transparent text-xs font-bold text-white focus:outline-none cursor-pointer">
+                        <option value="it" class="bg-slate-900 text-white">IT</option>
+                        <option value="en" class="bg-slate-900 text-white">EN</option>
+                    </select>
+                </div>
+
+                <!-- Selettore Multi-Classe -->
                 <div class="bg-white/10 border border-white/20 rounded-2xl px-3 py-1.5 flex items-center space-x-2 backdrop-blur-sm">
                     <i class="fa-solid fa-users-rectangle text-indigo-300 text-xs"></i>
                     <select id="multiClassSelector" onchange="switchClassBySelector(this.value)" class="bg-transparent text-xs font-bold text-white focus:outline-none cursor-pointer">
                     </select>
                 </div>
+
                 <button id="adminBtn" onclick="toggleAdminModal()" class="bg-white/10 hover:bg-white/20 border border-white/20 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition shadow-sm flex items-center space-x-2 backdrop-blur-sm">
                     <i class="fa-solid fa-lock text-xs text-amber-300" id="adminIcon"></i>
                     <span id="adminText">Area Admin</span>
@@ -118,12 +129,12 @@
                         <i class="fa-solid fa-clipboard-list text-xl"></i>
                     </div>
                     <div>
-                        <h4 class="font-black text-sm tracking-tight text-white">Riepilogo Attività & Esami Attivi</h4>
+                        <h4 class="font-black text-sm tracking-tight text-white" data-i18n="hwSummaryTitle">Riepilogo Attività, Compiti & Esami Attivi</h4>
                         <p class="text-xs text-indigo-200 font-medium mt-0.5" id="homeworkSummaryText">Caricamento stato...</p>
                     </div>
                 </div>
                 <div class="hidden sm:block">
-                    <span class="bg-indigo-500/30 border border-indigo-400/40 text-indigo-100 text-xs font-bold px-3.5 py-1.5 rounded-xl">Auto-eliminazione dopo 12h dalla scadenza</span>
+                    <span class="bg-indigo-500/30 border border-indigo-400/40 text-indigo-100 text-xs font-bold px-3.5 py-1.5 rounded-xl" data-i18n="autoDeleteBadge">Auto-eliminazione dopo 12h dalla scadenza</span>
                 </div>
             </div>
 
@@ -131,9 +142,9 @@
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
                         <span class="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-sm"><i class="fa-solid fa-book-open"></i></span>
-                        Diario Attività & Esami
+                        <span data-i18n="diaryHeader">Diario Compiti, Verifiche & Esami</span>
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Gestione flessibile per scuola e corsi universitari</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5" data-i18n="diarySub">Gestione flessibile per scuole elementari, medie, superiori e università</p>
                 </div>
                 <div class="flex items-center gap-2.5 flex-wrap">
                     <select id="materiaFilterSelect" onchange="renderAll()" class="bg-slate-50 border border-slate-200 rounded-2xl px-3.5 py-2.5 text-xs font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-inner">
@@ -141,7 +152,7 @@
                     <button onclick="openManageMaterieModal()" class="admin-only hidden bg-slate-100 hover:bg-slate-200 text-slate-700 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-slate-300" title="Gestisci / Aggiungi Materie"><i class="fa-solid fa-list-check text-sm"></i></button>
                     <button onclick="openInfoModal('compiti')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
                     <button onclick="openAddModal('compiti')" class="admin-only hidden bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2.5 rounded-2xl text-xs font-bold shadow-lg shadow-indigo-200 transition whitespace-nowrap flex items-center space-x-1.5">
-                        <i class="fa-solid fa-plus"></i><span>Nuovo Elemento</span>
+                        <i class="fa-solid fa-plus"></i><span data-i18n="newItemBtn">Nuovo Elemento</span>
                     </button>
                 </div>
             </div>
@@ -154,14 +165,14 @@
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
                         <span class="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-sm"><i class="fa-solid fa-calendar-days"></i></span>
-                        Orario Settimanale / Lezioni
+                        <span data-i18n="scheduleHeader">Orario Settimanale / Lezioni</span>
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Quadro orario modificabile per ogni indirizzo di studio</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5" data-i18n="scheduleSub">Quadro orario modificabile per ogni indirizzo scolastico o universitario</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openInfoModal('orario')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
                     <button onclick="openAddModal('orario')" class="admin-only hidden bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2.5 rounded-2xl text-xs font-bold shadow-lg shadow-indigo-200 transition flex items-center space-x-1.5">
-                        <i class="fa-solid fa-plus"></i><span>Aggiungi Giorno</span>
+                        <i class="fa-solid fa-plus"></i><span data-i18n="addDayBtn">Aggiungi Giorno</span>
                     </button>
                 </div>
             </div>
@@ -174,14 +185,14 @@
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
                         <span class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-sm"><i class="fa-solid fa-utensils"></i></span>
-                        Menu Mensa / Ristorazione
+                        <span data-i18n="canteenHeader">Menu Mensa / Ristorazione</span>
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Portali di ristorazione e menu ufficiali</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5" data-i18n="canteenSub">Portali di ristorazione e menu ufficiali</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openInfoModal('mensa')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
                     <button onclick="openAddModal('mensa')" class="admin-only hidden bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2.5 rounded-2xl text-xs font-bold shadow-lg shadow-indigo-200 transition flex items-center space-x-1.5">
-                        <i class="fa-solid fa-plus"></i><span>Pubblica Menu / PDF</span>
+                        <i class="fa-solid fa-plus"></i><span data-i18n="publishMenuBtn">Pubblica Menu / PDF</span>
                     </button>
                 </div>
             </div>
@@ -194,14 +205,14 @@
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
                         <span class="w-8 h-8 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center text-sm"><i class="fa-solid fa-file-pdf"></i></span>
-                        Documenti, PDF & Libri di Testo
+                        <span data-i18n="booksHeader">Documenti, PDF & Libri di Testo</span>
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Archivio condiviso di dispense, PDF e materiale didattico</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5" data-i18n="booksSub">Archivio condiviso di dispense, appunti, PDF e libri</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openInfoModal('libri')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
                     <button onclick="openAddModal('libri')" class="admin-only hidden bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2.5 rounded-2xl text-xs font-bold shadow-lg shadow-indigo-200 transition flex items-center space-x-1.5">
-                        <i class="fa-solid fa-plus"></i><span>Aggiungi PDF / Libro</span>
+                        <i class="fa-solid fa-plus"></i><span data-i18n="addPdfBtn">Aggiungi PDF / Libro</span>
                     </button>
                 </div>
             </div>
@@ -214,14 +225,14 @@
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
                         <span class="w-8 h-8 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-sm"><i class="fa-solid fa-hourglass-half"></i></span>
-                        Conto alla Rovescia
+                        <span data-i18n="countdownHeader">Conto alla Rovescia</span>
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Scadenze esami, verifiche ed eventi</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5" data-i18n="countdownSub">Scadenze verifiche, interrogazioni, esami ed eventi</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openInfoModal('countdown')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
                     <button onclick="openAddModal('countdown')" class="admin-only hidden bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2.5 rounded-2xl text-xs font-bold shadow-lg shadow-indigo-200 transition flex items-center space-x-1.5">
-                        <i class="fa-solid fa-plus"></i><span>Nuovo Countdown</span>
+                        <i class="fa-solid fa-plus"></i><span data-i18n="addCountdownBtn">Nuovo Countdown</span>
                     </button>
                 </div>
             </div>
@@ -234,14 +245,14 @@
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
                         <span class="w-8 h-8 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center text-sm"><i class="fa-solid fa-square-poll-vertical"></i></span>
-                        Sondaggi e Votazioni in Tempo Reale
+                        <span data-i18n="pollsHeader">Sondaggi e Votazioni in Tempo Reale</span>
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Votazioni con monitoraggio adesioni e condivisione esito</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5" data-i18n="pollsSub">Votazioni con monitoraggio adesioni e condivisione esito</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openInfoModal('sondaggi')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
                     <button onclick="openAddModal('sondaggi')" class="admin-only hidden bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2.5 rounded-2xl text-xs font-bold shadow-lg shadow-indigo-200 transition flex items-center space-x-1.5">
-                        <i class="fa-solid fa-plus"></i><span>Crea Sondaggio</span>
+                        <i class="fa-solid fa-plus"></i><span data-i18n="createPollBtn">Crea Sondaggio</span>
                     </button>
                 </div>
             </div>
@@ -254,38 +265,38 @@
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
                         <span class="w-8 h-8 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center text-sm"><i class="fa-solid fa-dharmachakra"></i></span>
-                        Ruota delle Assegnazioni / Sorteggi
+                        <span data-i18n="wheelHeader">Ruota delle Assegnazioni / Sorteggi</span>
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Assegna casualmente ruoli o compiti con animazione coriandoli</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5" data-i18n="wheelSub">Assegna casualmente ruoli, interrogazioni o compiti con animazione coriandoli</p>
                 </div>
                 <button onclick="openInfoModal('ruota')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200/80 space-y-4">
-                    <h3 class="font-black text-sm text-slate-900 uppercase tracking-wide">1. Inserisci elenchi</h3>
+                    <h3 class="font-black text-sm text-slate-900 uppercase tracking-wide" data-i18n="wheelStep1">1. Inserisci elenchi</h3>
                     <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1">Nomi Partecipanti (uno per riga)</label>
+                        <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="wheelNamesLabel">Nomi Partecipanti / Studenti (uno per riga)</label>
                         <textarea id="wheelNames" rows="4" class="w-full bg-slate-50 border border-slate-200 rounded-2xl p-3 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-inner" placeholder="Mario&#10;Anna&#10;Luigi"></textarea>
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1">Mansioni / Argomenti (uno per riga)</label>
+                        <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="wheelTasksLabel">Mansioni / Argomenti / Domande (uno per riga)</label>
                         <textarea id="wheelTasks" rows="4" class="w-full bg-slate-50 border border-slate-200 rounded-2xl p-3 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-inner" placeholder="Argomento A&#10;Argomento B&#10;Argomento C"></textarea>
                     </div>
                     <button onclick="spinWheel()" class="w-full bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 text-white py-3.5 rounded-2xl text-xs font-black uppercase tracking-wider transition shadow-lg shadow-pink-200 flex items-center justify-center space-x-2">
-                        <i class="fa-solid fa-dharmachakra text-base animate-spin"></i><span>Gira la Ruota e Assegna!</span>
+                        <i class="fa-solid fa-dharmachakra text-base animate-spin"></i><span data-i18n="spinBtn">Gira la Ruota e Assegna!</span>
                     </button>
                 </div>
 
                 <div class="bg-gradient-to-br from-slate-900 to-indigo-950 text-white p-6 rounded-3xl shadow-xl flex flex-col justify-between border border-white/10">
                     <div>
                         <div class="flex justify-between items-center mb-3">
-                            <span class="bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider text-pink-300 border border-white/10">Tabellone Abbinamenti</span>
-                            <span id="wheelStatusCount" class="text-xs text-indigo-200 font-bold">Pronto</span>
+                            <span class="bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider text-pink-300 border border-white/10" data-i18n="boardBadge">Tabellone Abbinamenti</span>
+                            <span id="wheelStatusCount" class="text-xs text-indigo-200 font-bold" data-i18n="readyText">Pronto</span>
                         </div>
-                        <h3 class="font-black text-lg text-white mb-3">Risultato Assegnazioni</h3>
+                        <h3 class="font-black text-lg text-white mb-3" data-i18n="resultHeader">Risultato Assegnazioni</h3>
                         <div id="wheelResultOutput" class="space-y-2 max-h-[220px] overflow-y-auto pr-1">
-                            <p class="text-xs text-indigo-300 italic py-8 text-center">Inserisci i dati a sinistra e clicca su "Gira la Ruota" per generare gli abbinamenti casuali con i coriandoli!</p>
+                            <p class="text-xs text-indigo-300 italic py-8 text-center" data-i18n="wheelPlaceholder">Inserisci i dati a sinistra e clicca su "Gira la Ruota" per generare gli abbinamenti casuali con i coriandoli!</p>
                         </div>
                     </div>
                     <div id="wheelWhatsAppContainer" class="pt-4 mt-4 border-t border-white/10"></div>
@@ -299,9 +310,9 @@
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
                         <span class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-sm"><i class="fa-solid fa-gamepad"></i></span>
-                        <span id="snakeTitleText">Snake Game</span> - Hall of Fame & Classifica
+                        <span id="snakeTitleText">Snake Game</span> - <span data-i18n="snakeHallOfFame">Hall of Fame & Classifica</span>
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Mini-gioco integrato con classifica cloud in tempo reale</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5" data-i18n="snakeSub">Mini-gioco integrato con classifica cloud in tempo reale</p>
                 </div>
                 <button onclick="openInfoModal('snake')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
             </div>
@@ -309,20 +320,20 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="md:col-span-2 bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 p-6 rounded-3xl shadow-2xl border border-white/10 flex flex-col items-center justify-center relative overflow-hidden">
                     <div id="snakePlayerBox" class="w-full max-w-[320px] mb-4 bg-white/10 backdrop-blur-md p-3.5 rounded-2xl border border-white/20 space-y-2">
-                        <label class="block text-[11px] font-bold text-indigo-200">Il tuo nome:</label>
+                        <label class="block text-[11px] font-bold text-indigo-200" data-i18n="yourNameLabel">Il tuo nome:</label>
                         <div class="flex gap-2">
                             <input type="text" id="snakePlayerName" placeholder="Es. Mario" class="w-full bg-slate-900 border border-white/20 rounded-xl px-3 py-2 text-xs font-bold text-white focus:outline-none focus:ring-2 focus:ring-emerald-400">
-                            <button onclick="confirmSnakePlayer()" class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-xl text-xs font-bold transition shadow-md whitespace-nowrap">Salva</button>
+                            <button onclick="confirmSnakePlayer()" class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-xl text-xs font-bold transition shadow-md whitespace-nowrap" data-i18n="saveBtn">Salva</button>
                         </div>
                     </div>
                     <div id="snakeActivePlayerDisplay" class="hidden w-full max-w-[320px] mb-3 bg-emerald-500/20 border border-emerald-500/40 p-2.5 rounded-xl text-xs text-emerald-300 font-bold flex justify-between items-center">
-                        <span>Giocatore: <strong id="snakeCurrentPlayerName" class="text-white"></strong></span>
-                        <button onclick="changeSnakePlayer()" class="text-[10px] bg-white/10 hover:bg-white/20 px-2 py-1 rounded-lg text-white">Cambia</button>
+                        <span><span data-i18n="playerText">Giocatore</span>: <strong id="snakeCurrentPlayerName" class="text-white"></strong></span>
+                        <button onclick="changeSnakePlayer()" class="text-[10px] bg-white/10 hover:bg-white/20 px-2 py-1 rounded-lg text-white" data-i18n="changeBtn">Cambia</button>
                     </div>
 
                     <div class="flex justify-between w-full max-w-[320px] text-xs font-bold text-indigo-200 mb-3 px-1">
-                        <span>Punteggio: <strong id="snakeScore" class="text-emerald-400 text-base">0</strong></span>
-                        <span id="snakeStatusText" class="text-indigo-300 italic">Inserisci il nome per iniziare</span>
+                        <span><span data-i18n="scoreText">Punteggio</span>: <strong id="snakeScore" class="text-emerald-400 text-base">0</strong></span>
+                        <span id="snakeStatusText" class="text-indigo-300 italic" data-i18n="snakeInsertName">Inserisci il nome per iniziare</span>
                     </div>
 
                     <div class="bg-black/60 backdrop-blur-md p-2 rounded-2xl border border-white/20 shadow-inner">
@@ -331,7 +342,7 @@
 
                     <div class="mt-4 flex flex-col items-center space-y-3 w-full max-w-[320px]">
                         <button id="snakeStartBtn" onclick="startSnakeGame()" disabled class="w-full bg-slate-700 text-slate-400 py-3 rounded-2xl text-xs font-black uppercase tracking-wider transition flex items-center justify-center space-x-2 cursor-not-allowed">
-                            <i class="fa-solid fa-play text-sm"></i><span>Avvia Partita</span>
+                            <i class="fa-solid fa-play text-sm"></i><span data-i18n="startMatchBtn">Avvia Partita</span>
                         </button>
 
                         <div class="grid grid-cols-3 gap-2 w-full pt-1">
@@ -350,15 +361,15 @@
                     <div>
                         <div class="flex items-center space-x-2 mb-3">
                             <div class="bg-amber-100 text-amber-700 p-2 rounded-xl"><i class="fa-solid fa-trophy text-sm"></i></div>
-                            <h3 class="font-black text-slate-900 text-base">Classifica</h3>
+                            <h3 class="font-black text-slate-900 text-base" data-i18n="leaderboardHeader">Classifica</h3>
                         </div>
-                        <p class="text-xs text-slate-500 font-medium mb-4">I migliori punteggi registrati:</p>
+                        <p class="text-xs text-slate-500 font-medium mb-4" data-i18n="leaderboardSub">I migliori punteggi registrati:</p>
                         <div id="snakeLeaderboardList" class="space-y-2.5 max-h-[320px] overflow-y-auto pr-1">
-                            <p class="text-xs text-slate-400 italic text-center py-6">Caricamento classifica...</p>
+                            <p class="text-xs text-slate-400 italic text-center py-6" data-i18n="loadingLeaderboard">Caricamento classifica...</p>
                         </div>
                     </div>
                     <div class="pt-3 border-t border-slate-100 text-center">
-                        <span class="text-[10px] text-slate-400 font-semibold">Aggiornato in tempo reale su Firebase</span>
+                        <span class="text-[10px] text-slate-400 font-semibold" data-i18n="firebaseLiveText">Aggiornato in tempo reale su Firebase</span>
                     </div>
                 </div>
             </div>
@@ -370,17 +381,17 @@
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
                         <span class="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-sm"><i class="fa-solid fa-wallet"></i></span>
-                        Fondo Cassa / Bilancio Trasparente
+                        <span data-i18n="fundHeader">Fondo Cassa / Bilancio Trasparente</span>
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Gestione entrate, spese e donazioni PayPal di supporto</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5" data-i18n="fundSub">Gestione entrate, spese e donazioni PayPal di supporto</p>
                 </div>
                 <div class="flex items-center gap-2 w-full sm:w-auto flex-wrap">
                     <button onclick="openInfoModal('fondo')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
                     <button onclick="promptSetFondoIniziale()" class="admin-only hidden bg-amber-100 hover:bg-amber-200 text-amber-800 px-4 py-2.5 rounded-2xl text-xs font-bold transition flex items-center space-x-1.5 border border-amber-200">
-                        <i class="fa-solid fa-coins"></i><span>Totale Raccolto</span>
+                        <i class="fa-solid fa-coins"></i><span data-i18n="totalCollectedBtn">Totale Raccolto</span>
                     </button>
                     <button onclick="openAddModal('fondo')" class="admin-only hidden bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2.5 rounded-2xl text-xs font-bold shadow-lg shadow-indigo-200 transition flex items-center space-x-1.5">
-                        <i class="fa-solid fa-plus"></i><span>Movimento Spesa</span>
+                        <i class="fa-solid fa-plus"></i><span data-i18n="expenseBtn">Movimento Spesa</span>
                     </button>
                 </div>
             </div>
@@ -388,15 +399,15 @@
             <!-- Box Riepilogo Saldo -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div class="bg-gradient-to-br from-indigo-900 to-indigo-950 text-white p-5 rounded-3xl shadow-md border border-indigo-700/40">
-                    <span class="text-[10px] font-black uppercase tracking-wider text-indigo-300">Totale Raccolto Iniziale</span>
+                    <span class="text-[10px] font-black uppercase tracking-wider text-indigo-300" data-i18n="initialFundTitle">Totale Raccolto Iniziale</span>
                     <div class="text-2xl font-black mt-1" id="displayFondoIniziale">0 €</div>
                 </div>
                 <div class="bg-gradient-to-br from-rose-900 to-rose-950 text-white p-5 rounded-3xl shadow-md border border-rose-700/40">
-                    <span class="text-[10px] font-black uppercase tracking-wider text-rose-300">Totale Spese Sostenute</span>
+                    <span class="text-[10px] font-black uppercase tracking-wider text-rose-300" data-i18n="totalExpensesTitle">Totale Spese Sostenute</span>
                     <div class="text-2xl font-black mt-1" id="displayTotaleSpese">0 €</div>
                 </div>
                 <div class="bg-gradient-to-br from-emerald-800 to-teal-950 text-white p-5 rounded-3xl shadow-md border border-emerald-600/40">
-                    <span class="text-[10px] font-black uppercase tracking-wider text-emerald-300">Saldo Attuale in Cassa</span>
+                    <span class="text-[10px] font-black uppercase tracking-wider text-emerald-300" data-i18n="currentBalanceTitle">Saldo Attuale in Cassa</span>
                     <div class="text-2xl font-black mt-1" id="displaySaldoAttuale">0 €</div>
                 </div>
             </div>
@@ -408,12 +419,12 @@
                         <i class="fa-brands fa-paypal text-xl"></i>
                     </div>
                     <div>
-                        <h4 class="font-black text-sm tracking-tight text-white">Supporto Sviluppo App di Classe</h4>
-                        <p class="text-xs text-blue-200 font-medium mt-0.5">Contribuisci liberamente al mantenimento e allo sviluppo della piattaforma.</p>
+                        <h4 class="font-black text-sm tracking-tight text-white" data-i18n="paypalTitle">Supporto Sviluppo App di Classe</h4>
+                        <p class="text-xs text-blue-200 font-medium mt-0.5" data-i18n="paypalSub">Contribuisci liberamente al mantenimento e allo sviluppo della piattaforma.</p>
                     </div>
                 </div>
                 <a href="https://paypal.me/bachecascolastica" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-5 py-3 rounded-2xl shadow-lg transition whitespace-nowrap flex items-center gap-2">
-                    <i class="fa-solid fa-heart text-rose-400"></i> Dona con PayPal
+                    <i class="fa-solid fa-heart text-rose-400"></i> <span data-i18n="paypalBtn">Dona con PayPal</span>
                 </a>
             </div>
 
@@ -426,14 +437,14 @@
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
                         <span class="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-sm"><i class="fa-solid fa-bullhorn"></i></span>
-                        Avvisi Importanti & Canali Ufficiali (WhatsApp / Telegram)
+                        <span data-i18n="noticesHeader">Avvisi Importanti & Canali Ufficiali (WhatsApp / Telegram)</span>
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Comunicazioni ufficiali e link ai gruppi di classe</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5" data-i18n="noticesSub">Comunicazioni ufficiali e link ai gruppi di classe o istituto</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openInfoModal('avvisi')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
                     <button onclick="openAddModal('avvisi')" class="admin-only hidden bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2.5 rounded-2xl text-xs font-bold shadow-lg shadow-indigo-200 transition flex items-center space-x-1.5">
-                        <i class="fa-solid fa-plus"></i><span>Pubblica Avviso</span>
+                        <i class="fa-solid fa-plus"></i><span data-i18n="publishNoticeBtn">Pubblica Avviso</span>
                     </button>
                 </div>
             </div>
@@ -444,8 +455,8 @@
                     <div class="flex items-center space-x-3">
                         <div class="w-10 h-10 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-lg"><i class="fa-brands fa-whatsapp"></i></div>
                         <div>
-                            <h4 class="font-black text-xs text-emerald-950 uppercase">Gruppo WhatsApp</h4>
-                            <p class="text-[11px] text-emerald-800 font-medium">Chat ufficiale genitori / studenti</p>
+                            <h4 class="font-black text-xs text-emerald-950 uppercase" data-i18n="whatsappGroupTitle">Gruppo WhatsApp</h4>
+                            <p class="text-[11px] text-emerald-800 font-medium" data-i18n="whatsappGroupSub">Chat ufficiale genitori / studenti / classe</p>
                         </div>
                     </div>
                     <i class="fa-solid fa-arrow-right text-emerald-600 text-sm pr-1"></i>
@@ -454,8 +465,8 @@
                     <div class="flex items-center space-x-3">
                         <div class="w-10 h-10 rounded-2xl bg-sky-600 text-white flex items-center justify-center text-lg"><i class="fa-brands fa-telegram"></i></div>
                         <div>
-                            <h4 class="font-black text-xs text-sky-950 uppercase">Canale Telegram</h4>
-                            <p class="text-[11px] text-sky-800 font-medium">Broadcast avvisi in tempo reale</p>
+                            <h4 class="font-black text-xs text-sky-950 uppercase" data-i18n="telegramChannelTitle">Canale Telegram</h4>
+                            <p class="text-[11px] text-sky-800 font-medium" data-i18n="telegramChannelSub">Broadcast avvisi in tempo reale</p>
                         </div>
                     </div>
                     <i class="fa-solid fa-arrow-right text-sky-600 text-sm pr-1"></i>
@@ -471,14 +482,14 @@
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
                         <span class="w-8 h-8 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-sm"><i class="fa-solid fa-chalkboard-user"></i></span>
-                        Ricevimento / Colloqui Docenti
+                        <span data-i18n="meetingHeader">Ricevimento / Colloqui Docenti</span>
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Orari e modalità dei colloqui individuali o generali</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5" data-i18n="meetingSub">Orari e modalità dei colloqui individuali o generali con i professori</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openInfoModal('ricevimento')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
                     <button onclick="openAddModal('ricevimento')" class="admin-only hidden bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2.5 rounded-2xl text-xs font-bold shadow-lg shadow-indigo-200 transition flex items-center space-x-1.5">
-                        <i class="fa-solid fa-plus"></i><span>Aggiungi Ricevimento</span>
+                        <i class="fa-solid fa-plus"></i><span data-i18n="addMeetingBtn">Aggiungi Ricevimento</span>
                     </button>
                 </div>
             </div>
@@ -491,14 +502,14 @@
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
                         <span class="w-8 h-8 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center text-sm"><i class="fa-solid fa-file-lines"></i></span>
-                        Circolari & Modulistica
+                        <span data-i18n="circularsHeader">Circolari & Modulistica</span>
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Moduli autorizzazioni, circolari e documenti ufficiali</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5" data-i18n="circularsSub">Moduli autorizzazioni, circolari scolastiche e documenti ufficiali</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openInfoModal('circolari')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
                     <button onclick="openAddModal('circolari')" class="admin-only hidden bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2.5 rounded-2xl text-xs font-bold shadow-lg shadow-indigo-200 transition flex items-center space-x-1.5">
-                        <i class="fa-solid fa-plus"></i><span>Aggiungi Circolare</span>
+                        <i class="fa-solid fa-plus"></i><span data-i18n="addCircularBtn">Aggiungi Circolare</span>
                     </button>
                 </div>
             </div>
@@ -511,14 +522,14 @@
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
                         <span class="w-8 h-8 rounded-xl bg-yellow-50 text-yellow-600 flex items-center justify-center text-sm"><i class="fa-solid fa-award"></i></span>
-                        Bacheca Meriti & Riconoscimenti
+                        <span data-i18n="meritsHeader">Bacheca Meriti & Riconoscimenti</span>
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Attestati, progetti speciali e premi</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5" data-i18n="meritsSub">Attestati, progetti speciali e premi</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openInfoModal('meriti')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
                     <button onclick="openAddModal('meriti')" class="admin-only hidden bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2.5 rounded-2xl text-xs font-bold shadow-lg shadow-indigo-200 transition flex items-center space-x-1.5">
-                        <i class="fa-solid fa-plus"></i><span>Aggiungi Merito</span>
+                        <i class="fa-solid fa-plus"></i><span data-i18n="addMeritBtn">Aggiungi Merito</span>
                     </button>
                 </div>
             </div>
@@ -531,14 +542,14 @@
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
                         <span class="w-8 h-8 rounded-xl bg-red-50 text-red-600 flex items-center justify-center text-sm"><i class="fa-solid fa-box-archive"></i></span>
-                        Oggetti Smarriti / "Chi l'ha visto?"
+                        <span data-i18n="lostHeader">Oggetti Smarriti / "Chi l'ha visto?"</span>
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Segnalazioni oggetti dimenticati a scuola o in aula</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5" data-i18n="lostSub">Segnalazioni oggetti dimenticati a scuola o in aula</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openInfoModal('smarriti')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
                     <button onclick="openAddModal('smarriti')" class="admin-only hidden bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2.5 rounded-2xl text-xs font-bold shadow-lg shadow-indigo-200 transition flex items-center space-x-1.5">
-                        <i class="fa-solid fa-plus"></i><span>Segnala Oggetto</span>
+                        <i class="fa-solid fa-plus"></i><span data-i18n="addLostBtn">Segnala Oggetto</span>
                     </button>
                 </div>
             </div>
@@ -551,14 +562,14 @@
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
                         <span class="w-8 h-8 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-sm"><i class="fa-solid fa-images"></i></span>
-                        Galleria Foto & Video
+                        <span data-i18n="galleryHeader">Galleria Foto & Video</span>
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Ricordi multimediali e foto di gruppo</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5" data-i18n="gallerySub">Ricordi multimediali e foto di classe o gruppo</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openInfoModal('galleria')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
                     <button onclick="openAddModal('galleria')" class="admin-only hidden bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2.5 rounded-2xl text-xs font-bold shadow-lg shadow-indigo-200 transition flex items-center space-x-1.5">
-                        <i class="fa-solid fa-plus"></i><span>Carica Foto/Video</span>
+                        <i class="fa-solid fa-plus"></i><span data-i18n="addGalleryBtn">Carica Foto/Video</span>
                     </button>
                 </div>
             </div>
@@ -571,14 +582,14 @@
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
                         <span class="w-8 h-8 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-sm"><i class="fa-solid fa-link"></i></span>
-                        Link Utili & Portali Esterni
+                        <span data-i18n="linksHeader">Link Utili & Portali Esterni</span>
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Registri elettronici, portali universitari e collegamenti</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5" data-i18n="linksSub">Registri elettronici (Spaggiari, Argo), portali universitari e collegamenti</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openInfoModal('linkutili')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
                     <button onclick="openAddModal('linkutili')" class="admin-only hidden bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2.5 rounded-2xl text-xs font-bold shadow-lg shadow-indigo-200 transition flex items-center space-x-1.5">
-                        <i class="fa-solid fa-plus"></i><span>Aggiungi Link</span>
+                        <i class="fa-solid fa-plus"></i><span data-i18n="addLinkBtn">Aggiungi Link</span>
                     </button>
                 </div>
             </div>
@@ -591,14 +602,14 @@
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
                         <span class="w-8 h-8 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center text-sm"><i class="fa-solid fa-cake-candles"></i></span>
-                        Compleanni / Ricorrenze
+                        <span data-i18n="birthdaysHeader">Compleanni / Ricorrenze</span>
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Date importanti e compleanni con auguri rapidi WhatsApp</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5" data-i18n="birthdaysSub">Date importanti e compleanni con auguri rapidi WhatsApp</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openInfoModal('compleanni')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
                     <button onclick="openAddModal('compleanni')" class="admin-only hidden bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2.5 rounded-2xl text-xs font-bold shadow-lg shadow-indigo-200 transition flex items-center space-x-1.5">
-                        <i class="fa-solid fa-plus"></i><span>Aggiungi Compleanno</span>
+                        <i class="fa-solid fa-plus"></i><span data-i18n="addBirthdayBtn">Aggiungi Compleanno</span>
                     </button>
                 </div>
             </div>
@@ -611,14 +622,14 @@
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
                         <span class="w-8 h-8 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-sm"><i class="fa-solid fa-clock"></i></span>
-                        Promemoria e Scadenze
+                        <span data-i18n="remindersHeader">Promemoria e Scadenze</span>
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Impegni e cose da ricordare</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5" data-i18n="remindersSub">Impegni e cose da ricordare</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openInfoModal('promemoria')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
                     <button onclick="openAddModal('promemoria')" class="admin-only hidden bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2.5 rounded-2xl text-xs font-bold shadow-lg shadow-indigo-200 transition flex items-center space-x-1.5">
-                        <i class="fa-solid fa-plus"></i><span>Aggiungi Promemoria</span>
+                        <i class="fa-solid fa-plus"></i><span data-i18n="addReminderBtn">Aggiungi Promemoria</span>
                     </button>
                 </div>
             </div>
@@ -629,50 +640,50 @@
         <section id="guida" class="tab-content space-y-6">
             <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-200/80 space-y-6">
                 <div>
-                    <span class="bg-emerald-50 text-emerald-700 text-[10px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider border border-emerald-100">Manuale d'Uso della Bacheca</span>
+                    <span class="bg-emerald-50 text-emerald-700 text-[10px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider border border-emerald-100" data-i18n="manualBadge">Manuale d'Uso della Bacheca</span>
                     <h2 class="text-2xl font-black text-slate-900 tracking-tight mt-2 flex items-center gap-2.5">
-                        <i class="fa-solid fa-circle-question text-indigo-600"></i> Guida Completa, Multilivello (Scuola/Università), Android & iOS
+                        <i class="fa-solid fa-circle-question text-indigo-600"></i> <span data-i18n="guideTitle">Guida Completa, Multilivello (Elementari, Medie, Superiori & Università), Android & iOS</span>
                     </h2>
-                    <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1">Procedura dettagliata per l'installazione su Android, Apple iOS, gestione multi-classe e contatti di supporto.</p>
+                    <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1" data-i18n="guideSub">Procedura dettagliata per l'installazione su Android, Apple iOS, gestione multi-classe e contatti di supporto.</p>
                 </div>
 
                 <div class="bg-indigo-50/80 p-5 rounded-3xl border border-indigo-200 space-y-3">
-                    <h3 class="font-black text-sm text-indigo-950 flex items-center gap-2"><i class="fa-solid fa-users-rectangle text-indigo-600"></i> Gestione Multi-Classe / Multi-Corso</h3>
-                    <p class="text-xs text-indigo-950 font-medium leading-relaxed">
-                        SchoolHub Universal nasce per adattarsi sia alle scuole (primarie/secondarie) che ai corsi universitari:
+                    <h3 class="font-black text-sm text-indigo-950 flex items-center gap-2"><i class="fa-solid fa-users-rectangle text-indigo-600"></i> <span data-i18n="multiClassGuideTitle">Gestione Multi-Classe / Multi-Corso</span></h3>
+                    <p class="text-xs text-indigo-950 font-medium leading-relaxed" data-i18n="multiClassGuideText">
+                        SchoolHub Universal è progettato per adattarsi perfettamente a qualsiasi ordine e grado scolastico (Scuole Elementari, Medie, Istituti Superiori / Licei / Tecnici) e ai corsi universitari:
                     </p>
                     <ul class="list-disc list-inside text-xs text-indigo-900 space-y-1.5 font-medium leading-relaxed">
-                        <li><strong>Come aggiungere un nuovo corso o classe:</strong> Clicca sul tasto <em>"Condividi App per Nuova Classe"</em> nell'Area Admin per generare un nuovo database indipendente.</li>
-                        <li><strong>Come passare da un gruppo all'altro:</strong> Usa il selettore a tendina in alto a destra per saltare istantaneamente da una bacheca all'altra senza reinstallare nulla.</li>
+                        <li><strong data-i18n="mcPoint1Bold">Come configurare la tua classe o scuola:</strong> <span data-i18n="mcPoint1Text">Entra nell'Area Admin con la password predefinita (3e), vai su Impostazioni Classe e personalizza il nome (es. "Liceo Scientifico 4B", "ITIS 3A", ecc.).</span></li>
+                        <li><strong data-i18n="mcPoint2Bold">Come passare da un gruppo all'altro:</strong> <span data-i18n="mcPoint2Text">Usa il selettore a tendina in alto a destra per saltare istantaneamente da una bacheca all'altra senza reinstallare nulla.</span></li>
                     </ul>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                     <div class="bg-indigo-50/80 p-5 rounded-3xl border border-indigo-100 space-y-2">
-                        <h4 class="font-black text-xs text-indigo-950 uppercase flex items-center gap-2"><i class="fa-brands fa-android text-base text-indigo-600"></i> Installazione su Android</h4>
+                        <h4 class="font-black text-xs text-indigo-950 uppercase flex items-center gap-2"><i class="fa-brands fa-android text-base text-indigo-600"></i> <span data-i18n="androidGuideTitle">Installazione su Android</span></h4>
                         <ol class="list-decimal list-inside text-xs text-indigo-900 space-y-1 font-medium leading-relaxed">
-                            <li>Clicca sul pulsante <strong>"Scarica Android"</strong> in basso per scaricare l'app APK.</li>
-                            <li>Apri il file scaricato sul telefono e consenti l'installazione dell'app.</li>
-                            <li>Al primo avvio, l'app si connetterà automaticamente alla classe corretta.</li>
+                            <li data-i18n="androidStep1">Clicca sul pulsante "Scarica Android" in basso per scaricare l'app APK.</li>
+                            <li data-i18n="androidStep2">Apri il file scaricato sul telefono e consenti l'installazione dell'app.</li>
+                            <li data-i18n="androidStep3">Al primo avvio, l'app si connetterà automaticamente alla classe corretta.</li>
                         </ol>
                     </div>
                     <div class="bg-slate-900 text-white p-5 rounded-3xl border border-slate-800 space-y-2">
-                        <h4 class="font-black text-xs text-slate-100 uppercase flex items-center gap-2"><i class="fa-brands fa-apple text-base text-white"></i> Installazione su Apple iOS (iPhone / iPad)</h4>
+                        <h4 class="font-black text-xs text-slate-100 uppercase flex items-center gap-2"><i class="fa-brands fa-apple text-base text-white"></i> <span data-i18n="appleGuideTitle">Installazione su Apple iOS (iPhone / iPad)</span></h4>
                         <ol class="list-decimal list-inside text-xs text-slate-300 space-y-1 font-medium leading-relaxed">
-                            <li>I dispositivi Apple non supportano file APK. Apri il link ricevuto su WhatsApp in <strong>Safari</strong> (o usa il tasto "Apri Bacheca Apple").</li>
-                            <li>Tocca il tasto <strong>Condividi</strong> (il quadratino con la freccia) e seleziona <strong>"Aggiungi alla schermata Home"</strong>.</li>
-                            <li>Il codice della classe viene memorizzato automaticamente. Per visualizzare correttamente i PDF, installa l'app gratuita <strong>Google Drive</strong>.</li>
+                            <li data-i18n="appleStep1">I dispositivi Apple non supportano file APK. Apri il link ricevuto su WhatsApp in Safari (o usa il tasto "Apri Bacheca Apple").</li>
+                            <li data-i18n="appleStep2">Tocca il tasto Condividi (il quadratino con la freccia) e seleziona "Aggiungi alla schermata Home".</li>
+                            <li data-i18n="appleStep3">Il codice della classe viene memorizzato automaticamente. Per visualizzare correttamente i PDF, installa l'app gratuita Google Drive.</li>
                         </ol>
                     </div>
                 </div>
 
                 <div class="bg-sky-50 p-5 rounded-3xl border border-sky-200 flex items-center justify-between">
                     <div class="space-y-1">
-                        <h4 class="font-black text-xs text-sky-950 uppercase">Assistenza & Contatto Sviluppatore</h4>
-                        <p class="text-xs text-sky-800 font-medium">Hai bisogno di supporto tecnico o personalizzazioni? Scrivici direttamente.</p>
+                        <h4 class="font-black text-xs text-sky-950 uppercase" data-i18n="supportTitle">Assistenza & Contatto Sviluppatore</h4>
+                        <p class="text-xs text-sky-800 font-medium" data-i18n="supportSub">Hai bisogno di supporto tecnico o personalizzazioni? Scrivici direttamente.</p>
                     </div>
                     <a href="mailto:laskisound@gmail.com" class="bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold px-4 py-2.5 rounded-2xl shadow-sm transition whitespace-nowrap flex items-center gap-1.5">
-                        <i class="fa-solid fa-envelope"></i> Contatta laski
+                        <i class="fa-solid fa-envelope"></i> <span data-i18n="contactBtn">Contatta laski</span>
                     </a>
                 </div>
             </div>
@@ -686,15 +697,15 @@
             <div class="flex items-center space-x-2 flex-wrap gap-y-2">
                 <button onclick="downloadAndroidWithToken()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-3.5 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-2 shadow-sm" title="Scarica App Android APK">
                     <i class="fa-brands fa-android text-sm"></i>
-                    <span>Scarica Android</span>
+                    <span data-i18n="dlAndroidBtn">Scarica Android</span>
                 </button>
                 <button onclick="openAppleDirectWithToken()" class="bg-slate-900 hover:bg-black text-white px-3.5 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-2 shadow-sm" title="Apri bacheca direttamente per Apple iOS">
                     <i class="fa-brands fa-apple text-sm"></i>
-                    <span>Apri Bacheca Apple</span>
+                    <span data-i18n="openAppleBtn">Apri Bacheca Apple</span>
                 </button>
                 <button onclick="openAppleGuideWithToken()" class="bg-slate-800 hover:bg-slate-900 text-white px-3.5 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-2 shadow-sm" title="Guida installazione su Safari per Apple iOS">
                     <i class="fa-solid fa-circle-question text-sm"></i>
-                    <span>Guida Apple</span>
+                    <span data-i18n="guideAppleBtn">Guida Apple</span>
                 </button>
                 <button onclick="openTokenInfoModal()" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-xl transition border border-sky-200 flex items-center justify-center" title="A cosa serve?">
                     <i class="fa-solid fa-circle-info text-sm"></i>
@@ -705,7 +716,7 @@
                 <a href="mailto:laskisound@gmail.com" class="text-indigo-600 hover:underline font-black tracking-wider bg-indigo-50 border border-indigo-100 px-3 py-1.5 rounded-xl text-[11px]" title="Contatta laski">POWER_laski</a>
                 <div class="flex items-center space-x-2 bg-indigo-50 border border-indigo-100 px-3.5 py-1.5 rounded-xl text-indigo-900 font-bold shadow-2xs">
                     <i class="fa-solid fa-eye text-indigo-600"></i>
-                    <span>Visite: <strong id="totalVisitsCounter" class="text-indigo-700">...</strong></span>
+                    <span><span data-i18n="visitsText">Visite</span>: <strong id="totalVisitsCounter" class="text-indigo-700">...</strong></span>
                 </div>
             </div>
         </div>
@@ -715,20 +726,20 @@
     <div id="tokenInfoModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md hidden z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-4 border border-slate-100">
             <div class="flex justify-between items-center">
-                <h3 class="text-lg font-black text-slate-900">Sincronizzazione Automatica & Multi-Classe</h3>
+                <h3 class="text-lg font-black text-slate-900" data-i18n="syncModalTitle">Sincronizzazione Automatica & Multi-Classe</h3>
                 <button onclick="closeTokenInfoModal()" class="text-slate-400 hover:text-slate-600 p-1.5 rounded-xl hover:bg-slate-100 transition"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
             <div class="text-xs sm:text-sm text-slate-600 space-y-3 font-medium leading-relaxed">
                 <div class="bg-emerald-50 p-3.5 rounded-2xl border border-emerald-100 text-emerald-950 space-y-1.5">
-                    <p class="font-black text-xs uppercase tracking-wider text-emerald-700"><i class="fa-solid fa-link mr-1"></i> Come funziona il link di invito:</p>
-                    <p>Il pulsante <strong>"Invito WhatsApp"</strong> genera un messaggio con il link della bacheca che include già il codice della classe. Quando un genitore o studente clicca sul link, l'app si sincronizza automaticamente senza digitare nulla.</p>
+                    <p class="font-black text-xs uppercase tracking-wider text-emerald-700" data-i18n="syncBoxTitle"><i class="fa-solid fa-link mr-1"></i> Come funziona il link di invito:</p>
+                    <p data-i18n="syncBoxText">Il pulsante "Invito WhatsApp" genera un messaggio con il link della bacheca che include già il codice della classe. Quando un genitore, studente o compagno di corso clicca sul link, l'app si sincronizza automaticamente senza digitare nulla.</p>
                 </div>
                 <div class="bg-indigo-50 p-3.5 rounded-2xl border border-indigo-100 text-indigo-950 space-y-1.5">
-                    <p class="font-black text-xs uppercase tracking-wider text-indigo-700"><i class="fa-solid fa-users-rectangle mr-1"></i> Gestione Multi-Classe / Università:</p>
-                    <p>Se segui più classi o corsi universitari, l'app salva tutti i gruppi nella tua rubrica e ti permette di passare da uno all'altra usando il selettore in alto a destra.</p>
+                    <p class="font-black text-xs uppercase tracking-wider text-indigo-700" data-i18n="multiClassBoxTitle"><i class="fa-solid fa-users-rectangle mr-1"></i> Gestione Multi-Classe / Scuole Superiori:</p>
+                    <p data-i18n="multiClassBoxText">Se segui più classi o istituti (es. figli in scuole diverse o corsi multipli), l'app salva tutti i gruppi nella tua rubrica e ti permette di passare da uno all'altra usando il selettore in alto a destra.</p>
                 </div>
             </div>
-            <button onclick="closeTokenInfoModal()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-2xl text-xs font-bold transition">Ho capito</button>
+            <button onclick="closeTokenInfoModal()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-2xl text-xs font-bold transition" data-i18n="understoodBtn">Ho capito</button>
         </div>
     </div>
 
@@ -736,16 +747,16 @@
     <div id="manageMaterieModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md hidden z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl space-y-4 border border-slate-100 flex flex-col max-h-[90vh]">
             <div class="flex justify-between items-center">
-                <h3 class="text-lg font-black text-slate-900">Gestisci Materie / Corsi</h3>
+                <h3 class="text-lg font-black text-slate-900" data-i18n="manageSubjectsTitle">Gestisci Materie / Corsi</h3>
                 <button onclick="closeManageMaterieModal()" class="text-slate-400 hover:text-slate-600 p-1.5 rounded-xl hover:bg-slate-100 transition"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
-            <p class="text-xs text-slate-500 font-medium">Aggiungi una nuova materia o corso oppure elimina quelli esistenti:</p>
+            <p class="text-xs text-slate-500 font-medium" data-i18n="manageSubjectsSub">Aggiungi una nuova materia o corso oppure elimina quelli esistenti:</p>
             <div class="flex gap-2">
                 <input type="text" id="newMateriaInput" placeholder="Nome materia/corso..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                <button onclick="addNewMateria()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl text-xs font-bold transition shadow-md whitespace-nowrap">Aggiungi</button>
+                <button onclick="addNewMateria()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl text-xs font-bold transition shadow-md whitespace-nowrap" data-i18n="addBtn">Aggiungi</button>
             </div>
             <div id="materieListContainer" class="space-y-2 overflow-y-auto flex-1 pr-1 max-h-[220px]"></div>
-            <button onclick="closeManageMaterieModal()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 py-2.5 rounded-2xl text-xs font-bold transition">Chiudi</button>
+            <button onclick="closeManageMaterieModal()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 py-2.5 rounded-2xl text-xs font-bold transition" data-i18n="closeBtn">Chiudi</button>
         </div>
     </div>
 
@@ -753,50 +764,50 @@
     <div id="adminModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md hidden z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl space-y-4 border border-slate-100">
             <div class="flex justify-between items-center">
-                <h3 class="text-lg font-black text-slate-900">Area Amministratore</h3>
+                <h3 class="text-lg font-black text-slate-900" data-i18n="adminModalTitle">Area Amministratore</h3>
                 <button onclick="toggleAdminModal()" class="text-slate-400 hover:text-slate-600 p-1.5 rounded-xl hover:bg-slate-100 transition"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
             <div id="adminLoginForm" class="space-y-3.5">
-                <p class="text-xs text-slate-500 font-medium">Inserisci la password amministratore per sbloccare i comandi.</p>
+                <p class="text-xs text-slate-500 font-medium" data-i18n="adminLoginSub">Inserisci la password amministratore per sbloccare i comandi.</p>
                 <input type="password" id="adminPasswordInput" placeholder="Password (default: 3e)" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-inner">
-                <button onclick="checkAdminPassword()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-2xl text-sm font-bold shadow-lg shadow-indigo-200 transition">Accedi</button>
+                <button onclick="checkAdminPassword()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-2xl text-sm font-bold shadow-lg shadow-indigo-200 transition" data-i18n="loginBtn">Accedi</button>
                 <div class="text-center pt-2">
-                    <button onclick="showRecoveryView()" class="text-xs text-indigo-600 hover:underline font-bold">Password dimenticata?</button>
+                    <button onclick="showRecoveryView()" class="text-xs text-indigo-600 hover:underline font-bold" data-i18n="forgotPassBtn">Password dimenticata?</button>
                 </div>
             </div>
             <div id="adminRecoveryForm" class="hidden space-y-3.5">
-                <p class="text-xs text-slate-500 font-medium">Inserisci il codice di recupero impostato per questa classe:</p>
+                <p class="text-xs text-slate-500 font-medium" data-i18n="recoverySub">Inserisci il codice di recupero impostato per questa classe:</p>
                 <input type="text" id="adminRecoveryInput" placeholder="Codice di recupero" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-inner">
-                <button onclick="verifyRecoveryCode()" class="w-full bg-amber-600 hover:bg-amber-700 text-white py-3 rounded-2xl text-sm font-bold shadow-lg shadow-amber-200 transition">Verifica Codice</button>
+                <button onclick="verifyRecoveryCode()" class="w-full bg-amber-600 hover:bg-amber-700 text-white py-3 rounded-2xl text-sm font-bold shadow-lg shadow-amber-200 transition" data-i18n="verifyCodeBtn">Verifica Codice</button>
                 <div class="text-center pt-2">
-                    <button onclick="hideRecoveryView()" class="text-xs text-slate-500 hover:underline font-bold">Torna al login</button>
+                    <button onclick="hideRecoveryView()" class="text-xs text-slate-500 hover:underline font-bold" data-i18n="backToLoginBtn">Torna al login</button>
                 </div>
             </div>
             <div id="adminLogoutDiv" class="hidden space-y-3.5">
-                <p class="text-xs text-emerald-600 font-bold flex items-center bg-emerald-50 p-3 rounded-2xl border border-emerald-100"><i class="fa-solid fa-circle-check mr-2 text-base"></i> Autenticato come Amministratore.</p>
+                <p class="text-xs text-emerald-600 font-bold flex items-center bg-emerald-50 p-3 rounded-2xl border border-emerald-100"><i class="fa-solid fa-circle-check mr-2 text-base"></i> <span data-i18n="adminActiveText">Autenticato come Amministratore.</span></p>
                 
                 <div id="defaultPasswordWarning" class="hidden bg-amber-50 border border-amber-200 p-3 rounded-2xl space-y-2">
-                    <p class="text-xs text-amber-800 font-bold flex items-center gap-1.5"><i class="fa-solid fa-triangle-exclamation"></i> Stai usando la password predefinita (3e)!</p>
-                    <p class="text-[11px] text-amber-700">Ti consigliamo di cambiarla subito per motivi di sicurezza.</p>
-                    <button onclick="toggleAdminModal(); openConfigModal();" class="w-full bg-amber-600 hover:bg-amber-700 text-white py-2 rounded-xl text-xs font-bold transition shadow-sm">Cambia Password Ora</button>
+                    <p class="text-xs text-amber-800 font-bold flex items-center gap-1.5"><i class="fa-solid fa-triangle-exclamation"></i> <span data-i18n="defaultPassWarn">Stai usando la password predefinita (3e)!</span></p>
+                    <p class="text-[11px] text-amber-700" data-i18n="defaultPassTip">Ti consigliamo di cambiarla subito per motivi di sicurezza.</p>
+                    <button onclick="toggleAdminModal(); openConfigModal();" class="w-full bg-amber-600 hover:bg-amber-700 text-white py-2 rounded-xl text-xs font-bold transition shadow-sm" data-i18n="changePassNowBtn">Cambia Password Ora</button>
                 </div>
 
                 <div class="space-y-2 pt-2">
                     <button onclick="shareClassInvite()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 px-4 rounded-2xl text-xs font-bold transition flex items-center justify-center space-x-2 shadow-sm">
                         <i class="fa-brands fa-whatsapp"></i>
-                        <span>Invito WhatsApp Genitori / Studenti</span>
+                        <span data-i18n="whatsappInviteBtn">Invito WhatsApp Genitori / Studenti</span>
                     </button>
                     <button onclick="toggleAdminModal(); openConfigModal();" class="w-full bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 py-3 px-4 rounded-2xl text-xs font-bold transition flex items-center justify-center space-x-2">
                         <i class="fa-solid fa-gear"></i>
-                        <span>Impostazioni Classe, Sezioni & Password</span>
+                        <span data-i18n="settingsBtn">Impostazioni Classe, Sezioni & Password</span>
                     </button>
                     <button onclick="shareAppForNewClass()" class="w-full bg-slate-900 hover:bg-black text-white py-3 px-4 rounded-2xl text-xs font-bold transition flex items-center justify-center space-x-2 shadow-sm">
                         <i class="fa-solid fa-share-nodes"></i>
-                        <span>Condividi App per Nuova Classe</span>
+                        <span data-i18n="shareNewClassBtn">Condividi App per Nuova Classe</span>
                     </button>
                 </div>
 
-                <button onclick="logoutAdmin()" class="w-full bg-red-50 hover:bg-red-100 text-red-600 py-3 rounded-2xl text-xs font-bold transition mt-3">Esci dall'Area Admin</button>
+                <button onclick="logoutAdmin()" class="w-full bg-red-50 hover:bg-red-100 text-red-600 py-3 rounded-2xl text-xs font-bold transition mt-3" data-i18n="logoutAdminBtn">Esci dall'Area Admin</button>
             </div>
         </div>
     </div>
@@ -805,37 +816,37 @@
     <div id="configModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md hidden z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto border border-slate-100">
             <div class="flex justify-between items-center">
-                <h3 class="text-lg font-black text-slate-900">Impostazioni Classe & Sezioni</h3>
+                <h3 class="text-lg font-black text-slate-900" data-i18n="configModalTitle">Impostazioni Classe & Sezioni</h3>
                 <button onclick="openConfigModal()" class="text-slate-400 hover:text-slate-600 p-1.5 rounded-xl hover:bg-slate-100 transition"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
             <div class="space-y-4">
                 <div>
-                    <label class="block text-xs font-black text-slate-700 mb-1">Titolo Principale (es. Classe 3E / Università)</label>
+                    <label class="block text-xs font-black text-slate-700 mb-1" data-i18n="configNameLabel">Titolo Principale (es. Classe 3E / Liceo 4B)</label>
                     <input type="text" id="configInputName" placeholder="Es. Classe 3E" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-inner">
                 </div>
                 <div>
-                    <label class="block text-xs font-black text-slate-700 mb-1">Sottotitolo / Indirizzo (es. Scuola Primaria / Università)</label>
-                    <input type="text" id="configInputSubtitle" placeholder="Es. Scuola Primaria" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-inner">
+                    <label class="block text-xs font-black text-slate-700 mb-1" data-i18n="configSubLabel">Sottotitolo / Indirizzo (es. Elementari, Medie, Superiori, Università)</label>
+                    <input type="text" id="configInputSubtitle" placeholder="Es. Scuola Secondaria di II Grado" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-inner">
                 </div>
                 <div>
-                    <label class="block text-xs font-black text-slate-700 mb-1">Sigla Logo (2 o 3 caratteri, es. 3E)</label>
+                    <label class="block text-xs font-black text-slate-700 mb-1" data-i18n="configLogoLabel">Sigla Logo (2 o 3 caratteri, es. 4B)</label>
                     <input type="text" id="configInputLogo" placeholder="Es. 3E" maxlength="4" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-inner">
                 </div>
                 <div class="pt-2 border-t border-slate-100">
-                    <label class="block text-xs font-black text-slate-700 mb-1">Nuova Password Admin (lascia vuota per mantenere)</label>
+                    <label class="block text-xs font-black text-slate-700 mb-1" data-i18n="configPassLabel">Nuova Password Admin (lascia vuota per mantenere)</label>
                     <input type="password" id="configInputPassword" placeholder="Nuova password" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-inner">
                 </div>
                 <div>
-                    <label class="block text-xs font-black text-slate-700 mb-1">Codice di Recupero Password</label>
+                    <label class="block text-xs font-black text-slate-700 mb-1" data-i18n="configRecoveryLabel">Codice di Recupero Password</label>
                     <input type="text" id="configInputRecovery" placeholder="Es. Parola segreta" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-inner">
                 </div>
 
                 <div class="pt-3 border-t border-slate-100 space-y-2">
-                    <label class="block text-xs font-black text-slate-900 uppercase tracking-wider">Visibilità Sezioni (Attiva/Disattiva con un click)</label>
+                    <label class="block text-xs font-black text-slate-900 uppercase tracking-wider" data-i18n="configVisibilityLabel">Visibilità Sezioni (Attiva/Disattiva con un click)</label>
                     <div id="sectionTogglesContainer" class="grid grid-cols-2 gap-2 pt-1"></div>
                 </div>
 
-                <button onclick="saveAppConfig()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-2xl text-sm font-bold shadow-lg shadow-indigo-200 transition">Salva Impostazioni</button>
+                <button onclick="saveAppConfig()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-2xl text-sm font-bold shadow-lg shadow-indigo-200 transition" data-i18n="saveSettingsBtn">Salva Impostazioni</button>
             </div>
         </div>
     </div>
@@ -849,14 +860,14 @@
             </div>
             <div id="infoModalContent" class="text-xs sm:text-sm text-slate-600 space-y-3 font-medium leading-relaxed">
                 <div class="bg-indigo-50 p-3.5 rounded-2xl border border-indigo-100 text-indigo-950 space-y-2">
-                    <p class="font-black text-xs uppercase tracking-wider text-indigo-700">💡 Come caricare file, PDF o dispense:</p>
-                    <p>1. Carica il documento o la dispensa sul tuo <strong>Google Drive</strong> personale.</p>
-                    <p>2. Imposta la condivisione su <em>"Chiunque abbia il link può visualizzare"</em> e copia il link.</p>
-                    <p>3. Incolla il link nel campo <strong>"Link Google Drive / Web (PDF o Foto)"</strong> quando pubblichi o modifichi un elemento.</p>
+                    <p class="font-black text-xs uppercase tracking-wider text-indigo-700" data-i18n="guideDriveTitle">💡 Come caricare file, PDF o dispense:</p>
+                    <p data-i18n="guideDrive1">1. Carica il documento o la dispensa sul tuo Google Drive personale.</p>
+                    <p data-i18n="guideDrive2">2. Imposta la condivisione su "Chiunque abbia il link può visualizzare" e copia il link.</p>
+                    <p data-i18n="guideDrive3">3. Incolla il link nel campo "Link Google Drive / Web (PDF o Foto)" quando pubblichi o modifichi un elemento.</p>
                 </div>
                 <div id="sectionSpecificGuideText"></div>
             </div>
-            <button onclick="closeInfoModal()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-2xl text-xs font-bold transition">Ho capito</button>
+            <button onclick="closeInfoModal()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-2xl text-xs font-bold transition" data-i18n="understoodBtn">Ho capito</button>
         </div>
     </div>
 
@@ -864,33 +875,33 @@
     <div id="dataModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md hidden z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto border border-slate-100">
             <div class="flex justify-between items-center">
-                <h3 id="modalTitle" class="text-lg font-black text-slate-900">Nuovo Elemento</h3>
+                <h3 id="modalTitle" class="text-lg font-black text-slate-900" data-i18n="newItemTitle">Nuovo Elemento</h3>
                 <button onclick="closeAddModal()" class="text-slate-400 hover:text-slate-600 p-1.5 rounded-xl hover:bg-slate-100 transition"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
             <form id="dataForm" onsubmit="saveData(event)" class="space-y-4">
                 <input type="hidden" id="currentSection">
                 <input type="hidden" id="editItemId">
                 <div id="titleWrapper">
-                    <label class="block text-xs font-black text-slate-700 mb-1.5" id="labelTitle">Titolo / Argomento</label>
-                    <input type="text" id="inputTitle" placeholder="Es. Esame / Compito" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-inner font-medium">
+                    <label class="block text-xs font-black text-slate-700 mb-1.5" id="labelTitle" data-i18n="labelTitleText">Titolo / Argomento</label>
+                    <input type="text" id="inputTitle" placeholder="Es. Verifica / Compito / Esame" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-inner font-medium">
                 </div>
                 <div id="materiaWrapper">
-                    <label class="block text-xs font-black text-slate-700 mb-1.5">Materia / Corso</label>
+                    <label class="block text-xs font-black text-slate-700 mb-1.5" data-i18n="labelMateriaText">Materia / Corso</label>
                     <select id="inputMateria" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-inner font-medium"></select>
                 </div>
                 <div id="dateWrapper">
-                    <label class="block text-xs font-black text-slate-700 mb-1.5" id="labelDate">Data e Ora Scadenza (Opzionale)</label>
+                    <label class="block text-xs font-black text-slate-700 mb-1.5" id="labelDate" data-i18n="labelDateText">Data e Ora Scadenza (Opzionale)</label>
                     <input type="datetime-local" id="inputDate" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-inner font-medium">
                 </div>
                 <div>
-                    <label class="block text-xs font-black text-slate-700 mb-1.5" id="labelDetails">Descrizione / Note (Opzionale)</label>
+                    <label class="block text-xs font-black text-slate-700 mb-1.5" id="labelDetails" data-i18n="labelDetailsText">Descrizione / Note (Opzionale)</label>
                     <textarea id="inputDetails" rows="4" placeholder="Note o istruzioni..." class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-inner font-medium"></textarea>
                 </div>
                 <div id="fileUrlWrapper">
-                    <label class="block text-xs font-black text-slate-700 mb-1.5" id="labelFileUrl">Link Google Drive / Web (PDF o Foto)</label>
+                    <label class="block text-xs font-black text-slate-700 mb-1.5" id="labelFileUrl" data-i18n="labelFileUrlText">Link Google Drive / Web (PDF o Foto)</label>
                     <input type="text" id="inputFileUrl" placeholder="https://drive.google.com/..." class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-inner font-medium">
                 </div>
-                <button type="submit" id="saveBtn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3.5 rounded-2xl text-sm font-bold shadow-lg shadow-indigo-200 transition">Pubblica</button>
+                <button type="submit" id="saveBtn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3.5 rounded-2xl text-sm font-bold shadow-lg shadow-indigo-200 transition" data-i18n="publishBtn">Pubblica</button>
             </form>
         </div>
     </div>
@@ -905,7 +916,7 @@
             <div id="votersListContent" class="space-y-2 overflow-y-auto flex-1 pr-1"></div>
             <div class="space-y-2 pt-2 border-t border-slate-100">
                 <div id="modalWhatsAppContainer"></div>
-                <button onclick="closeVotersModal()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 py-2.5 rounded-2xl text-xs font-bold transition">Chiudi</button>
+                <button onclick="closeVotersModal()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 py-2.5 rounded-2xl text-xs font-bold transition" data-i18n="closeBtn">Chiudi</button>
             </div>
         </div>
     </div>
@@ -944,16 +955,357 @@
         }
     </script>
 
-    <!-- Script Logica -->
+    <!-- Script Logica & Traduzioni IT/EN -->
     <script>
+        const translations = {
+            it: {
+                hwSummaryTitle: "Riepilogo Attività, Compiti & Esami Attivi",
+                autoDeleteBadge: "Auto-eliminazione dopo 12h dalla scadenza",
+                diaryHeader: "Diario Compiti, Verifiche & Esami",
+                diarySub: "Gestione flessibile per scuole elementari, medie, superiori e università",
+                newItemBtn: "Nuovo Elemento",
+                scheduleHeader: "Orario Settimanale / Lezioni",
+                scheduleSub: "Quadro orario modificabile per ogni indirizzo scolastico o universitario",
+                addDayBtn: "Aggiungi Giorno",
+                canteenHeader: "Menu Mensa / Ristorazione",
+                canteenSub: "Portali di ristorazione e menu ufficiali",
+                publishMenuBtn: "Pubblica Menu / PDF",
+                booksHeader: "Documenti, PDF & Libri di Testo",
+                booksSub: "Archivio condiviso di dispense, appunti, PDF e libri",
+                addPdfBtn: "Aggiungi PDF / Libro",
+                countdownHeader: "Conto alla Rovescia",
+                countdownSub: "Scadenze verifiche, interrogazioni, esami ed eventi",
+                addCountdownBtn: "Nuovo Countdown",
+                pollsHeader: "Sondaggi e Votazioni in Tempo Reale",
+                pollsSub: "Votazioni con monitoraggio adesioni e condivisione esito",
+                createPollBtn: "Crea Sondaggio",
+                wheelHeader: "Ruota delle Assegnazioni / Sorteggi",
+                wheelSub: "Assegna casualmente ruoli, interrogazioni o compiti con animazione coriandoli",
+                wheelStep1: "1. Inserisci elenchi",
+                wheelNamesLabel: "Nomi Partecipanti / Studenti (uno per riga)",
+                wheelTasksLabel: "Mansioni / Argomenti / Domande (uno per riga)",
+                spinBtn: "Gira la Ruota e Assegna!",
+                boardBadge: "Tabellone Abbinamenti",
+                readyText: "Pronto",
+                resultHeader: "Risultato Assegnazioni",
+                wheelPlaceholder: "Inserisci i dati a sinistra e clicca su \"Gira la Ruota\" per generare gli abbinamenti casuali con i coriandoli!",
+                snakeHallOfFame: "Hall of Fame & Classifica",
+                snakeSub: "Mini-gioco integrato con classifica cloud in tempo reale",
+                yourNameLabel: "Il tuo nome:",
+                saveBtn: "Salva",
+                playerText: "Giocatore",
+                changeBtn: "Cambia",
+                scoreText: "Punteggio",
+                snakeInsertName: "Inserisci il nome per iniziare",
+                startMatchBtn: "Avvia Partita",
+                leaderboardHeader: "Classifica",
+                leaderboardSub: "I migliori punteggi registrati:",
+                loadingLeaderboard: "Caricamento classifica...",
+                firebaseLiveText: "Aggiornato in tempo reale su Firebase",
+                fundHeader: "Fondo Cassa / Bilancio Trasparente",
+                fundSub: "Gestione entrate, spese e donazioni PayPal di supporto",
+                totalCollectedBtn: "Totale Raccolto",
+                expenseBtn: "Movimento Spesa",
+                initialFundTitle: "Totale Raccolto Iniziale",
+                totalExpensesTitle: "Totale Spese Sostenute",
+                currentBalanceTitle: "Saldo Attuale in Cassa",
+                paypalTitle: "Supporto Sviluppo App di Classe",
+                paypalSub: "Contribuisci liberamente al mantenimento e allo sviluppo della piattaforma.",
+                paypalBtn: "Dona con PayPal",
+                noticesHeader: "Avvisi Importanti & Canali Ufficiali (WhatsApp / Telegram)",
+                noticesSub: "Comunicazioni ufficiali e link ai gruppi di classe o istituto",
+                publishNoticeBtn: "Pubblica Avviso",
+                whatsappGroupTitle: "Gruppo WhatsApp",
+                whatsappGroupSub: "Chat ufficiale genitori / studenti / classe",
+                telegramChannelTitle: "Canale Telegram",
+                telegramChannelSub: "Broadcast avvisi in tempo reale",
+                meetingHeader: "Ricevimento / Colloqui Docenti",
+                meetingSub: "Orari e modalità dei colloqui individuali o generali con i professori",
+                addMeetingBtn: "Aggiungi Ricevimento",
+                circularsHeader: "Circolari & Modulistica",
+                circularsSub: "Moduli autorizzazioni, circolari scolastiche e documenti ufficiali",
+                addCircularBtn: "Aggiungi Circolare",
+                meritsHeader: "Bacheca Meriti & Riconoscimenti",
+                meritsSub: "Attestati, progetti speciali e premi",
+                addMeritBtn: "Aggiungi Merito",
+                lostHeader: "Oggetti Smarriti / \"Chi l'ha visto?\"",
+                lostSub: "Segnalazioni oggetti dimenticati a scuola o in aula",
+                addLostBtn: "Segnala Oggetto",
+                galleryHeader: "Galleria Foto & Video",
+                gallerySub: "Ricordi multimediali e foto di classe o gruppo",
+                addGalleryBtn: "Carica Foto/Video",
+                linksHeader: "Link Utili & Portali Esterni",
+                linksSub: "Registri elettronici (Spaggiari, Argo), portali universitari e collegamenti",
+                addLinkBtn: "Aggiungi Link",
+                birthdaysHeader: "Compleanni / Ricorrenze",
+                birthdaysSub: "Date importanti e compleanni con auguri rapidi WhatsApp",
+                addBirthdayBtn: "Aggiungi Compleanno",
+                remindersHeader: "Promemoria e Scadenze",
+                remindersSub: "Impegni e cose da ricordare",
+                addReminderBtn: "Aggiungi Promemoria",
+                manualBadge: "Manuale d'Uso della Bacheca",
+                guideTitle: "Guida Completa, Multilivello (Elementari, Medie, Superiori & Università), Android & iOS",
+                guideSub: "Procedura dettagliata per l'installazione su Android, Apple iOS, gestione multi-classe e contatti di supporto.",
+                multiClassGuideTitle: "Gestione Multi-Classe / Multi-Corso",
+                multiClassGuideText: "SchoolHub Universal è progettato per adattarsi perfettamente a qualsiasi ordine e grado scolastico (Scuole Elementari, Medie, Istituti Superiori / Licei / Tecnici) e ai corsi universitari:",
+                mcPoint1Bold: "Come configurare la tua classe o scuola:",
+                mcPoint1Text: "Entra nell'Area Admin con la password predefinita (3e), vai su Impostazioni Classe e personalizza il nome (es. \"Liceo Scientifico 4B\", \"ITIS 3A\", ecc.).",
+                mcPoint2Bold: "Come passare da un gruppo all'altro:",
+                mcPoint2Text: "Usa il selettore a tendina in alto a destra per saltare istantaneamente da una bacheca all'altra senza reinstallare nulla.",
+                androidGuideTitle: "Installazione su Android",
+                androidStep1: "Clicca sul pulsante \"Scarica Android\" in basso per scaricare l'app APK.",
+                androidStep2: "Apri il file scaricato sul telefono e consenti l'installazione dell'app.",
+                androidStep3: "Al primo avvio, l'app si connetterà automaticamente alla classe corretta.",
+                appleGuideTitle: "Installazione su Apple iOS (iPhone / iPad)",
+                appleStep1: "I dispositivi Apple non supportano file APK. Apri il link ricevuto su WhatsApp in Safari (o usa il tasto \"Apri Bacheca Apple\").",
+                appleStep2: "Tocca il tasto Condividi (il quadratino con la freccia) e seleziona \"Aggiungi alla schermata Home\".",
+                appleStep3: "Il codice della classe viene memorizzato automaticamente. Per visualizzare correttamente i PDF, installa l'app gratuita Google Drive.",
+                supportTitle: "Assistenza & Contatto Sviluppatore",
+                supportSub: "Hai bisogno di supporto tecnico o personalizzazioni? Scrivici direttamente.",
+                contactBtn: "Contatta laski",
+                dlAndroidBtn: "Scarica Android",
+                openAppleBtn: "Apri Bacheca Apple",
+                guideAppleBtn: "Guida Apple",
+                visitsText: "Visite",
+                syncModalTitle: "Sincronizzazione Automatica & Multi-Classe",
+                syncBoxTitle: "💡 Come funziona il link di invito:",
+                syncBoxText: "Il pulsante \"Invito WhatsApp\" genera un messaggio con il link della bacheca che include già il codice della classe. Quando un genitore, studente o compagno di corso clicca sul link, l'app si sincronizza automaticamente senza digitare nulla.",
+                multiClassBoxTitle: "👥 Gestione Multi-Classe / Scuole Superiori:",
+                multiClassBoxText: "Se segui più classi o istituti (es. figli in scuole diverse o corsi multipli), l'app salva tutti i gruppi nella tua rubrica e ti permette di passare da uno all'altra usando il selettore in alto a destra.",
+                understoodBtn: "Ho capito",
+                manageSubjectsTitle: "Gestisci Materie / Corsi",
+                manageSubjectsSub: "Aggiungi una nuova materia o corso oppure elimina quelli esistenti:",
+                addBtn: "Aggiungi",
+                closeBtn: "Chiudi",
+                adminModalTitle: "Area Amministratore",
+                adminLoginSub: "Inserisci la password amministratore per sbloccare i comandi.",
+                loginBtn: "Accedi",
+                forgotPassBtn: "Password dimenticata?",
+                recoverySub: "Inserisci il codice di recupero impostato per questa classe:",
+                verifyCodeBtn: "Verifica Codice",
+                backToLoginBtn: "Torna al login",
+                adminActiveText: "Autenticato come Amministratore.",
+                defaultPassWarn: "Stai usando la password predefinita (3e)!",
+                defaultPassTip: "Ti consigliamo di cambiarla subito per motivi di sicurezza.",
+                changePassNowBtn: "Cambia Password Ora",
+                whatsappInviteBtn: "Invito WhatsApp Genitori / Studenti",
+                settingsBtn: "Impostazioni Classe, Sezioni & Password",
+                shareNewClassBtn: "Condividi App per Nuova Classe",
+                logoutAdminBtn: "Esci dall'Area Admin",
+                configModalTitle: "Impostazioni Classe & Sezioni",
+                configNameLabel: "Titolo Principale (es. Classe 3E / Liceo 4B)",
+                configSubLabel: "Sottotitolo / Indirizzo (es. Elementari, Medie, Superiori, Università)",
+                configLogoLabel: "Sigla Logo (2 o 3 caratteri, es. 4B)",
+                configPassLabel: "Nuova Password Admin (lascia vuota per mantenere)",
+                configRecoveryLabel: "Codice di Recupero Password",
+                configVisibilityLabel: "Visibilità Sezioni (Attiva/Disattiva con un click)",
+                saveSettingsBtn: "Salva Impostazioni",
+                guideDriveTitle: "💡 Come caricare file, PDF o dispense:",
+                guideDrive1: "1. Carica il documento o la dispensa sul tuo Google Drive personale.",
+                guideDrive2: "2. Imposta la condivisione su \"Chiunque abbia il link può visualizzare\" e copia il link.",
+                guideDrive3: "3. Incolla il link nel campo \"Link Google Drive / Web (PDF o Foto)\" quando pubblichi o modifichi un elemento.",
+                newItemTitle: "Nuovo Elemento",
+                labelTitleText: "Titolo / Argomento",
+                labelMateriaText: "Materia / Corso",
+                labelDateText: "Data e Ora Scadenza (Opzionale)",
+                labelDetailsText: "Descrizione / Note (Opzionale)",
+                labelFileUrlText: "Link Google Drive / Web (PDF o Foto)",
+                publishBtn: "Pubblica"
+            },
+            en: {
+                hwSummaryTitle: "Active Activities, Homework & Exams Summary",
+                autoDeleteBadge: "Auto-deletes 12h after deadline",
+                diaryHeader: "Homework, Tests & Exams Diary",
+                diarySub: "Flexible management for elementary, middle, high schools and universities",
+                newItemBtn: "New Item",
+                scheduleHeader: "Weekly Schedule / Lessons",
+                scheduleSub: "Editable schedule for any school track or university course",
+                addDayBtn: "Add Day",
+                canteenHeader: "Canteen Menu / Catering",
+                canteenSub: "Catering portals and official menus",
+                publishMenuBtn: "Publish Menu / PDF",
+                booksHeader: "Documents, PDFs & Textbooks",
+                booksSub: "Shared archive of handouts, notes, PDFs and books",
+                addPdfBtn: "Add PDF / Book",
+                countdownHeader: "Countdown",
+                countdownSub: "Deadlines for tests, oral exams, tests and events",
+                addCountdownBtn: "New Countdown",
+                pollsHeader: "Real-Time Polls & Voting",
+                pollsSub: "Voting with participation tracking and outcome sharing",
+                createPollBtn: "Create Poll",
+                wheelHeader: "Assignment / Draw Wheel",
+                wheelSub: "Randomly assign roles, oral exams or tasks with confetti animation",
+                wheelStep1: "1. Enter Lists",
+                wheelNamesLabel: "Participant / Student Names (one per line)",
+                wheelTasksLabel: "Tasks / Topics / Questions (one per line)",
+                spinBtn: "Spin the Wheel & Assign!",
+                boardBadge: "Pairings Board",
+                readyText: "Ready",
+                resultHeader: "Assignment Results",
+                wheelPlaceholder: "Enter data on the left and click \"Spin the Wheel\" to generate random pairings with confetti!",
+                snakeHallOfFame: "Hall of Fame & Leaderboard",
+                snakeSub: "Integrated mini-game with real-time cloud leaderboard",
+                yourNameLabel: "Your name:",
+                saveBtn: "Save",
+                playerText: "Player",
+                changeBtn: "Change",
+                scoreText: "Score",
+                snakeInsertName: "Enter name to start",
+                startMatchBtn: "Start Game",
+                leaderboardHeader: "Leaderboard",
+                leaderboardSub: "Top recorded scores:",
+                loadingLeaderboard: "Loading leaderboard...",
+                firebaseLiveText: "Updated in real-time on Firebase",
+                fundHeader: "Class Fund / Transparent Budget",
+                fundSub: "Management of income, expenses and supporting PayPal donations",
+                totalCollectedBtn: "Total Collected",
+                expenseBtn: "Expense Record",
+                initialFundTitle: "Initial Total Collected",
+                totalExpensesTitle: "Total Expenses Incurred",
+                currentBalanceTitle: "Current Balance in Fund",
+                paypalTitle: "Class App Development Support",
+                paypalSub: "Freely contribute to the maintenance and development of the platform.",
+                paypalBtn: "Donate with PayPal",
+                noticesHeader: "Important Notices & Official Channels (WhatsApp / Telegram)",
+                noticesSub: "Official communications and links to class or institute groups",
+                publishNoticeBtn: "Publish Notice",
+                whatsappGroupTitle: "WhatsApp Group",
+                whatsappGroupSub: "Official parents / students / class chat",
+                telegramChannelTitle: "Telegram Channel",
+                telegramChannelSub: "Real-time broadcast notices",
+                meetingHeader: "Teacher Office Hours / Meetings",
+                meetingSub: "Schedules and modes for individual or general meetings with professors",
+                addMeetingBtn: "Add Meeting",
+                circularsHeader: "Circulars & Forms",
+                circularsSub: "Authorization forms, school circulars and official documents",
+                addCircularBtn: "Add Circular",
+                meritsHeader: "Merits & Awards Board",
+                meritsSub: "Certificates, special projects and awards",
+                addMeritBtn: "Add Merit",
+                lostHeader: "Lost & Found / \"Who saw it?\"",
+                lostSub: "Reports of items forgotten at school or in the classroom",
+                addLostBtn: "Report Item",
+                galleryHeader: "Photo & Video Gallery",
+                gallerySub: "Multimedia memories and class or group photos",
+                addGalleryBtn: "Upload Photo/Video",
+                linksHeader: "Useful Links & External Portals",
+                linksSub: "Electronic registers, university portals and links",
+                addLinkBtn: "Add Link",
+                birthdaysHeader: "Birthdays / Occasions",
+                birthdaysSub: "Important dates and birthdays with quick WhatsApp wishes",
+                addBirthdayBtn: "Add Birthday",
+                remindersHeader: "Reminders & Deadlines",
+                remindersSub: "Tasks and things to remember",
+                addReminderBtn: "Add Reminder",
+                manualBadge: "Board User Manual",
+                guideTitle: "Complete Guide, Multi-level (Elementary, Middle, High School & University), Android & iOS",
+                guideSub: "Detailed procedure for installation on Android, Apple iOS, multi-class management and support contacts.",
+                multiClassGuideTitle: "Multi-Class / Multi-Course Management",
+                multiClassGuideText: "SchoolHub Universal is designed to perfectly adapt to any school level (Elementary, Middle, High Schools / Institutes / Technical) and university courses:",
+                mcPoint1Bold: "How to configure your class or school:",
+                mcPoint1Text: "Log into the Admin Area with default password (3e), go to Class Settings and customize the name (e.g., \"Scientific High School 4B\", \"ITIS 3A\", etc.).",
+                mcPoint2Bold: "How to switch between groups:",
+                mcPoint2Text: "Use the dropdown selector in the top right corner to instantly jump from one board to another without reinstalling anything.",
+                androidGuideTitle: "Android Installation",
+                androidStep1: "Click the \"Download Android\" button below to download the APK app.",
+                androidStep2: "Open the downloaded file on your phone and allow app installation.",
+                androidStep3: "On first launch, the app will automatically connect to the correct class.",
+                appleGuideTitle: "Apple iOS Installation (iPhone / iPad)",
+                appleStep1: "Apple devices do not support APK files. Open the link received on WhatsApp in Safari (or use the \"Open Apple Board\" button).",
+                appleStep2: "Tap the Share button (square with arrow) and select \"Add to Home Screen\".",
+                appleStep3: "The class code is saved automatically. To view PDFs correctly, install the free Google Drive app.",
+                supportTitle: "Support & Developer Contact",
+                supportSub: "Need technical support or customizations? Write to us directly.",
+                contactBtn: "Contact laski",
+                dlAndroidBtn: "Download Android",
+                openAppleBtn: "Open Apple Board",
+                guideAppleBtn: "Apple Guide",
+                visitsText: "Visits",
+                syncModalTitle: "Automatic Synchronization & Multi-Class",
+                syncBoxTitle: "💡 How the invite link works:",
+                syncBoxText: "The \"WhatsApp Invite\" button generates a message with the board link that already includes the class code. When a parent, student or classmate clicks the link, the app syncs automatically without typing anything.",
+                multiClassBoxTitle: "👥 Multi-Class / High School Management:",
+                multiClassBoxText: "If you follow multiple classes or institutes (e.g., children in different schools or multiple courses), the app saves all groups in your address book and lets you switch between them using the top-right selector.",
+                understoodBtn: "Understood",
+                manageSubjectsTitle: "Manage Subjects / Courses",
+                manageSubjectsSub: "Add a new subject or course or delete existing ones:",
+                addBtn: "Add",
+                closeBtn: "Close",
+                adminModalTitle: "Administrator Area",
+                adminLoginSub: "Enter administrator password to unlock commands.",
+                loginBtn: "Login",
+                forgotPassBtn: "Forgot password?",
+                recoverySub: "Enter the recovery code set for this class:",
+                verifyCodeBtn: "Verify Code",
+                backToLoginBtn: "Back to login",
+                adminActiveText: "Authenticated as Administrator.",
+                defaultPassWarn: "You are using the default password (3e)!",
+                defaultPassTip: "We recommend changing it immediately for security reasons.",
+                changePassNowBtn: "Change Password Now",
+                whatsappInviteBtn: "WhatsApp Invite (Parents / Students)",
+                settingsBtn: "Class Settings, Sections & Password",
+                shareNewClassBtn: "Share App for New Class",
+                logoutAdminBtn: "Exit Admin Area",
+                configModalTitle: "Class Settings & Sections",
+                configNameLabel: "Main Title (e.g., Class 3E / High School 4B)",
+                configSubLabel: "Subtitle / Track (e.g., Elementary, Middle, High School, University)",
+                configLogoLabel: "Logo Initials (2 or 3 chars, e.g., 4B)",
+                configPassLabel: "New Admin Password (leave blank to keep)",
+                configRecoveryLabel: "Password Recovery Code",
+                configVisibilityLabel: "Section Visibility (Enable/Disable with one click)",
+                saveSettingsBtn: "Save Settings",
+                guideDriveTitle: "💡 How to upload files, PDFs or handouts:",
+                guideDrive1: "1. Upload the document or handout to your personal Google Drive.",
+                guideDrive2: "2. Set sharing to \"Anyone with the link can view\" and copy the link.",
+                guideDrive3: "3. Paste the link into the \"Google Drive / Web Link (PDF or Photo)\" field when publishing or editing an item.",
+                newItemTitle: "New Item",
+                labelTitleText: "Title / Topic",
+                labelMateriaText: "Subject / Course",
+                labelDateText: "Deadline Date & Time (Optional)",
+                labelDetailsText: "Description / Notes (Optional)",
+                labelFileUrlText: "Google Drive / Web Link (PDF or Photo)",
+                publishBtn: "Publish"
+            }
+        };
+
+        const sectionNamesIT = {
+            compiti: "Diario / Esami", orario: "Orario", mensa: "Menu Mensa", libri: "PDF & Libri", countdown: "Countdown", sondaggi: "Sondaggi", ruota: "Ruota Sorteggi", snake: "Snake Game", fondo: "Fondo Cassa", avvisi: "Avvisi & Canali", ricevimento: "Ricevimento", circolari: "Circolari", meriti: "Meriti", smarriti: "Oggetti Smarriti", galleria: "Foto & Video", linkutili: "Link Utili", compleanni: "Compleanni", promemoria: "Promemoria", guida: "Guida & Info"
+        };
+        const sectionNamesEN = {
+            compiti: "Diary / Exams", orario: "Schedule", mensa: "Canteen Menu", libri: "PDFs & Books", countdown: "Countdown", sondaggi: "Polls", ruota: "Draw Wheel", snake: "Snake Game", fondo: "Class Fund", avvisi: "Notices & Channels", ricevimento: "Office Hours", circolari: "Circulars", merits: "Merits", smarriti: "Lost & Found", galleria: "Photo Gallery", linkutili: "Useful Links", compleanni: "Birthdays", promemoria: "Reminders", guida: "Guide & Info"
+        };
+
+        let currentLang = localStorage.getItem('app_lang') || 'it';
+
         function updateClock() {
             const now = new Date();
+            const locale = currentLang === 'en' ? 'en-US' : 'it-IT';
             const options = { weekday: 'short', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit', second: '2-digit' };
             const clockEl = document.getElementById('liveClockDisplay');
-            if (clockEl) clockEl.innerText = now.toLocaleDateString('it-IT', options);
+            if (clockEl) clockEl.innerText = now.toLocaleDateString(locale, options);
         }
         setInterval(updateClock, 1000);
         updateClock();
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('app_lang', lang);
+            const sel = document.getElementById('langSelector');
+            if (sel) sel.value = lang;
+            applyTranslations();
+            renderNavTabs();
+            renderAll();
+        }
+
+        function applyTranslations() {
+            const dict = translations[currentLang] || translations.it;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) {
+                    el.innerText = dict[key];
+                }
+            });
+        }
 
         function getSavedClassesRegistry() {
             try {
@@ -996,7 +1348,7 @@
 
         function shareAppForNewClass() {
             const cleanBaseUrl = window.location.href.split('?')[0].split('#')[0];
-            const waText = encodeURIComponent(`👋 Ciao! Se vuoi usare anche tu la Bacheca Scolastica e Universitaria (SchoolHub Universal) per gestire la tua classe o corso in autonomia, clicca su questo link pulito:\n\n👉 ${cleanBaseUrl}\n\n🤖 *Come funziona per te:*\n1. Appena apri il link, l'app genera un archivio e un database completamente nuovo e indipendente.\n2. Entra nell'*Area Admin* con la password predefinita (*3e*).\n3. Vai su *Impostazioni Classe* per personalizzare il nome e la password.\n4. Invita gli altri studenti con il tasto di invito WhatsApp dedicato!`);
+            const waText = encodeURIComponent(`👋 Ciao! Se vuoi usare anche tu la Bacheca (SchoolHub Universal) per gestire la tua classe, istituto superiore o corso universitario in autonomia, clicca su questo link:\n\n👉 ${cleanBaseUrl}\n\n🤖 *Come funziona:* \n1. Appena apri il link, l'app genera un archivio completamente nuovo e indipendente.\n2. Entra nell'*Area Admin* con la password predefinita (*3e*).\n3. Vai su *Impostazioni Classe* per personalizzare il nome e la password.`);
             window.open(`https://api.whatsapp.com/send?text=${waText}`, '_blank');
         }
 
@@ -1069,7 +1421,7 @@
             const apkUrl = `${baseUrl}app-release.apk`;
             const cfg = dbData.appConfig || { name: "Bacheca Scolastica" };
             
-            const waText = encodeURIComponent(`👋 Buongiorno gruppo!\n\nEcco il link ufficiale aggiornato per la nostra bacheca (${cfg.name}) per seguire compiti, esami, orari, menu mensa e fondo cassa:\n\n🔗 *Link Bacheca (Sincronizzazione Automatica):*\n${inviteUrl}\n*(Basta cliccare sul link per collegarsi subito)*\n\n📱 *Come installare l'app sul telefono:*\n\n🤖 *Per Android:* \n1. Clicca per scaricare l'app:\n${apkUrl}\n2. Installa e apri l'app.\n\n🍏 *Per Apple (iPhone / iPad):*\n1. Apri il link in *Safari*:\n${inviteUrl}\n2. Tocca il tasto *Condividi* e seleziona *"Aggiungi alla schermata Home"*.\n3. *(Nota: per aprire correttamente i PDF, installa l'app gratuita Google Drive)*.`);
+            const waText = encodeURIComponent(`👋 Buongiorno gruppo!\n\nEcco il link ufficiale aggiornato per la nostra bacheca (${cfg.name}) per seguire compiti, verifiche, esami, orari e comunicazioni:\n\n🔗 *Link Bacheca (Sincronizzazione Automatica):*\n${inviteUrl}\n*(Basta cliccare sul link per collegarsi subito)*\n\n📱 *Come installare l'app sul telefono:*\n\n🤖 *Per Android:* \n1. Clicca per scaricare l'app:\n${apkUrl}\n2. Installa e apri l'app.\n\n🍏 *Per Apple (iPhone / iPad):*\n1. Apri il link in *Safari*:\n${inviteUrl}\n2. Tocca il tasto *Condividi* e seleziona *"Aggiungi alla schermata Home"*.`);
             window.open(`https://api.whatsapp.com/send?text=${waText}`, '_blank');
         }
 
@@ -1080,37 +1432,33 @@
         let dbData = { 
             appConfig: { 
                 name: "Classe 3E", 
-                subtitle: "Scuola Primaria / Università", 
+                subtitle: "Elementari, Medie, Superiori & Università", 
                 logo: "3E", 
                 adminPassword: "3e", 
                 recoveryCode: "segreto",
-                materie: ["Italiano", "Matematica", "Inglese", "Storia", "Geografia", "Scienze", "Tecnologia", "Arte e Immagine", "Musica", "Religione / Alternativa", "Educazione Fisica", "Altro"],
+                materie: ["Italiano", "Matematica", "Inglese", "Storia", "Geografia", "Scienze", "Fisica", "Chimica", "Informatica", "Tecnologia", "Arte e Immagine", "Musica", "Religione / Alternativa", "Educazione Fisica", "Altro"],
                 sections: { compiti: true, orario: true, mensa: true, libri: true, countdown: true, sondaggi: true, ruota: true, snake: true, fondo: true, avvisi: true, ricevimento: true, circolari: true, meriti: true, smarriti: true, galleria: true, linkutili: true, compleanni: true, promemoria: true, guida: true }
             },
             compiti: {}, orario: {}, mensa: {
                 m_default: { id: 'm_default', title: 'Portale Mensa Ufficiale / Ristorazione', details: 'Consultazione menu giornalieri e prenotazioni.', fileUrl: 'https://www4.eticasoluzioni.com/laquilaportalegen/Home/Index' }
             }, libri: {
-                l_default: { id: 'l_default', title: 'Archivio Dispense & PDF Ufficiali', details: 'Materiale didattico digitale e documenti condivisi.', fileUrl: 'https://drive.google.com' }
+                l_default: { id: 'l_default', title: 'Archivio Dispense, Appunti & PDF Ufficiali', details: 'Materiale didattico digitale e documenti condivisi.', fileUrl: 'https://drive.google.com' }
             }, countdown: {}, sondaggi: {}, fondo: {}, fondoIniziale: 0, avvisi: {}, ricevimento: {}, circolari: {}, meriti: {}, smarriti: {}, galleria: {}, linkutili: {}, compleanni: {}, promemoria: {}, snakeScores: {}, stats: { visits: 0 } 
         };
         let activeVoterSession = {}; 
-
-        const sectionNames = {
-            compiti: "Diario / Esami", orario: "Orario", mensa: "Menu Mensa", libri: "PDF & Libri", countdown: "Countdown", sondaggi: "Sondaggi", ruota: "Ruota Sorteggi", snake: "Snake Game", fondo: "Fondo Cassa", avvisi: "Avvisi & Canali", ricevimento: "Ricevimento", circolari: "Circolari", meriti: "Meriti", smarriti: "Oggetti Smarriti", galleria: "Foto & Video", linkutili: "Link Utili", compleanni: "Compleanni", promemoria: "Promemoria", guida: "Guida & Info"
-        };
 
         const sectionIcons = {
             compiti: "fa-book-open", orario: "fa-calendar-days", mensa: "fa-utensils", libri: "fa-file-pdf", countdown: "fa-hourglass-half", sondaggi: "fa-square-poll-vertical", ruota: "fa-dharmachakra", snake: "fa-gamepad", fondo: "fa-wallet", avvisi: "fa-bullhorn", ricevimento: "fa-chalkboard-user", circolari: "fa-file-lines", meriti: "fa-award", smarriti: "fa-box-archive", galleria: "fa-images", linkutili: "fa-link", compleanni: "fa-cake-candles", promemoria: "fa-clock", guida: "fa-circle-question"
         };
 
         const sectionGuides = {
-            compiti: "Gestisce i compiti giornalieri, i progetti o le date degli esami universitari suddivisi per materia con supporto multi-allegato.",
+            compiti: "Gestisce i compiti giornalieri, le verifiche, le interrogazioni o le date degli esami suddivisi per materia.",
             orario: "Mostra il quadro delle lezioni o delle attività settimanali organizzate giorno per giorno ed è interamente modificabile dall'Admin.",
             mensa: "Consente di pubblicare, modificare e consultare i PDF ufficiali, i menu e i portali di ristorazione.",
-            libri: "Archivio condiviso per dispense universitarie, PDF, libri di testo e materiale didattico con link diretti.",
-            countdown: "Imposta scadenze e conti alla rovescia per esami, verifiche o eventi importanti.",
+            libri: "Archivio condiviso per dispense, appunti, PDF, libri di testo e materiale didattico con link diretti.",
+            countdown: "Imposta scadenze e conti alla rovescia per verifiche, interrogazioni, esami o eventi importanti.",
             sondaggi: "Crea votazioni in tempo reale con inserimento nominativo, monitoraggio percentuali e condivisione esito su WhatsApp.",
-            ruota: "Strumento interattivo per sorteggi casuali di partecipanti e mansioni con animazione e coriandoli.",
+            ruota: "Strumento interattivo per sorteggi casuali di partecipanti, interrogazioni o mansioni con animazione e coriandoli.",
             snake: "Mini-gioco integrato con classifica ufficiale e sincronizzazione in tempo reale su Firebase.",
             fondo: "Gestisce il bilancio di classe o del corso in modo trasparente, registrando il totale raccolto e le spese sostenute.",
             avvisi: "Pubblica comunicazioni ufficiali, avvisi e link rapidi ai gruppi WhatsApp e ai canali Telegram.",
@@ -1119,14 +1467,15 @@
             meriti: "Bacheca dedicata ai riconoscimenti, agli attestati e ai progetti speciali completati.",
             smarriti: "Spazio per segnalare e ritrovare felpe, libri, appunti o oggetti dimenticati.",
             galleria: "Archivia i ricordi fotografici e video delle attività e delle feste di gruppo.",
-            linkutili: "Fornisce accesso rapido a portali esterni, registri o piattaforme didattiche.",
+            linkutili: "Fornisce accesso rapido a portali esterni, registri elettronici (Spaggiari, Argo) o piattaforme didattiche.",
             compleanni: "Memorizza le date di compleanno per festeggiarli insieme con auguri WhatsApp.",
             promemoria: "Segna impegni e scadenze da ricordare per il gruppo.",
             guida: "Spiega come installare l'app su Android e iOS, come gestire i file su Google Drive e il supporto multilivello."
         };
 
         function openInfoModal(sectionKey) {
-            document.getElementById('infoModalTitle').innerText = "Guida: " + (sectionNames[sectionKey] || sectionKey);
+            const secNames = currentLang === 'en' ? sectionNamesEN : sectionNamesIT;
+            document.getElementById('infoModalTitle').innerText = "Guida: " + (secNames[sectionKey] || sectionKey);
             document.getElementById('sectionSpecificGuideText').innerHTML = `<p class="font-semibold text-slate-700">ℹ️ ${sectionGuides[sectionKey] || 'Gestisci i contenuti di questa sezione.'}</p>`;
             document.getElementById('infoModal').classList.remove('hidden');
         }
@@ -1182,16 +1531,16 @@
                         const oldKeys = Object.keys(dbData.compiti);
                         const newKeys = Object.keys(val.compiti);
                         if (newKeys.length > oldKeys.length) {
-                            sendBrowserNotification("Nuovo Compito / Esame Pubblicato!", "Controlla subito la bacheca.");
+                            sendBrowserNotification("Nuovo Compito / Verifica Pubblicato!", "Controlla subito la bacheca.");
                         }
                     }
 
                     dbData = { ...dbData, ...val };
-                    if (!dbData.appConfig) dbData.appConfig = { name: "Classe 3E", subtitle: "Scuola / Università", logo: "3E", adminPassword: "3e", recoveryCode: "segreto", materie: [], sections: {} };
+                    if (!dbData.appConfig) dbData.appConfig = { name: "Classe 3E", subtitle: "Elementari, Medie, Superiori & Università", logo: "3E", adminPassword: "3e", recoveryCode: "segreto", materie: [], sections: {} };
                     if (!dbData.appConfig.adminPassword) dbData.appConfig.adminPassword = "3e";
                     if (!dbData.appConfig.recoveryCode) dbData.appConfig.recoveryCode = "segreto";
                     if (!dbData.appConfig.materie || dbData.appConfig.materie.length === 0) {
-                        dbData.appConfig.materie = ["Italiano", "Matematica", "Inglese", "Storia", "Geografia", "Scienze", "Tecnologia", "Arte e Immagine", "Musica", "Religione / Alternativa", "Educazione Fisica", "Altro"];
+                        dbData.appConfig.materie = ["Italiano", "Matematica", "Inglese", "Storia", "Geografia", "Scienze", "Fisica", "Chimica", "Informatica", "Tecnologia", "Arte e Immagine", "Musica", "Religione / Alternativa", "Educazione Fisica", "Altro"];
                     }
                     if (!dbData.appConfig.sections) dbData.appConfig.sections = { compiti: true, orario: true, mensa: true, libri: true, countdown: true, sondaggi: true, ruota: true, snake: true, fondo: true, avvisi: true, ricevimento: true, circolari: true, meriti: true, smarriti: true, galleria: true, linkutili: true, compleanni: true, promemoria: true, guida: true };
                     updateAppBranding();
@@ -1215,7 +1564,7 @@
             const filterSelect = document.getElementById('materiaFilterSelect');
             if (filterSelect) {
                 const currentFilter = filterSelect.value || 'Tutte';
-                let html = `<option value="Tutte">Tutte le materie / corsi</option>`;
+                let html = `<option value="Tutte">${currentLang === 'en' ? 'All subjects / courses' : 'Tutte le materie / corsi'}</option>`;
                 materie.forEach(m => { html += `<option value="${escapeHtml(m)}" ${currentFilter === m ? 'selected' : ''}>${escapeHtml(m)}</option>`; });
                 filterSelect.innerHTML = html;
             }
@@ -1281,19 +1630,20 @@
             const navContainer = document.getElementById('navTabsContainer');
             if (!navContainer) return;
             const sections = dbData.appConfig.sections || {};
+            const secNames = currentLang === 'en' ? sectionNamesEN : sectionNamesIT;
             let html = '';
-            for (const key in sectionNames) {
+            for (const key in secNames) {
                 if (sections[key] !== false) {
                     let activeClass = key === 'compiti' ? 'text-indigo-600 bg-indigo-50/80 shadow-sm' : 'text-slate-600 hover:bg-slate-100/80';
                     let icon = sectionIcons[key] || 'fa-circle';
-                    html += `<button onclick="switchTab('${key}')" class="tab-btn py-2 px-3.5 text-xs sm:text-sm font-bold rounded-2xl ${activeClass} whitespace-nowrap transition flex items-center space-x-2" data-tab="${key}"><i class="fa-solid ${icon}"></i><span>${sectionNames[key]}</span></button>`;
+                    html += `<button onclick="switchTab('${key}')" class="tab-btn py-2 px-3.5 text-xs sm:text-sm font-bold rounded-2xl ${activeClass} whitespace-nowrap transition flex items-center space-x-2" data-tab="${key}"><i class="fa-solid ${icon}"></i><span>${secNames[key]}</span></button>`;
                 }
             }
             navContainer.innerHTML = html;
         }
 
         function updateAppBranding() {
-            const cfg = dbData.appConfig || { name: "Classe 3E", subtitle: "Scuola / Università", logo: "3E" };
+            const cfg = dbData.appConfig || { name: "Classe 3E", subtitle: "Elementari, Medie, Superiori & Università", logo: "3E" };
             const nameEl = document.getElementById('displayAppName');
             const subEl = document.getElementById('displayAppSubtitle');
             const logoEl = document.getElementById('headerAppLogo');
@@ -1310,7 +1660,7 @@
         }
 
         function openConfigModal() {
-            const cfg = dbData.appConfig || { name: "Classe 3E", subtitle: "Scuola / Università", logo: "3E", adminPassword: "3e", recoveryCode: "segreto" };
+            const cfg = dbData.appConfig || { name: "Classe 3E", subtitle: "Elementari, Medie, Superiori & Università", logo: "3E", adminPassword: "3e", recoveryCode: "segreto" };
             document.getElementById('configInputName').value = cfg.name || '';
             document.getElementById('configInputSubtitle').value = cfg.subtitle || '';
             document.getElementById('configInputLogo').value = cfg.logo || '';
@@ -1318,14 +1668,15 @@
             document.getElementById('configInputRecovery').value = cfg.recoveryCode || '';
 
             const sections = cfg.sections || {};
+            const secNames = currentLang === 'en' ? sectionNamesEN : sectionNamesIT;
             const togglesContainer = document.getElementById('sectionTogglesContainer');
             let togglesHtml = '';
-            for (const key in sectionNames) {
+            for (const key in secNames) {
                 let isChecked = sections[key] !== false ? 'checked' : '';
                 togglesHtml += `
                     <label class="flex items-center space-x-2 bg-slate-50 p-2.5 rounded-xl border border-slate-200 cursor-pointer text-xs font-bold text-slate-700">
                         <input type="checkbox" id="toggle_${key}" ${isChecked} class="w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500">
-                        <span>${sectionNames[key]}</span>
+                        <span>${secNames[key]}</span>
                     </label>
                 `;
             }
@@ -1348,7 +1699,8 @@
             if (newRecovery) dbData.appConfig.recoveryCode = newRecovery;
 
             if (!dbData.appConfig.sections) dbData.appConfig.sections = {};
-            for (const key in sectionNames) {
+            const secNames = currentLang === 'en' ? sectionNamesEN : sectionNamesIT;
+            for (const key in secNames) {
                 const checkbox = document.getElementById(`toggle_${key}`);
                 if (checkbox) dbData.appConfig.sections[key] = checkbox.checked;
             }
@@ -1358,7 +1710,7 @@
                 openConfigModal();
                 renderNavTabs();
                 updateAppBranding();
-                showAdminNotification("Impostazioni e sezioni aggiornate con successo!", "success");
+                showAdminNotification(currentLang === 'en' ? "Settings and sections updated!" : "Impostazioni e sezioni aggiornate con successo!", "success");
             });
         }
 
@@ -1370,6 +1722,9 @@
         }
 
         window.addEventListener('DOMContentLoaded', () => {
+            const langSel = document.getElementById('langSelector');
+            if (langSel) langSel.value = currentLang;
+            applyTranslations();
             initSnakeCanvas();
             checkPlayerSessionUI();
             renderFondoSummary();
@@ -1392,7 +1747,7 @@
                     startBtn.disabled = false;
                     startBtn.className = "w-full bg-emerald-500 hover:bg-emerald-600 text-white py-3 rounded-2xl text-xs font-black uppercase tracking-wider transition shadow-lg shadow-emerald-900/40 flex items-center justify-center space-x-2 cursor-pointer";
                 }
-                document.getElementById('snakeStatusText').innerText = "Pronto a giocare, " + currentPlayer + "!";
+                document.getElementById('snakeStatusText').innerText = currentLang === 'en' ? "Ready to play, " + currentPlayer + "!" : "Pronto a giocare, " + currentPlayer + "!";
             } else {
                 if (playerBox) playerBox.classList.remove('hidden');
                 if (activeDisplay) activeDisplay.classList.add('hidden');
@@ -1405,7 +1760,7 @@
 
         function confirmSnakePlayer() {
             const inputVal = document.getElementById('snakePlayerName').value.trim();
-            if (!inputVal) { alert('Inserisci il nome prima di iniziare!'); return; }
+            if (!inputVal) { alert(currentLang === 'en' ? 'Enter your name first!' : 'Inserisci il nome prima di iniziare!'); return; }
             currentPlayer = inputVal;
             localStorage.setItem('snakePlayerName_app', currentPlayer);
             checkPlayerSessionUI();
@@ -1431,7 +1786,7 @@
             snakeCtx.fillStyle = '#10b981';
             snakeCtx.font = 'bold 13px sans-serif';
             snakeCtx.textAlign = 'center';
-            snakeCtx.fillText("Inserisci il nome e clicca Avvia", snakeCanvas.width / 2, snakeCanvas.height / 2);
+            snakeCtx.fillText(currentLang === 'en' ? "Enter name & click Start" : "Inserisci il nome e clicca Avvia", snakeCanvas.width / 2, snakeCanvas.height / 2);
         }
 
         function startSnakeGame() {
@@ -1440,7 +1795,7 @@
             snake = [{ x: 150, y: 150 }, { x: 140, y: 150 }, { x: 130, y: 150 }];
             score = 0; dx = 10; dy = 0;
             document.getElementById('snakeScore').innerText = score;
-            document.getElementById('snakeStatusText').innerText = "In gioco! Buon divertimento!";
+            document.getElementById('snakeStatusText').innerText = currentLang === 'en' ? "Playing! Have fun!" : "In gioco! Buon divertimento!";
             document.getElementById('snakeShareContainer').innerHTML = '';
             gameRunning = true;
             createFood();
@@ -1451,17 +1806,17 @@
             if (hasGameEnded()) {
                 gameRunning = false;
                 clearInterval(snakeInterval);
-                document.getElementById('snakeStatusText').innerText = "Game Over! Punteggio: " + score;
+                document.getElementById('snakeStatusText').innerText = (currentLang === 'en' ? "Game Over! Score: " : "Game Over! Punteggio: ") + score;
                 saveSnakeScoreToFirebase(currentPlayer, score);
 
                 const currentToken = localStorage.getItem('active_class_token') || classToken;
                 const baseUrl = window.location.href.split('?')[0].split('#')[0];
                 const appUrl = `${baseUrl}?classe=${currentToken}`;
-                const waText = encodeURIComponent(`🎮 *Record Snake*\n${currentPlayer} ha totalizzato ${score} punti!\n\n🔗 *Vieni a battere il record sulla bacheca:* ${appUrl}`);
+                const waText = encodeURIComponent(`🎮 *Record Snake*\n${currentPlayer} has scored ${score} points!\n\n🔗 *Come beat the record on the board:* ${appUrl}`);
                 
                 document.getElementById('snakeShareContainer').innerHTML = `
                     <a href="https://api.whatsapp.com/send?text=${waText}" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 px-4 rounded-xl text-xs font-bold transition flex items-center justify-center space-x-2 shadow-md">
-                        <i class="fa-brands fa-whatsapp text-sm"></i><span>Condividi Punteggio su WhatsApp</span>
+                        <i class="fa-brands fa-whatsapp text-sm"></i><span>${currentLang === 'en' ? 'Share Score on WhatsApp' : 'Condividi Punteggio su WhatsApp'}</span>
                     </a>
                 `;
                 return;
@@ -1501,7 +1856,7 @@
             const scoresArr = Object.values(scoresObj).sort((a, b) => b.score - a.score);
 
             if (scoresArr.length === 0) {
-                leaderboardEl.innerHTML = `<p class="text-xs text-slate-400 italic text-center py-6">Nessun record in classifica. Sii il primo a giocare!</p>`;
+                leaderboardEl.innerHTML = `<p class="text-xs text-slate-400 italic text-center py-6">${currentLang === 'en' ? 'No records yet. Be the first to play!' : 'Nessun record in classifica. Sii il primo a giocare!'}</p>`;
                 return;
             }
 
@@ -1620,7 +1975,7 @@
             if (isAdmin) {
                 adminOnlyElements.forEach(el => el.classList.remove('hidden'));
                 if (adminIcon) adminIcon.className = "fa-solid fa-lock-open text-xs text-emerald-300";
-                if (adminText) adminText.innerText = "Admin attivo";
+                if (adminText) adminText.innerText = currentLang === 'en' ? "Admin active" : "Admin attivo";
                 if (adminLoginForm) adminLoginForm.classList.add('hidden');
                 if (adminRecoveryForm) adminRecoveryForm.classList.add('hidden');
                 if (adminLogoutDiv) adminLogoutDiv.classList.remove('hidden');
@@ -1636,7 +1991,7 @@
             } else {
                 adminOnlyElements.forEach(el => el.classList.add('hidden'));
                 if (adminIcon) adminIcon.className = "fa-solid fa-lock text-xs text-amber-300";
-                if (adminText) adminText.innerText = "Area Admin";
+                if (adminText) adminText.innerText = currentLang === 'en' ? "Admin Area" : "Area Admin";
                 if (adminLoginForm) adminLoginForm.classList.remove('hidden');
                 if (adminRecoveryForm) adminRecoveryForm.classList.add('hidden');
                 if (adminLogoutDiv) adminLogoutDiv.classList.add('hidden');
@@ -1663,7 +2018,7 @@
                 updateAdminUI();
                 toggleAdminModal();
                 document.getElementById('adminPasswordInput').value = '';
-            } else { alert('Password errata!'); }
+            } else { alert(currentLang === 'en' ? 'Incorrect password!' : 'Password errata!'); }
         }
 
         function verifyRecoveryCode() {
@@ -1675,8 +2030,8 @@
                 toggleAdminModal();
                 document.getElementById('adminRecoveryInput').value = '';
                 hideRecoveryView();
-                alert('Codice di recupero corretto! Sei entrato come Admin.');
-            } else { alert('Codice di recupero errato!'); }
+                alert(currentLang === 'en' ? 'Recovery code correct! Logged in as Admin.' : 'Codice di recupero corretto! Sei entrato come Admin.');
+            } else { alert(currentLang === 'en' ? 'Incorrect recovery code!' : 'Codice di recupero errato!'); }
         }
 
         function logoutAdmin() { isAdmin = false; updateAdminUI(); toggleAdminModal(); }
@@ -1702,10 +2057,10 @@
             const names = namesRaw.split('\n').map(n => n.trim()).filter(n => n.length > 0);
             const tasks = tasksRaw.split('\n').map(t => t.trim()).filter(t => t.length > 0);
 
-            if (names.length === 0 || tasks.length === 0) { alert('Inserisci almeno un nome e un compito!'); return; }
+            if (names.length === 0 || tasks.length === 0) { alert(currentLang === 'en' ? 'Enter at least one name and task!' : 'Inserisci almeno un nome e un compito!'); return; }
 
             const shuffledNames = [...names].sort(() => Math.random() - 0.5);
-            let outputHtml = '', waTextList = `🎉 *Assegnazioni / Sorteggio*\n\n`;
+            let outputHtml = '', waTextList = (currentLang === 'en' ? `🎉 *Assignments / Draw*\n\n` : `🎉 *Assegnazioni / Sorteggio*\n\n`);
 
             tasks.forEach((task, index) => {
                 const assignedName = shuffledNames[index % shuffledNames.length];
@@ -1719,18 +2074,18 @@
             });
 
             document.getElementById('wheelResultOutput').innerHTML = outputHtml;
-            document.getElementById('wheelStatusCount').innerText = "Abbinamenti completati!";
+            document.getElementById('wheelStatusCount').innerText = currentLang === 'en' ? "Pairings completed!" : "Abbinamenti completati!";
             confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
 
             const currentToken = localStorage.getItem('active_class_token') || classToken;
             const baseUrl = window.location.href.split('?')[0].split('#')[0];
             const appUrl = `${baseUrl}?classe=${currentToken}`;
-            waTextList += `\n🔗 *Bacheca:* ${appUrl}`;
+            waTextList += `\n🔗 *Board:* ${appUrl}`;
             const encodedWA = encodeURIComponent(waTextList.trim());
 
             document.getElementById('wheelWhatsAppContainer').innerHTML = `
                 <a href="https://api.whatsapp.com/send?text=${encodedWA}" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 px-4 rounded-2xl text-xs font-bold transition flex items-center justify-center space-x-2 shadow-md">
-                    <i class="fa-brands fa-whatsapp text-base"></i><span>Condividi su WhatsApp</span>
+                    <i class="fa-brands fa-whatsapp text-base"></i><span>${currentLang === 'en' ? 'Share on WhatsApp' : 'Condividi su WhatsApp'}</span>
                 </a>
             `;
         }
@@ -1743,14 +2098,14 @@
 
         function promptSetFondoIniziale() {
             const currentVal = dbData.fondoIniziale || 0;
-            const res = prompt("Inserisci il totale dei fondi raccolti inizialmente (€):", currentVal);
+            const res = prompt(currentLang === 'en' ? "Enter initial total funds collected (€):" : "Inserisci il totale dei fondi raccolti inizialmente (€):", currentVal);
             if (res !== null) {
                 const parsed = parseFloat(res);
                 if (!isNaN(parsed)) {
                     dbData.fondoIniziale = parsed;
                     const { db, ref, set } = window.fbDB;
                     set(ref(db, firebaseNodePath), dbData).then(() => { renderFondoSummary(); });
-                } else { alert("Inserisci un numero valido!"); }
+                } else { alert(currentLang === 'en' ? "Enter a valid number!" : "Inserisci un numero valido!"); }
             }
         }
 
@@ -1789,36 +2144,37 @@
             const inputDetails = document.getElementById('inputDetails');
 
             if (section === 'orario') {
-                modalTitle.innerText = itemId ? "Modifica Giorno Orario" : "Aggiungi Giorno Orario";
-                labelTitle.innerText = "Inserire il Giorno (es. Lunedì)";
-                inputTitle.placeholder = "Es. Lunedì";
-                labelDetails.innerText = "Inserire lezioni giornaliere";
-                inputDetails.placeholder = "8:00 - Lezione A\n10:00 - Lezione B...";
+                modalTitle.innerText = itemId ? (currentLang === 'en' ? "Edit Schedule Day" : "Modifica Giorno Orario") : (currentLang === 'en' ? "Add Schedule Day" : "Aggiungi Giorno Orario");
+                labelTitle.innerText = currentLang === 'en' ? "Day (e.g. Monday)" : "Inserire il Giorno (es. Lunedì)";
+                inputTitle.placeholder = currentLang === 'en' ? "E.g. Monday" : "Es. Lunedì";
+                labelDetails.innerText = currentLang === 'en' ? "Daily lessons" : "Inserire lezioni giornaliere";
+                inputDetails.placeholder = "8:00 - Lesson A\n10:00 - Lesson B...";
                 materiaWrapper.classList.add('hidden');
                 dateWrapper.classList.add('hidden');
             } else if (section === 'compiti') {
-                modalTitle.innerText = itemId ? "Modifica Elemento" : "Nuovo Compito / Esame";
-                labelTitle.innerText = "Titolo / Argomento";
-                inputTitle.placeholder = "Es. Preparazione Esame / Compiti";
-                labelDetails.innerText = "Descrizione / Note (Opzionale)";
-                inputDetails.placeholder = "Note o istruzioni...";
+                modalTitle.innerText = itemId ? (currentLang === 'en' ? "Edit Item" : "Modifica Elemento") : (currentLang === 'en' ? "New Homework / Test / Exam" : "Nuovo Compito / Verifica / Esame");
+                labelTitle.innerText = currentLang === 'en' ? "Title / Topic" : "Titolo / Argomento";
+                inputTitle.placeholder = currentLang === 'en' ? "E.g. Math Test / Homework" : "Es. Verifica di Matematica / Compiti";
+                labelDetails.innerText = currentLang === 'en' ? "Description / Notes (Optional)" : "Descrizione / Note (Opzionale)";
+                inputDetails.placeholder = currentLang === 'en' ? "Notes or instructions..." : "Note o istruzioni...";
                 materiaWrapper.classList.remove('hidden');
                 dateWrapper.classList.remove('hidden');
                 populateMaterieSelects();
             } else if (section === 'sondaggi') {
-                modalTitle.innerText = itemId ? "Modifica Sondaggio" : "Crea Nuovo Sondaggio";
-                labelTitle.innerText = "Titolo del Sondaggio / Domanda";
-                inputTitle.placeholder = "Es. Data appello d'esame";
-                labelDetails.innerText = "Opzioni di voto (una per riga)";
-                inputDetails.placeholder = "Opzione A\nOpzione B\nOpzione C";
+                modalTitle.innerText = itemId ? (currentLang === 'en' ? "Edit Poll" : "Modifica Sondaggio") : (currentLang === 'en' ? "Create New Poll" : "Crea Nuovo Sondaggio");
+                labelTitle.innerText = currentLang === 'en' ? "Poll Title / Question" : "Titolo del Sondaggio / Domanda";
+                inputTitle.placeholder = currentLang === 'en' ? "E.g. School trip choice" : "Es. Scelta gita scolastica";
+                labelDetails.innerText = currentLang === 'en' ? "Voting options (one per line)" : "Opzioni di voto (una per riga)";
+                inputDetails.placeholder = "Option A\nOption B\nOption C";
                 materiaWrapper.classList.add('hidden');
                 dateWrapper.classList.add('hidden');
             } else {
-                modalTitle.innerText = (itemId ? "Modifica " : "Aggiungi a ") + (sectionNames[section] || section);
-                labelTitle.innerText = "Titolo / Argomento";
-                inputTitle.placeholder = "Es. Titolo elemento";
-                labelDetails.innerText = "Descrizione / Note (Opzionale)";
-                inputDetails.placeholder = "Note o istruzioni...";
+                const secNames = currentLang === 'en' ? sectionNamesEN : sectionNamesIT;
+                modalTitle.innerText = (itemId ? (currentLang === 'en' ? "Edit " : "Modifica ") : (currentLang === 'en' ? "Add to " : "Aggiungi a ")) + (secNames[section] || section);
+                labelTitle.innerText = currentLang === 'en' ? "Title / Topic" : "Titolo / Argomento";
+                inputTitle.placeholder = currentLang === 'en' ? "E.g. Item title" : "Es. Titolo elemento";
+                labelDetails.innerText = currentLang === 'en' ? "Description / Notes (Optional)" : "Descrizione / Note (Opzionale)";
+                inputDetails.placeholder = currentLang === 'en' ? "Notes or instructions..." : "Note o istruzioni...";
                 materiaWrapper.classList.add('hidden');
                 dateWrapper.classList.toggle('hidden', section === 'libri' || section === 'compleanni');
             }
@@ -1830,8 +2186,8 @@
                 document.getElementById('inputDate').value = item.date || '';
                 inputDetails.value = section === 'sondaggi' && item.options ? item.options.join('\n') : (item.details || '');
                 document.getElementById('inputFileUrl').value = item.fileUrl || '';
-                saveBtn.innerText = "Salva Modifiche";
-            } else { saveBtn.innerText = "Pubblica"; }
+                saveBtn.innerText = currentLang === 'en' ? "Save Changes" : "Salva Modifiche";
+            } else { saveBtn.innerText = currentLang === 'en' ? "Publish" : "Pubblica"; }
             document.getElementById('dataModal').classList.remove('hidden');
         }
 
@@ -1848,7 +2204,7 @@
             const fileUrl = document.getElementById('inputFileUrl').value;
 
             const saveBtn = document.getElementById('saveBtn');
-            saveBtn.innerText = "Salvataggio...";
+            saveBtn.innerText = currentLang === 'en' ? "Saving..." : "Salvataggio...";
             saveBtn.disabled = true;
 
             const { db, ref, set } = window.fbDB;
@@ -1871,17 +2227,18 @@
 
             set(ref(db, firebaseNodePath), dbData).then(() => {
                 closeAddModal();
-                saveBtn.innerText = "Pubblica";
+                saveBtn.innerText = currentLang === 'en' ? "Publish" : "Pubblica";
                 saveBtn.disabled = false;
                 renderFondoSummary();
-                showAdminNotification(`Elemento aggiornato in ${sectionNames[section] || section}!`, 'success');
+                const secNames = currentLang === 'en' ? sectionNamesEN : sectionNamesIT;
+                showAdminNotification((currentLang === 'en' ? "Item updated in " : "Elemento aggiornato in ") + (secNames[section] || section) + "!", 'success');
             });
         }
 
         function validateVoter(pollId) {
             const inputEl = document.getElementById(`voterInput_${pollId}`);
             const nameValue = inputEl ? inputEl.value.trim() : '';
-            if (!nameValue) { alert('Inserisci prima il nome!'); if(inputEl) inputEl.focus(); return; }
+            if (!nameValue) { alert(currentLang === 'en' ? 'Enter your name first!' : 'Inserisci prima il nome!'); if(inputEl) inputEl.focus(); return; }
             activeVoterSession[pollId] = nameValue;
             renderAll();
         }
@@ -1890,7 +2247,7 @@
 
         function votePoll(pollId, optionIndex) {
             const voterName = activeVoterSession[pollId];
-            if (!voterName) { alert('Prima di votare devi inserire il nome!'); return; }
+            if (!voterName) { alert(currentLang === 'en' ? 'You must enter your name before voting!' : 'Prima di votare devi inserire il nome!'); return; }
             const { db, ref, set } = window.fbDB;
             if (!dbData.sondaggi || !dbData.sondaggi[pollId]) return;
 
@@ -1919,15 +2276,15 @@
             const currentToken = localStorage.getItem('active_class_token') || classToken;
             const baseUrl = window.location.href.split('?')[0].split('#')[0];
             const appUrl = `${baseUrl}?classe=${currentToken}`;
-            let summaryTextForWA = `📊 *Sondaggio: ${poll.title}*\n\n`;
+            let summaryTextForWA = `📊 *Poll: ${poll.title}*\n\n`;
 
             if (optionIndex !== null) {
                 const optName = poll.options[optionIndex];
-                titleEl.innerText = "Votanti per: " + optName;
+                titleEl.innerText = (currentLang === 'en' ? "Voters for: " : "Votanti per: ") + optName;
                 const namesList = poll.votes && poll.votes[optionIndex] ? poll.votes[optionIndex] : [];
-                summaryTextForWA += `*Opzione:* ${optName}\n*Votanti (${namesList.length}):*\n`;
+                summaryTextForWA += `*Option:* ${optName}\n*Voters (${namesList.length}):*\n`;
                 if (namesList.length === 0) {
-                    contentEl.innerHTML = `<p class="text-slate-400 text-xs text-center py-4 font-medium">Nessuna adesione.</p>`;
+                    contentEl.innerHTML = `<p class="text-slate-400 text-xs text-center py-4 font-medium">${currentLang === 'en' ? 'No votes.' : 'Nessuna adesione.'}</p>`;
                 } else {
                     contentEl.innerHTML = namesList.map(name => {
                         summaryTextForWA += `- ${name}\n`;
@@ -1935,21 +2292,21 @@
                     }).join('');
                 }
             } else {
-                titleEl.innerText = "Riepilogo Sondaggio";
+                titleEl.innerText = currentLang === 'en' ? "Poll Summary" : "Riepilogo Sondaggio";
                 let summaryHtml = '';
                 const votesMap = poll.votes || {};
                 poll.options.forEach((optName, idx) => {
                     const namesList = votesMap[idx] || [];
                     const count = namesList.length;
-                    summaryTextForWA += `*${optName}* (${count} voti):\n`;
+                    summaryTextForWA += `*${optName}* (${count} votes):\n`;
                     summaryHtml += `
                         <div class="mb-3 bg-slate-50 p-3.5 rounded-2xl border border-slate-200/60 shadow-sm">
                             <div class="font-black text-xs text-indigo-950 mb-2 flex justify-between items-center">
                                 <span class="text-sm">${escapeHtml(optName)}</span>
-                                <span class="bg-indigo-100 text-indigo-700 px-2.5 py-1 rounded-xl text-[11px] font-black">${count} voti</span>
+                                <span class="bg-indigo-100 text-indigo-700 px-2.5 py-1 rounded-xl text-[11px] font-black">${count} ${currentLang === 'en' ? 'votes' : 'voti'}</span>
                             </div>
                             <div class="flex flex-wrap gap-1.5 pt-1">
-                                ${count === 0 ? '<span class="text-xs text-slate-400 italic">Nessun voto</span>' : namesList.map(n => {
+                                ${count === 0 ? `<span class="text-xs text-slate-400 italic">${currentLang === 'en' ? 'No votes' : 'Nessun voto'}</span>` : namesList.map(n => {
                                     summaryTextForWA += `  - ${n}\n`;
                                     return `<span class="inline-flex items-center bg-white border border-slate-200 text-slate-700 px-2.5 py-1 rounded-xl text-xs font-bold"><i class="fa-solid fa-user mr-1.5 text-indigo-600"></i>${escapeHtml(n)}</span>`;
                                 }).join('')}
@@ -1957,14 +2314,14 @@
                         </div>
                     `;
                 });
-                contentEl.innerHTML = summaryHtml || `<p class="text-slate-400 text-xs text-center py-4 font-medium">Nessun voto registrato.</p>`;
+                contentEl.innerHTML = summaryHtml || `<p class="text-slate-400 text-xs text-center py-4 font-medium">${currentLang === 'en' ? 'No votes recorded.' : 'Nessun voto registrato.'}</p>`;
             }
 
-            summaryTextForWA += `\n🔗 *Bacheca:* ${appUrl}`;
+            summaryTextForWA += `\n🔗 *Board:* ${appUrl}`;
             const encodedWA = encodeURIComponent(summaryTextForWA.trim());
             whatsappContainer.innerHTML = `
                 <a href="https://api.whatsapp.com/send?text=${encodedWA}" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 px-4 rounded-2xl text-xs font-bold transition flex items-center justify-center space-x-2 shadow-md">
-                    <i class="fa-brands fa-whatsapp text-base"></i><span>Condividi su WhatsApp</span>
+                    <i class="fa-brands fa-whatsapp text-base"></i><span>${currentLang === 'en' ? 'Share on WhatsApp' : 'Condividi su WhatsApp'}</span>
                 </a>
             `;
             document.getElementById('votersModal').classList.remove('hidden');
@@ -1973,7 +2330,7 @@
         function closeVotersModal() { document.getElementById('votersModal').classList.add('hidden'); }
 
         function deleteItem(section, id) {
-            if (confirm("Vuoi davvero eliminare questo elemento?")) {
+            if (confirm(currentLang === 'en' ? "Do you really want to delete this item?" : "Vuoi davvero eliminare questo elemento?")) {
                 const { db, ref, set } = window.fbDB;
                 delete dbData[section][id];
                 set(ref(db, firebaseNodePath), dbData).then(() => { renderFondoSummary(); });
@@ -1983,13 +2340,15 @@
         function renderMultipleLinks(fileUrlStr) {
             if (!fileUrlStr) return '';
             const urls = fileUrlStr.split(/[\s,]+/).filter(u => u.trim().startsWith('http'));
-            if (urls.length === 0) return `<div class="pt-2"><a href="${escapeHtml(fileUrlStr)}" target="_blank" class="inline-flex items-center space-x-2 text-xs bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-4 py-2.5 rounded-2xl font-bold transition border border-indigo-100"><i class="fa-solid fa-paperclip"></i><span>Apri Allegato / Dispensa</span></a></div>`;
-            return `<div class="pt-2 flex flex-wrap gap-2">` + urls.map((url, index) => `<a href="${escapeHtml(url.trim())}" target="_blank" class="inline-flex items-center space-x-2 text-xs bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-3.5 py-2.5 rounded-2xl font-bold transition border border-indigo-100"><i class="fa-solid fa-file-pdf"></i><span>Dispensa / PDF ${index + 1}</span></a>`).join('') + `</div>`;
+            const btnText = currentLang === 'en' ? 'Open Attachment / Handout' : 'Apri Allegato / Dispensa';
+            const pdfText = currentLang === 'en' ? 'Handout / PDF' : 'Dispensa / PDF';
+            if (urls.length === 0) return `<div class="pt-2"><a href="${escapeHtml(fileUrlStr)}" target="_blank" class="inline-flex items-center space-x-2 text-xs bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-4 py-2.5 rounded-2xl font-bold transition border border-indigo-100"><i class="fa-solid fa-paperclip"></i><span>${btnText}</span></a></div>`;
+            return `<div class="pt-2 flex flex-wrap gap-2">` + urls.map((url, index) => `<a href="${escapeHtml(url.trim())}" target="_blank" class="inline-flex items-center space-x-2 text-xs bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-3.5 py-2.5 rounded-2xl font-bold transition border border-indigo-100"><i class="fa-solid fa-file-pdf"></i><span>${pdfText} ${index + 1}</span></a>`).join('') + `</div>`;
         }
 
         function getAdminButtons(section, id) {
             if (!isAdmin) return '';
-            return `<div class="flex items-center space-x-1"><button onclick="openAddModal('${section}', '${id}')" class="text-indigo-500 hover:text-indigo-700 p-2.5 rounded-xl hover:bg-indigo-50 transition" title="Modifica"><i class="fa-solid fa-pen text-sm"></i></button><button onclick="deleteItem('${section}', '${id}')" class="text-rose-500 hover:text-rose-700 p-2.5 rounded-xl hover:bg-rose-50 transition" title="Elimina"><i class="fa-solid fa-trash text-sm"></i></button></div>`;
+            return `<div class="flex items-center space-x-1"><button onclick="openAddModal('${section}', '${id}')" class="text-indigo-500 hover:text-indigo-700 p-2.5 rounded-xl hover:bg-indigo-50 transition" title="Edit"><i class="fa-solid fa-pen text-sm"></i></button><button onclick="deleteItem('${section}', '${id}')" class="text-rose-500 hover:text-rose-700 p-2.5 rounded-xl hover:bg-rose-50 transition" title="Delete"><i class="fa-solid fa-trash text-sm"></i></button></div>`;
         }
 
         function isNewItem(createdAt) {
@@ -2016,7 +2375,7 @@
             const t = getTimeRemaining(latestCD.date);
             const isUrgent = t.days <= 2 && t.total > 0;
             const homeCDHtml = document.getElementById('homeCountdownContent');
-            if (homeCDHtml) homeCDHtml.innerHTML = `<span class="text-2xl sm:text-3xl font-black ${isUrgent ? 'text-amber-300 animate-pulse' : 'text-emerald-400'} tracking-tight">${t.days}g ${t.hours}h ${t.minutes}m ${t.seconds}s</span>`;
+            if (homeCDHtml) homeCDHtml.innerHTML = `<span class="text-2xl sm:text-3xl font-black ${isUrgent ? 'text-amber-300 animate-pulse' : 'text-emerald-400'} tracking-tight">${t.days}d ${t.hours}h ${t.minutes}m ${t.seconds}s</span>`;
         }, 1000);
 
         function renderAll() {
@@ -2026,12 +2385,12 @@
 
             const selectedMateriaFilter = document.getElementById('materiaFilterSelect') ? document.getElementById('materiaFilterSelect').value : 'Tutte';
             let compitiArr = Object.values(dbData.compiti || {});
-            if (selectedMateriaFilter !== 'Tutte') {
+            if (selectedMateriaFilter !== 'Tutte' && selectedMateriaFilter !== 'All subjects / courses') {
                 compitiArr = compitiArr.filter(item => item.materia === selectedMateriaFilter);
             }
 
             const summaryTextEl = document.getElementById('homeworkSummaryText');
-            if (summaryTextEl) summaryTextEl.innerText = compitiArr.length === 0 ? "Nessuna attività o esame registrato per questa selezione." : `Ci sono ${compitiArr.length} elementi attivi nel diario.`;
+            if (summaryTextEl) summaryTextEl.innerText = compitiArr.length === 0 ? (currentLang === 'en' ? "No homework or tests recorded for this selection." : "Nessun compito o verifica registrato per questa selezione.") : (currentLang === 'en' ? `There are ${compitiArr.length} active items in the diary.` : `Ci sono ${compitiArr.length} elementi attivi nel diario.`);
 
             const homeCountdownContainer = document.getElementById('homeCountdownBox');
             const countdownData = dbData.countdown ? Object.values(dbData.countdown) : [];
@@ -2043,36 +2402,36 @@
                     const t = latestCD.date ? getTimeRemaining(latestCD.date) : { days: 0, hours: 0, minutes: 0, seconds: 0 };
                     const isUrgent = t.days <= 2 && t.total > 0;
                     const cardBg = isUrgent ? 'bg-gradient-to-br from-rose-950 via-purple-950 to-indigo-950 border-rose-500/50 animate-pulse' : 'bg-gradient-to-br from-indigo-950 via-indigo-900 to-blue-950 border-white/10';
-                    const waText = encodeURIComponent(`⏳ *Conto alla rovescia*\n*${latestCD.title}*\nMancano ${t.days} giorni, ${t.hours} ore e ${t.minutes} minuti!\n\n🔗 *Bacheca:* ${appUrl}`);
+                    const waText = encodeURIComponent(`⏳ *Countdown*\n*${latestCD.title}*\n${t.days} days, ${t.hours} hours and ${t.minutes} minutes remaining!\n\n🔗 *Board:* ${appUrl}`);
                     
                     homeCountdownContainer.innerHTML = `
                     <div class="${cardBg} text-white p-6 rounded-3xl shadow-xl flex justify-between items-center relative overflow-hidden mb-4 border transition-all">
                         <div class="absolute -right-4 -bottom-4 text-white/5 text-9xl font-black pointer-events-none"><i class="fa-solid fa-hourglass-half"></i></div>
                         <div class="space-y-2 z-10 flex-1 pr-3">
-                            <span class="bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider inline-flex items-center gap-1.5"><i class="fa-solid fa-hourglass-half ${isUrgent ? 'text-amber-400' : 'text-emerald-400'}"></i> ${isUrgent ? '⚠️ Scadenza imminente' : 'Conto alla Rovescia'}</span>
+                            <span class="bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider inline-flex items-center gap-1.5"><i class="fa-solid fa-hourglass-half ${isUrgent ? 'text-amber-400' : 'text-emerald-400'}"></i> ${isUrgent ? (currentLang === 'en' ? '⚠️ Imminent deadline' : '⚠️ Scadenza imminente') : (currentLang === 'en' ? 'Countdown' : 'Conto alla Rovescia')}</span>
                             <h3 class="font-black text-lg text-white mt-1">${escapeHtml(latestCD.title)}</h3>
-                            ${latestCD.date ? `<p class="text-xs text-indigo-200 font-medium flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i>${new Date(latestCD.date).toLocaleString('it-IT')}</p>` : ''}
+                            ${latestCD.date ? `<p class="text-xs text-indigo-200 font-medium flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i>${new Date(latestCD.date).toLocaleString(currentLang === 'en' ? 'en-US' : 'it-IT')}</p>` : ''}
                             <div class="pt-2 flex items-baseline space-x-2" id="homeCountdownContent">
-                                <span class="text-2xl sm:text-3xl font-black ${isUrgent ? 'text-amber-300' : 'text-emerald-400'} tracking-tight">${t.days}g ${t.hours}h ${t.minutes}m ${t.seconds}s</span>
+                                <span class="text-2xl sm:text-3xl font-black ${isUrgent ? 'text-amber-300' : 'text-emerald-400'} tracking-tight">${t.days}d ${t.hours}h ${t.minutes}m ${t.seconds}s</span>
                             </div>
                         </div>
                         <div class="flex flex-col items-end space-y-2.5 z-10">
-                            <a href="https://api.whatsapp.com/send?text=${waText}" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white p-3.5 rounded-2xl transition shadow-lg flex items-center justify-center" title="Condividi"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+                            <a href="https://api.whatsapp.com/send?text=${waText}" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white p-3.5 rounded-2xl transition shadow-lg flex items-center justify-center" title="Share"><i class="fa-brands fa-whatsapp text-lg"></i></a>
                             ${isAdmin ? `<div class="bg-white/10 backdrop-blur-md p-1.5 rounded-2xl border border-white/20">${getAdminButtons('countdown', latestCD.id)}</div>` : ''}
                         </div>
                     </div>`;
                 }
             }
 
-            // Compiti / Esami
+            // Compiti / Verifiche / Esami
             renderCustomSection('compiti', 'list-compiti', compitiArr, item => {
-                let waText = `📚 *Attività / Esame (${item.materia || 'Generale'})*\n*${item.title}*\n`;
-                if (item.date) waText += `⏰ Scadenza: ${new Date(item.date).toLocaleString('it-IT')}\n`;
+                let waText = `📚 *Homework / Test (${item.materia || 'General'})*\n*${item.title}*\n`;
+                if (item.date) waText += `⏰ Deadline: ${new Date(item.date).toLocaleString(currentLang === 'en' ? 'en-US' : 'it-IT')}\n`;
                 if (item.details) waText += `${item.details}\n`;
                 if (item.fileUrl) waText += `🔗 *Link:* ${item.fileUrl}\n`;
-                waText += `\n📲 *Bacheca:* ${appUrl}`;
+                waText += `\n📲 *Board:* ${appUrl}`;
                 const encodedWA = encodeURIComponent(waText.trim());
-                const badgeNew = isNewItem(item.createdAt) ? `<span class="bg-emerald-500 text-white text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider ml-2 animate-pulse">Nuovo</span>` : '';
+                const badgeNew = isNewItem(item.createdAt) ? `<span class="bg-emerald-500 text-white text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider ml-2 animate-pulse">${currentLang === 'en' ? 'New' : 'Nuovo'}</span>` : '';
                 const materiaBadge = item.materia ? `<span class="inline-flex items-center gap-1.5 bg-indigo-50 text-indigo-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider border border-indigo-100"><i class="fa-solid fa-bookmark text-indigo-500"></i>${escapeHtml(item.materia)}</span>` : '';
                 
                 return `
@@ -2080,7 +2439,7 @@
                     <div class="space-y-2.5 flex-1">
                         <div class="flex items-center flex-wrap gap-2">${materiaBadge}${badgeNew}</div>
                         <h3 class="font-black text-slate-900 text-base">${escapeHtml(item.title)}</h3>
-                        ${item.date ? `<p class="text-xs text-indigo-600 font-bold flex items-center gap-1.5"><i class="fa-regular fa-clock"></i>Scadenza: ${new Date(item.date).toLocaleString('it-IT')}</p>` : ''}
+                        ${item.date ? `<p class="text-xs text-indigo-600 font-bold flex items-center gap-1.5"><i class="fa-regular fa-clock"></i>${currentLang === 'en' ? 'Deadline: ' : 'Scadenza: '}${new Date(item.date).toLocaleString(currentLang === 'en' ? 'en-US' : 'it-IT')}</p>` : ''}
                         ${item.details ? `<p class="text-sm text-slate-600 font-medium leading-relaxed">${escapeHtml(item.details)}</p>` : ''}
                         ${renderMultipleLinks(item.fileUrl)}
                     </div>
@@ -2107,42 +2466,44 @@
 
             // Menu Mensa
             renderCustomSection('mensa', 'list-mensa', null, item => {
-                let waText = `🍽️ *Menu / Ristorazione (${item.title})*\n${item.details ? item.details + '\n' : ''}`;
+                let waText = `🍽️ *Canteen Menu (${item.title})*\n${item.details ? item.details + '\n' : ''}`;
                 if (item.fileUrl) waText += `🔗 *Link:* ${item.fileUrl}\n`;
-                waText += `\n📲 *Bacheca:* ${appUrl}`;
+                waText += `\n📲 *Board:* ${appUrl}`;
                 const encodedWA = encodeURIComponent(waText.trim());
+                const openText = currentLang === 'en' ? 'Open' : 'Apri';
                 return `
                 <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex justify-between items-start space-x-3 transition hover:shadow-md">
                     <div class="space-y-2.5 flex-1">
-                        <span class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider border border-emerald-100"><i class="fa-solid fa-utensils"></i> Menu Ufficiale / Portale</span>
+                        <span class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider border border-emerald-100"><i class="fa-solid fa-utensils"></i> ${currentLang === 'en' ? 'Official Menu / Portal' : 'Menu Ufficiale / Portale'}</span>
                         <h3 class="font-black text-slate-900 text-base">${escapeHtml(item.title)}</h3>
                         ${item.details ? `<p class="text-sm text-slate-600 font-medium leading-relaxed">${escapeHtml(item.details)}</p>` : ''}
                         ${renderMultipleLinks(item.fileUrl)}
                     </div>
                     <div class="flex items-center space-x-2 shrink-0">
-                        ${item.fileUrl ? `<a href="${escapeHtml(item.fileUrl)}" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold px-4 py-2.5 rounded-2xl transition shadow-md whitespace-nowrap flex items-center gap-1.5"><i class="fa-solid fa-arrow-right"></i>Apri</a>` : ''}
+                        ${item.fileUrl ? `<a href="${escapeHtml(item.fileUrl)}" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold px-4 py-2.5 rounded-2xl transition shadow-md whitespace-nowrap flex items-center gap-1.5"><i class="fa-solid fa-arrow-right"></i>${openText}</a>` : ''}
                         <a href="https://api.whatsapp.com/send?text=${encodedWA}" target="_blank" class="bg-emerald-50 hover:bg-emerald-100 text-emerald-600 p-3 rounded-2xl transition border border-emerald-100 flex items-center justify-center"><i class="fa-brands fa-whatsapp text-lg"></i></a>
                         ${getAdminButtons('mensa', item.id)}
                     </div>
                 </div>`;
             });
 
-            // Libri & PDF (Universitario / Scolastico)
+            // Libri & PDF
             renderCustomSection('libri', 'list-libri', null, item => {
-                let waText = `📚 *Dispense / PDF e Materiale*\n*${item.title}*\n${item.details ? item.details + '\n' : ''}`;
+                let waText = `📚 *Handouts / PDFs & Textbooks*\n*${item.title}*\n${item.details ? item.details + '\n' : ''}`;
                 if (item.fileUrl) waText += `🔗 *Link:* ${item.fileUrl}\n`;
-                waText += `\n📲 *Bacheca:* ${appUrl}`;
+                waText += `\n📲 *Board:* ${appUrl}`;
                 const encodedWA = encodeURIComponent(waText.trim());
+                const openText = currentLang === 'en' ? 'Open' : 'Apri';
                 return `
                 <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex justify-between items-start space-x-3 transition hover:shadow-md">
                     <div class="space-y-2.5 flex-1">
-                        <span class="inline-flex items-center gap-1.5 bg-sky-50 text-sky-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider border border-sky-100"><i class="fa-solid fa-file-pdf"></i> PDF & Dispense</span>
+                        <span class="inline-flex items-center gap-1.5 bg-sky-50 text-sky-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider border border-sky-100"><i class="fa-solid fa-file-pdf"></i> ${currentLang === 'en' ? 'PDFs, Notes & Books' : 'PDF, Appunti & Libri'}</span>
                         <h3 class="font-black text-slate-900 text-base">${escapeHtml(item.title)}</h3>
                         ${item.details ? `<p class="text-sm text-slate-600 font-medium leading-relaxed">${escapeHtml(item.details)}</p>` : ''}
                         ${renderMultipleLinks(item.fileUrl)}
                     </div>
                     <div class="flex items-center space-x-2 shrink-0">
-                        ${item.fileUrl ? `<a href="${escapeHtml(item.fileUrl)}" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold px-4 py-2.5 rounded-2xl transition shadow-md whitespace-nowrap flex items-center gap-1.5"><i class="fa-solid fa-arrow-right"></i>Apri</a>` : ''}
+                        ${item.fileUrl ? `<a href="${escapeHtml(item.fileUrl)}" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold px-4 py-2.5 rounded-2xl transition shadow-md whitespace-nowrap flex items-center gap-1.5"><i class="fa-solid fa-arrow-right"></i>${openText}</a>` : ''}
                         <a href="https://api.whatsapp.com/send?text=${encodedWA}" target="_blank" class="bg-emerald-50 hover:bg-emerald-100 text-emerald-600 p-3 rounded-2xl transition border border-emerald-100 flex items-center justify-center"><i class="fa-brands fa-whatsapp text-lg"></i></a>
                         ${getAdminButtons('libri', item.id)}
                     </div>
@@ -2153,21 +2514,21 @@
             renderCustomSection('countdown', 'list-countdown', null, item => {
                 const t = item.date ? getTimeRemaining(item.date) : { days: 0, hours: 0, minutes: 0, seconds: 0 };
                 const isUrgent = t.days <= 2 && t.total > 0;
-                const waText = encodeURIComponent(`⏳ *Conto alla rovescia*\n*${item.title}*\nMancano ${t.days} giorni, ${t.hours} ore e ${t.minutes} minuti!\n\n🔗 *Bacheca:* ${appUrl}`);
+                const waText = encodeURIComponent(`⏳ *Countdown*\n*${item.title}*\n${t.days} days, ${t.hours} hours and ${t.minutes} minutes remaining!\n\n🔗 *Board:* ${appUrl}`);
                 return `
                 <div class="${isUrgent ? 'bg-gradient-to-br from-rose-950 via-purple-950 to-indigo-950 border-rose-500/50 animate-pulse' : 'bg-gradient-to-br from-indigo-950 via-indigo-900 to-blue-950 border-white/10'} text-white p-6 rounded-3xl shadow-xl flex justify-between items-center relative overflow-hidden border">
                     <div class="absolute -right-4 -bottom-4 text-white/5 text-9xl font-black pointer-events-none"><i class="fa-solid fa-hourglass-half"></i></div>
                     <div class="space-y-2 z-10 flex-1 pr-3">
                         <span class="bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider inline-flex items-center gap-1.5">Countdown</span>
                         <h3 class="font-black text-lg text-white mt-1">${escapeHtml(item.title)}</h3>
-                        ${item.date ? `<p class="text-xs text-indigo-200 font-medium flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i>${new Date(item.date).toLocaleString('it-IT')}</p>` : ''}
+                        ${item.date ? `<p class="text-xs text-indigo-200 font-medium flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i>${new Date(item.date).toLocaleString(currentLang === 'en' ? 'en-US' : 'it-IT')}</p>` : ''}
                         ${item.details ? `<p class="text-xs text-indigo-100/80 font-medium">${escapeHtml(item.details)}</p>` : ''}
                         <div class="pt-2 flex items-baseline space-x-2">
-                            <span class="text-2xl sm:text-3xl font-black ${isUrgent ? 'text-amber-300' : 'text-emerald-400'} tracking-tight">${t.days}g ${t.hours}h ${t.minutes}m ${t.seconds}s</span>
+                            <span class="text-2xl sm:text-3xl font-black ${isUrgent ? 'text-amber-300' : 'text-emerald-400'} tracking-tight">${t.days}d ${t.hours}h ${t.minutes}m ${t.seconds}s</span>
                         </div>
                     </div>
                     <div class="flex flex-col items-end space-y-2.5 z-10">
-                        <a href="https://api.whatsapp.com/send?text=${waText}" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white p-3.5 rounded-2xl transition shadow-lg flex items-center justify-center" title="Condividi"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+                        <a href="https://api.whatsapp.com/send?text=${waText}" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white p-3.5 rounded-2xl transition shadow-lg flex items-center justify-center" title="Share"><i class="fa-brands fa-whatsapp text-lg"></i></a>
                         ${getAdminButtons('countdown', item.id)}
                     </div>
                 </div>`;
@@ -2193,16 +2554,16 @@
                             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2.5">
                                 <span class="font-black text-slate-900 text-sm">${escapeHtml(optionName)}</span>
                                 <div class="flex items-center space-x-2 w-full sm:w-auto justify-end">
-                                    <button onclick="votePoll('${item.id}', ${idx})" class="${voteBtnClass} px-4 py-2 rounded-xl text-xs font-bold transition flex items-center" ${!currentVoter ? 'title="Inserisci prima il nome"' : ''}><i class="fa-solid fa-check mr-1.5"></i> Vota</button>
-                                    <button onclick="showVotersModal('${item.id}', ${idx})" class="bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 px-3 py-2 rounded-xl text-xs font-bold transition flex items-center shadow-2xs"><i class="fa-solid fa-list mr-1.5 text-indigo-600"></i> Votanti (${count})</button>
+                                    <button onclick="votePoll('${item.id}', ${idx})" class="${voteBtnClass} px-4 py-2 rounded-xl text-xs font-bold transition flex items-center" ${!currentVoter ? (currentLang === 'en' ? 'title="Enter your name first"' : 'title="Inserisci prima il nome"') : ''}><i class="fa-solid fa-check mr-1.5"></i> ${currentLang === 'en' ? 'Vote' : 'Vota'}</button>
+                                    <button onclick="showVotersModal('${item.id}', ${idx})" class="bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 px-3 py-2 rounded-xl text-xs font-bold transition flex items-center shadow-2xs"><i class="fa-solid fa-list mr-1.5 text-indigo-600"></i> ${currentLang === 'en' ? 'Voters' : 'Votanti'} (${count})</button>
                                 </div>
                             </div>
                             <div class="w-full bg-slate-200/80 h-3 rounded-full overflow-hidden p-0.5 shadow-inner">
                                 <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 h-full rounded-full transition-all duration-700" style="width: ${percentage}%"></div>
                             </div>
                             <div class="flex justify-between items-center text-[11px] text-slate-500 font-semibold">
-                                <span>Adesioni registrate</span>
-                                <span class="font-black text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded-lg border border-indigo-100">${count} voti (${percentage}%)</span>
+                                <span>${currentLang === 'en' ? 'Registered votes' : 'Adesioni registrate'}</span>
+                                <span class="font-black text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded-lg border border-indigo-100">${count} ${currentLang === 'en' ? 'votes' : 'voti'} (${percentage}%)</span>
                             </div>
                         </div>
                     `;
@@ -2210,15 +2571,15 @@
 
                 const voterAuthBox = currentVoter ? `
                     <div class="bg-emerald-50 border border-emerald-200 p-3 rounded-2xl flex justify-between items-center text-xs">
-                        <span class="text-emerald-900 font-bold">Stai votando a nome di: <strong class="text-emerald-950">${escapeHtml(currentVoter)}</strong></span>
-                        <button onclick="resetVoter('${item.id}')" class="text-xs bg-white hover:bg-slate-100 text-emerald-800 px-3 py-1.5 rounded-xl border border-emerald-200 font-bold transition">Cambia Nome</button>
+                        <span class="text-emerald-900 font-bold">${currentLang === 'en' ? 'Voting as: ' : 'Stai votando a nome di: '}<strong class="text-emerald-950">${escapeHtml(currentVoter)}</strong></span>
+                        <button onclick="resetVoter('${item.id}')" class="text-xs bg-white hover:bg-slate-100 text-emerald-800 px-3 py-1.5 rounded-xl border border-emerald-200 font-bold transition">${currentLang === 'en' ? 'Change Name' : 'Cambia Nome'}</button>
                     </div>
                 ` : `
                     <div class="bg-indigo-50/70 border border-indigo-100 p-3 rounded-2xl flex flex-col sm:flex-row items-center gap-2">
-                        <span class="text-xs font-bold text-indigo-900 w-full sm:w-auto">Inserisci nome prima di votare:</span>
+                        <span class="text-xs font-bold text-indigo-900 w-full sm:w-auto">${currentLang === 'en' ? 'Enter name before voting:' : 'Inserisci nome prima di votare:'}</span>
                         <div class="flex gap-2 w-full sm:w-auto flex-1">
-                            <input type="text" id="voterInput_${item.id}" placeholder="Es. Il tuo nome" class="bg-white border border-indigo-200 rounded-xl px-3 py-1.5 text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 flex-1">
-                            <button onclick="validateVoter('${item.id}')" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-1.5 rounded-xl text-xs font-bold transition shadow-sm whitespace-nowrap">Conferma Nome</button>
+                            <input type="text" id="voterInput_${item.id}" placeholder="${currentLang === 'en' ? 'E.g. Your name' : 'Es. Il tuo nome'}" class="bg-white border border-indigo-200 rounded-xl px-3 py-1.5 text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 flex-1">
+                            <button onclick="validateVoter('${item.id}')" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-1.5 rounded-xl text-xs font-bold transition shadow-sm whitespace-nowrap">${currentLang === 'en' ? 'Confirm Name' : 'Conferma Nome'}</button>
                         </div>
                     </div>
                 `;
@@ -2227,12 +2588,12 @@
                 <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200/80 space-y-4">
                     <div class="flex justify-between items-start gap-3">
                         <div>
-                            <span class="inline-flex items-center gap-1.5 bg-violet-50 text-violet-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider border border-violet-100 mb-2"><i class="fa-solid fa-square-poll-vertical"></i> Sondaggio Attivo</span>
+                            <span class="inline-flex items-center gap-1.5 bg-violet-50 text-violet-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider border border-violet-100 mb-2"><i class="fa-solid fa-square-poll-vertical"></i> ${currentLang === 'en' ? 'Active Poll' : 'Sondaggio Attivo'}</span>
                             <h3 class="font-black text-slate-900 text-lg">${escapeHtml(item.title)}</h3>
                             ${item.details ? `<p class="text-xs text-slate-500 font-medium mt-0.5">${escapeHtml(item.details)}</p>` : ''}
                         </div>
                         <div class="flex items-center space-x-1">
-                            <button onclick="showVotersModal('${item.id}')" class="bg-indigo-50 hover:bg-indigo-100 text-indigo-600 text-xs font-bold px-3 py-2 rounded-xl transition border border-indigo-100 whitespace-nowrap"><i class="fa-solid fa-chart-pie mr-1"></i> Riepilogo</button>
+                            <button onclick="showVotersModal('${item.id}')" class="bg-indigo-50 hover:bg-indigo-100 text-indigo-600 text-xs font-bold px-3 py-2 rounded-xl transition border border-indigo-100 whitespace-nowrap"><i class="fa-solid fa-chart-pie mr-1"></i> ${currentLang === 'en' ? 'Summary' : 'Riepilogo'}</button>
                             ${getAdminButtons('sondaggi', item.id)}
                         </div>
                     </div>
@@ -2247,7 +2608,7 @@
                     <div class="space-y-1">
                         <h3 class="font-black text-slate-900 text-sm sm:text-base">${escapeHtml(item.title)}</h3>
                         ${item.details ? `<p class="text-xs text-slate-500 font-medium">${escapeHtml(item.details)}</p>` : ''}
-                        ${item.date ? `<p class="text-[11px] text-slate-400 font-semibold">${new Date(item.date).toLocaleDateString('it-IT')}</p>` : ''}
+                        ${item.date ? `<p class="text-[11px] text-slate-400 font-semibold">${new Date(item.date).toLocaleDateString(currentLang === 'en' ? 'en-US' : 'it-IT')}</p>` : ''}
                     </div>
                     <div class="flex items-center space-x-3">
                         <span class="font-black text-sm sm:text-base text-rose-600 bg-rose-50 border border-rose-100 px-3 py-1.5 rounded-xl">- ${escapeHtml(item.title)}</span>
@@ -2258,14 +2619,14 @@
 
             // Avvisi
             renderCustomSection('avvisi', 'list-avvisi', null, item => {
-                let waText = `📢 *Avviso Importante*\n*${item.title}*\n${item.details ? item.details + '\n' : ''}`;
+                let waText = `📢 *Important Notice*\n*${item.title}*\n${item.details ? item.details + '\n' : ''}`;
                 if (item.fileUrl) waText += `🔗 *Link:* ${item.fileUrl}\n`;
-                waText += `\n📲 *Bacheca:* ${appUrl}`;
+                waText += `\n📲 *Board:* ${appUrl}`;
                 const encodedWA = encodeURIComponent(waText.trim());
                 return `
                 <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex justify-between items-start space-x-3 transition hover:shadow-md">
                     <div class="space-y-2.5 flex-1">
-                        <span class="inline-flex items-center gap-1.5 bg-amber-50 text-amber-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider border border-amber-100"><i class="fa-solid fa-bullhorn"></i> Avviso Ufficiale</span>
+                        <span class="inline-flex items-center gap-1.5 bg-amber-50 text-amber-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider border border-amber-100"><i class="fa-solid fa-bullhorn"></i> ${currentLang === 'en' ? 'Official Notice' : 'Avviso Ufficiale'}</span>
                         <h3 class="font-black text-slate-900 text-base">${escapeHtml(item.title)}</h3>
                         ${item.details ? `<p class="text-sm text-slate-600 font-medium leading-relaxed">${escapeHtml(item.details)}</p>` : ''}
                         ${renderMultipleLinks(item.fileUrl)}
@@ -2277,13 +2638,13 @@
                 </div>`;
             });
 
-            // Ricevimento Genitori / Professori
+            // Ricevimento Professori / Genitori
             renderCustomSection('ricevimento', 'list-ricevimento', null, item => `
                 <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex justify-between items-start space-x-3 transition hover:shadow-md">
                     <div class="space-y-2.5 flex-1">
-                        <span class="inline-flex items-center gap-1.5 bg-teal-50 text-teal-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider border border-teal-100"><i class="fa-solid fa-chalkboard-user"></i> Colloquio / Ricevimento</span>
+                        <span class="inline-flex items-center gap-1.5 bg-teal-50 text-teal-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider border border-teal-100"><i class="fa-solid fa-chalkboard-user"></i> ${currentLang === 'en' ? 'Office Hours / Meeting' : 'Colloquio / Ricevimento'}</span>
                         <h3 class="font-black text-slate-900 text-base">${escapeHtml(item.title)}</h3>
-                        ${item.date ? `<p class="text-xs text-indigo-600 font-bold flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i>${new Date(item.date).toLocaleString('it-IT')}</p>` : ''}
+                        ${item.date ? `<p class="text-xs text-indigo-600 font-bold flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i>${new Date(item.date).toLocaleString(currentLang === 'en' ? 'en-US' : 'it-IT')}</p>` : ''}
                         ${item.details ? `<p class="text-sm text-slate-600 font-medium leading-relaxed">${escapeHtml(item.details)}</p>` : ''}
                         ${renderMultipleLinks(item.fileUrl)}
                     </div>
@@ -2297,7 +2658,7 @@
             renderCustomSection('circolari', 'list-circolari', null, item => `
                 <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex justify-between items-start space-x-3 transition hover:shadow-md">
                     <div class="space-y-2.5 flex-1">
-                        <span class="inline-flex items-center gap-1.5 bg-orange-50 text-orange-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider border border-orange-100"><i class="fa-solid fa-file-lines"></i> Circolare</span>
+                        <span class="inline-flex items-center gap-1.5 bg-orange-50 text-orange-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider border border-orange-100"><i class="fa-solid fa-file-lines"></i> ${currentLang === 'en' ? 'Circular' : 'Circolare'}</span>
                         <h3 class="font-black text-slate-900 text-base">${escapeHtml(item.title)}</h3>
                         ${item.details ? `<p class="text-sm text-slate-600 font-medium leading-relaxed">${escapeHtml(item.details)}</p>` : ''}
                         ${renderMultipleLinks(item.fileUrl)}
@@ -2312,7 +2673,7 @@
             renderCustomSection('meriti', 'list-meriti', null, item => `
                 <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex justify-between items-start space-x-3 transition hover:shadow-md">
                     <div class="space-y-2.5 flex-1">
-                        <span class="inline-flex items-center gap-1.5 bg-yellow-50 text-yellow-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider border border-yellow-100"><i class="fa-solid fa-award"></i> Merito</span>
+                        <span class="inline-flex items-center gap-1.5 bg-yellow-50 text-yellow-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider border border-yellow-100"><i class="fa-solid fa-award"></i> ${currentLang === 'en' ? 'Merit' : 'Merito'}</span>
                         <h3 class="font-black text-slate-900 text-base">${escapeHtml(item.title)}</h3>
                         ${item.details ? `<p class="text-sm text-slate-600 font-medium leading-relaxed">${escapeHtml(item.details)}</p>` : ''}
                         ${renderMultipleLinks(item.fileUrl)}
@@ -2327,7 +2688,7 @@
             renderCustomSection('smarriti', 'list-smarriti', null, item => `
                 <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex justify-between items-start space-x-3 transition hover:shadow-md">
                     <div class="space-y-2.5 flex-1">
-                        <span class="inline-flex items-center gap-1.5 bg-red-50 text-red-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider border border-red-100"><i class="fa-solid fa-box-archive"></i> Smarrito</span>
+                        <span class="inline-flex items-center gap-1.5 bg-red-50 text-red-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider border border-red-100"><i class="fa-solid fa-box-archive"></i> ${currentLang === 'en' ? 'Lost Item' : 'Smarrito'}</span>
                         <h3 class="font-black text-slate-900 text-base">${escapeHtml(item.title)}</h3>
                         ${item.details ? `<p class="text-sm text-slate-600 font-medium leading-relaxed">${escapeHtml(item.details)}</p>` : ''}
                         ${renderMultipleLinks(item.fileUrl)}
@@ -2351,22 +2712,24 @@
             `);
 
             // Link Utili
-            renderCustomSection('linkutili', 'list-linkutili', null, item => `
+            renderCustomSection('linkutili', 'list-linkutili', null, item => {
+                const openText = currentLang === 'en' ? 'Open' : 'Apri';
+                return `
                 <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex justify-between items-center transition hover:shadow-md">
                     <div class="space-y-1 pr-2">
                         <h3 class="font-black text-slate-900 text-sm">${escapeHtml(item.title)}</h3>
                         ${item.details ? `<p class="text-xs text-slate-500 font-medium">${escapeHtml(item.details)}</p>` : ''}
                     </div>
                     <div class="flex items-center space-x-2 shrink-0">
-                        ${item.fileUrl ? `<a href="${escapeHtml(item.fileUrl)}" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold px-4 py-2.5 rounded-2xl transition shadow-md flex items-center gap-1.5"><i class="fa-solid fa-arrow-right"></i>Apri</a>` : ''}
+                        ${item.fileUrl ? `<a href="${escapeHtml(item.fileUrl)}" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold px-4 py-2.5 rounded-2xl transition shadow-md flex items-center gap-1.5"><i class="fa-solid fa-arrow-right"></i>${openText}</a>` : ''}
                         ${getAdminButtons('linkutili', item.id)}
                     </div>
-                </div>
-            `);
+                </div>`;
+            });
 
             // Compleanni
             renderCustomSection('compleanni', 'list-compleanni', null, item => {
-                let waText = `🎂 *Compleanno*\nTanti auguri di buon compleanno a *${item.title}*! 🎉🎈\n\n📲 *Bacheca:* ${appUrl}`;
+                let waText = currentLang === 'en' ? `🎂 *Birthday*\nHappy Birthday to *${item.title}*! 🎉🎈\n\n📲 *Board:* ${appUrl}` : `🎂 *Compleanno*\nTanti auguri di buon compleanno a *${item.title}*! 🎉🎈\n\n📲 *Bacheca:* ${appUrl}`;
                 let encodedWA = encodeURIComponent(waText.trim());
                 return `
                 <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex justify-between items-center transition hover:shadow-md">
@@ -2377,7 +2740,7 @@
                         ${item.details ? `<p class="text-xs text-slate-500 font-medium">${escapeHtml(item.details)}</p>` : ''}
                     </div>
                     <div class="flex items-center space-x-2">
-                        <a href="https://api.whatsapp.com/send?text=${encodedWA}" target="_blank" class="bg-pink-50 hover:bg-pink-100 text-pink-600 p-3 rounded-2xl transition border border-pink-100 flex items-center justify-center" title="Auguri WhatsApp"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+                        <a href="https://api.whatsapp.com/send?text=${encodedWA}" target="_blank" class="bg-pink-50 hover:bg-pink-100 text-pink-600 p-3 rounded-2xl transition border border-pink-100 flex items-center justify-center" title="${currentLang === 'en' ? 'WhatsApp Wishes' : 'Auguri WhatsApp'}"><i class="fa-brands fa-whatsapp text-lg"></i></a>
                         ${getAdminButtons('compleanni', item.id)}
                     </div>
                 </div>`;
@@ -2387,17 +2750,17 @@
             renderCustomSection('promemoria', 'list-promemoria', null, item => `
                 <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex justify-between items-start space-x-3 transition hover:shadow-md">
                     <div class="space-y-2.5 flex-1">
-                        <span class="inline-flex items-center gap-1.5 bg-cyan-50 text-cyan-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider border border-cyan-100"><i class="fa-solid fa-clock"></i> Promemoria</span>
+                        <span class="inline-flex items-center gap-1.5 bg-cyan-50 text-cyan-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider border border-cyan-100"><i class="fa-solid fa-clock"></i> ${currentLang === 'en' ? 'Reminder' : 'Promemoria'}</span>
                         <h3 class="font-black text-slate-900 text-base">${escapeHtml(item.title)}</h3>
-                        ${item.date ? `<p class="text-xs text-indigo-600 font-bold flex items-center gap-1.5"><i class="fa-regular fa-clock"></i>Scadenza: ${new Date(item.date).toLocaleString('it-IT')}</p>` : ''}
+                        ${item.date ? `<p class="text-xs text-indigo-600 font-bold flex items-center gap-1.5"><i class="fa-regular fa-clock"></i>${currentLang === 'en' ? 'Deadline: ' : 'Scadenza: '}${new Date(item.date).toLocaleString(currentLang === 'en' ? 'en-US' : 'it-IT')}</p>` : ''}
                         ${item.details ? `<p class="text-sm text-slate-600 font-medium leading-relaxed">${escapeHtml(item.details)}</p>` : ''}
                         ${renderMultipleLinks(item.fileUrl)}
                     </div>
                     <div class="flex items-center space-x-2 shrink-0">
                         ${getAdminButtons('promemoria', item.id)}
                     </div>
-                </div>
-            `);
+                </div>`;
+            });
         }
 
         function renderCustomSection(sectionKey, containerId, customArr, cardTemplateFn) {
@@ -2407,7 +2770,7 @@
             const arr = Array.isArray(dataObj) ? dataObj : Object.values(dataObj);
 
             if (arr.length === 0) {
-                container.innerHTML = `<p class="text-slate-400 text-center py-8 text-xs font-medium italic">Nessun elemento presente in questa sezione.</p>`;
+                container.innerHTML = `<p class="text-slate-400 text-center py-8 text-xs font-medium italic">${currentLang === 'en' ? 'No items in this section.' : 'Nessun elemento presente in questa sezione.'}</p>`;
                 return;
             }
             arr.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
