@@ -265,8 +265,8 @@
     <div class="container">
         
         <div class="school-level-bar">
-            <button class="level-btn active" onclick="setSchoolLevel('asilo')" id="lvlAsilo">🍼 Asilo</button>
-            <button class="level-btn" onclick="setSchoolLevel('elementari')" id="lvlElem">🏫 Elementari</button>
+            <button class="level-btn" onclick="setSchoolLevel('asilo')" id="lvlAsilo">🍼 Asilo</button>
+            <button class="level-btn active" onclick="setSchoolLevel('elementari')" id="lvlElem">🏫 Elementari</button>
             <button class="level-btn" onclick="setSchoolLevel('medie')" id="lvlMedie">🎒 Medie</button>
             <button class="level-btn" onclick="setSchoolLevel('superiori')" id="lvlSup">🎓 Superiori</button>
             <button class="level-btn" onclick="setSchoolLevel('universita')" id="lvlUniv">🏛️ Università</button>
@@ -501,7 +501,7 @@
 
         let isAdmin = false;
         
-        // FORZATURA PULITA: Impostiamo direttamente "3e" come password di default iniziale
+        // Inizializzazione token di sicurezza admin a "3e" se non presente
         if(!localStorage.getItem('admin_token_univ')) {
             localStorage.setItem('admin_token_univ', '3e');
         }
@@ -539,8 +539,6 @@
 
         function toggleAdminMode() {
             let t = dict[currentLang];
-            
-            // Leggiamo la password attualmente salvata nel browser (di default sarà "3e")
             let savedToken = localStorage.getItem('admin_token_univ') || '3e';
 
             if (!isAdmin) {
@@ -559,12 +557,7 @@
                     document.getElementById('cassaAdminBox').style.display = 'block';
                     document.getElementById('sondaggiAdminBox').style.display = 'block';
 
-                    // Se l'utente sta usando la password di default, chiedi di cambiarla
-                    if(savedToken.trim() === '3e') {
-                        setTimeout(() => {
-                            cambiaPasswordAdmin();
-                        }, 300);
-                    }
+                    renderTutto();
                 } else {
                     alert(currentLang === 'it' ? "Password errata!" : "Incorrect password!");
                 }
@@ -581,6 +574,7 @@
                 document.getElementById('cassaAdminBox').style.display = 'none';
                 document.getElementById('sondaggiAdminBox').style.display = 'none';
                 switchTab('compiti');
+                renderTutto();
             }
         }
 
