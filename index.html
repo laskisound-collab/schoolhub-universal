@@ -501,10 +501,8 @@
 
         let isAdmin = false;
         
-        // Forziamo l'inizializzazione pulita della password admin a "3e" se non esiste
-        let adminToken = localStorage.getItem('admin_token_univ');
-        if(!adminToken) {
-            adminToken = '3e';
+        // FORZATURA PULITA: Impostiamo direttamente "3e" come password di default iniziale
+        if(!localStorage.getItem('admin_token_univ')) {
             localStorage.setItem('admin_token_univ', '3e');
         }
 
@@ -542,14 +540,13 @@
         function toggleAdminMode() {
             let t = dict[currentLang];
             
-            // Rileggiamo sempre il token aggiornato dal localStorage
-            let currentAdminPw = localStorage.getItem('admin_token_univ') || '3e';
+            // Leggiamo la password attualmente salvata nel browser (di default sarà "3e")
+            let savedToken = localStorage.getItem('admin_token_univ') || '3e';
 
             if (!isAdmin) {
                 let inputKey = prompt(currentLang === 'it' ? "Inserisci la password admin (default: 3e):" : "Enter admin password (default: 3e):");
                 
-                // Confronto pulito (rimuovendo spazi accidentali)
-                if (inputKey && inputKey.trim() === currentAdminPw.trim()) {
+                if (inputKey && inputKey.trim() === savedToken.trim()) {
                     isAdmin = true;
                     document.getElementById('adminStatusText').innerText = t.adminUnlock;
                     document.getElementById('adminToggleBtn').innerText = t.btnLock;
@@ -562,8 +559,8 @@
                     document.getElementById('cassaAdminBox').style.display = 'block';
                     document.getElementById('sondaggiAdminBox').style.display = 'block';
 
-                    // Se l'utente sta usando la password di default "3e", chiedi subito di cambiarla
-                    if(currentAdminPw.trim() === '3e') {
+                    // Se l'utente sta usando la password di default, chiedi di cambiarla
+                    if(savedToken.trim() === '3e') {
                         setTimeout(() => {
                             cambiaPasswordAdmin();
                         }, 300);
