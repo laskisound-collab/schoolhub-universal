@@ -66,7 +66,7 @@
     <!-- Container Notifiche Admin -->
     <div id="adminNotificationContainer" class="fixed top-20 right-4 z-50 space-y-2 pointer-events-none max-w-sm w-full px-4"></div>
 
-    <!-- Header Pulito e Ordinato -->
+    <!-- Header -->
     <header class="bg-gradient-to-r from-indigo-950 via-indigo-900 to-blue-950 text-white shadow-xl sticky top-0 z-50 backdrop-blur-md bg-opacity-95 border-b border-white/10">
         <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center flex-wrap gap-3">
             <div class="flex items-center space-x-3.5">
@@ -85,7 +85,7 @@
                 </div>
             </div>
 
-            <!-- Selettore Rapido Multi-Classe e Admin -->
+            <!-- Selettore Multi-Classe e Admin -->
             <div class="flex items-center space-x-2 flex-wrap">
                 <div class="bg-white/10 border border-white/20 rounded-2xl px-3 py-1.5 flex items-center space-x-2 backdrop-blur-sm">
                     <i class="fa-solid fa-users-rectangle text-indigo-300 text-xs"></i>
@@ -145,9 +145,7 @@
                     </button>
                 </div>
             </div>
-            <div id="list-compiti" class="space-y-3.5">
-                <p class="text-slate-400 text-center py-8 text-sm font-medium">Caricamento in corso...</p>
-            </div>
+            <div id="list-compiti" class="space-y-3.5"></div>
         </section>
 
         <!-- SEZIONE ORARIO -->
@@ -597,7 +595,6 @@
                     <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1">Procedura dettagliata per l'installazione su Android, Apple iOS, gestione multi-classe per genitori con più figli o admin di più gruppi.</p>
                 </div>
 
-                <!-- Box dedicato gestione multi-classe / multi-figlio -->
                 <div class="bg-indigo-50/80 p-5 rounded-3xl border border-indigo-200 space-y-3">
                     <h3 class="font-black text-sm text-indigo-950 flex items-center gap-2"><i class="fa-solid fa-users-rectangle text-indigo-600"></i> Gestione Multi-Figlio / Multi-Classe (Nello stesso telefono)</h3>
                     <p class="text-xs text-indigo-950 font-medium leading-relaxed">
@@ -609,7 +606,6 @@
                     </ul>
                 </div>
 
-                <!-- Box dedicato installazione smartphone -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                     <div class="bg-indigo-50/80 p-5 rounded-3xl border border-indigo-100 space-y-2">
                         <h4 class="font-black text-xs text-indigo-950 uppercase flex items-center gap-2"><i class="fa-brands fa-android text-base text-indigo-600"></i> Installazione su Android</h4>
@@ -629,7 +625,6 @@
                     </div>
                 </div>
 
-                <!-- Box Cambio Telefono o Pulizia Cache -->
                 <div class="bg-amber-50/80 p-5 rounded-3xl border border-amber-200 space-y-3">
                     <h3 class="font-black text-sm text-amber-950 flex items-center gap-2"><i class="fa-solid fa-mobile-screen-button text-amber-600"></i> Cosa succede se cambi telefono o pulisci la cache?</h3>
                     <p class="text-xs text-amber-950 font-medium leading-relaxed">
@@ -637,31 +632,14 @@
                         <strong>Come risolvere in 2 secondi:</strong> Ti basta riaprire il link di invito WhatsApp che avevi inviato ai genitori (oppure usare il link con il tuo token `?classe=TUO_TOKEN`) e l'app si ricollegherà immediatamente alla tua bacheca e ai tuoi dati su Firebase senza perdere nulla!
                     </p>
                 </div>
-
-                <!-- Box Regole Compiti e Scomparsa 12h -->
-                <div class="bg-purple-50/80 p-5 rounded-3xl border border-purple-200 space-y-3">
-                    <h3 class="font-black text-sm text-purple-950 flex items-center gap-2"><i class="fa-solid fa-clock text-purple-600"></i> Regola di Scomparsa Automatica dei Compiti</h3>
-                    <p class="text-xs text-purple-900 font-medium leading-relaxed">
-                        I compiti e le attività inserite nel diario **spariscono automaticamente dopo 12 ore** calcolate in base alla data e all'orario di scadenza impostati dall'Admin in quella specifica sezione. In questo modo la bacheca rimane sempre pulita e aggiornata con le sole scadenze attive.
-                    </p>
-                </div>
-
-                <!-- Box Notifiche Audio e Visive -->
-                <div class="bg-emerald-50/80 p-5 rounded-3xl border border-emerald-200 space-y-3">
-                    <h3 class="font-black text-sm text-emerald-950 flex items-center gap-2"><i class="fa-solid fa-bell text-emerald-600"></i> Notifiche Audio e Visive per i Nuovi Contenuti</h3>
-                    <p class="text-xs text-emerald-900 font-medium leading-relaxed">
-                        Ogni volta che l'amministratore aggiunge un nuovo compito, un avviso o qualsiasi altro aggiornamento nell'app, viene generata automaticamente una **notifica visiva a schermo** accompagnata da un **segnale audio** per avvisare subito tutti i genitori collegati.
-                    </p>
-                </div>
             </div>
         </section>
 
     </main>
 
-    <!-- Footer con Contatore Visite, POWER_laski, Download Android, Apri Apple, Guida Apple -->
+    <!-- Footer -->
     <footer class="bg-white/80 backdrop-blur-md border-t border-slate-200/80 py-4 mt-auto">
         <div class="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-500 font-medium">
-            
             <div class="flex items-center space-x-2 flex-wrap gap-y-2">
                 <button onclick="downloadAndroidWithToken()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-3.5 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-2 shadow-sm" title="Scarica App Android APK">
                     <i class="fa-brands fa-android text-sm"></i>
@@ -690,7 +668,7 @@
         </div>
     </footer>
 
-    <!-- Modale Spiegazione Sincronizzazione Automatica e APK -->
+    <!-- Modale Token Info -->
     <div id="tokenInfoModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md hidden z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-4 border border-slate-100">
             <div class="flex justify-between items-center">
@@ -728,7 +706,7 @@
         </div>
     </div>
 
-    <!-- Modale Login Admin con Recupero, Invito Genitori e Condivisione per Nuova Classe -->
+    <!-- Modale Login Admin -->
     <div id="adminModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md hidden z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl space-y-4 border border-slate-100">
             <div class="flex justify-between items-center">
@@ -744,7 +722,7 @@
                 </div>
             </div>
             <div id="adminRecoveryForm" class="hidden space-y-3.5">
-                <p class="text-xs text-slate-500 font-medium" id="recoveryHintText">Inserisci il codice di recupero impostato per questa classe:</p>
+                <p class="text-xs text-slate-500 font-medium">Inserisci il codice di recupero impostato per questa classe:</p>
                 <input type="text" id="adminRecoveryInput" placeholder="Codice di recupero" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-inner">
                 <button onclick="verifyRecoveryCode()" class="w-full bg-amber-600 hover:bg-amber-700 text-white py-3 rounded-2xl text-sm font-bold shadow-lg shadow-amber-200 transition">Verifica Codice</button>
                 <div class="text-center pt-2">
@@ -780,7 +758,7 @@
         </div>
     </div>
 
-    <!-- Modale Configurazione Nome App, Password & Visibilità Sezioni -->
+    <!-- Modale Configurazione -->
     <div id="configModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md hidden z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto border border-slate-100">
             <div class="flex justify-between items-center">
@@ -819,7 +797,7 @@
         </div>
     </div>
 
-    <!-- Modale Guida Info Sezione Specifica -->
+    <!-- Modale Guida Info Sezione -->
     <div id="infoModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md hidden z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-4 border border-slate-100">
             <div class="flex justify-between items-center">
@@ -874,7 +852,7 @@
         </div>
     </div>
 
-    <!-- Modale Visualizzazione Elenco Votanti -->
+    <!-- Modale Votanti Sondaggio -->
     <div id="votersModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md hidden z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl space-y-4 border border-slate-100 flex flex-col max-h-[90vh]">
             <div class="flex justify-between items-center">
@@ -889,7 +867,7 @@
         </div>
     </div>
 
-    <!-- Script Audio Notifica Sintetizzato (Web Audio API) -->
+    <!-- Script Audio Notifica -->
     <script>
         function playAdminNotificationSound() {
             try {
@@ -905,13 +883,11 @@
                 gain.connect(audioCtx.destination);
                 osc.start();
                 osc.stop(audioCtx.currentTime + 0.4);
-            } catch (e) {
-                console.log("Audio context non supportato o bloccato dal browser");
-            }
+            } catch (e) {}
         }
     </script>
 
-    <!-- Script Logica App & Multi-Classe -->
+    <!-- Script Logica -->
     <script>
         function updateClock() {
             const now = new Date();
@@ -926,9 +902,7 @@
             try {
                 const reg = localStorage.getItem('saved_classes_registry');
                 return reg ? JSON.parse(reg) : {};
-            } catch (e) {
-                return {};
-            }
+            } catch (e) { return {}; }
         }
 
         function saveClassToRegistry(token, className) {
@@ -940,7 +914,6 @@
         function renderMultiClassSelector() {
             const selector = document.getElementById('multiClassSelector');
             if (!selector) return;
-
             let reg = getSavedClassesRegistry();
             const currentToken = localStorage.getItem('active_class_token') || 'DEFAULT';
 
@@ -966,14 +939,13 @@
 
         function shareAppForNewClass() {
             const cleanBaseUrl = window.location.href.split('?')[0].split('#')[0];
-            const waText = encodeURIComponent(`👋 Ciao! Se vuoi usare anche tu la Bacheca Scolastica Universale per gestire la tua classe in autonomia e senza conflitti con altre classi, clicca su questo link pulito:\n\n👉 ${cleanBaseUrl}\n\n🤖 *Come funziona per te:*\n1. Appena apri il link, l'app genererà in automatico un archivio e un database completamente nuovo e indipendente solo per la tua classe.\n2. Entra nell'*Area Admin* con la password predefinita (*3e*).\n3. Vai su *Impostazioni Classe* per personalizzare il nome della tua classe, impostare la tua password e il codice di recupero.\n4. Da quel momento potrai invitare i genitori della tua classe con il tasto di invito WhatsApp dedicato nell'Area Admin!\n\n📱 *Cosa fare se hai più figli o cambi telefono?*\nPuoi aggiungere tutte le classi che vuoi sullo stesso telefono aprendo i rispettivi link: potrai passare da una bacheca all'altra istantaneamente con il menu in alto a destra!`);
+            const waText = encodeURIComponent(`👋 Ciao! Se vuoi usare anche tu la Bacheca Scolastica Universale per gestire la tua classe in autonomia e senza conflitti con altre classi, clicca su questo link pulito:\n\n👉 ${cleanBaseUrl}\n\n🤖 *Come funziona per te:*\n1. Appena apri il link, l'app genererà in automatico un archivio e un database completamente nuovo e indipendente solo per la tua classe.\n2. Entra nell'*Area Admin* con la password predefinita (*3e*).\n3. Vai su *Impostazioni Classe* per personalizzare il nome della tua classe, impostare la tua password e il codice di recupero.\n4. Da quel momento potrai invitare i genitori della tua classe con il tasto di invito WhatsApp dedicato nell'Area Admin!`);
             window.open(`https://api.whatsapp.com/send?text=${waText}`, '_blank');
         }
 
         function downloadAndroidWithToken() {
             const currentToken = localStorage.getItem('active_class_token') || classToken;
             const baseUrl = window.location.href.split('?')[0].split('#')[0];
-            
             history.pushState(null, '', `${baseUrl}?classe=${currentToken}`);
             
             fetch('./app-release.apk', { method: 'HEAD' })
@@ -986,12 +958,10 @@
                         link.click();
                         document.body.removeChild(link);
                     } else {
-                        alert("⚠️ Il file 'app-release.apk' non è stato ancora caricato nella repository GitHub. Caricalo nella cartella principale per consentire il download!");
+                        alert("⚠️ Il file 'app-release.apk' non è stato ancora caricato nella repository GitHub.");
                     }
                 })
-                .catch(() => {
-                    alert("⚠️ Impossibile verificare il file APK. Assicurati di averlo caricato su GitHub.");
-                });
+                .catch(() => alert("⚠️ Impossibile verificare il file APK."));
         }
 
         function openAppleDirectWithToken() {
@@ -1003,7 +973,6 @@
         function openAppleGuideWithToken() {
             const currentToken = localStorage.getItem('active_class_token') || classToken;
             const baseUrl = window.location.href.split('?')[0].split('#')[0];
-            
             history.pushState(null, '', `${baseUrl}?classe=${currentToken}`);
             switchTab('guida');
         }
@@ -1028,10 +997,8 @@
                     localStorage.setItem('active_class_token', token);
                 }
             }
-
             const cleanUrl = window.location.href.split('?')[0].split('#')[0];
             history.replaceState(null, '', cleanUrl);
-
             return token;
         }
 
@@ -1043,20 +1010,14 @@
             const baseUrl = window.location.href.split('?')[0].split('#')[0];
             const inviteUrl = `${baseUrl}?classe=${currentToken}`;
             const apkUrl = `${baseUrl}app-release.apk`;
-            
             const cfg = dbData.appConfig || { name: "Bacheca Scolastica" };
             
             const waText = encodeURIComponent(`👋 Buongiorno genitori!\n\nEcco il link ufficiale aggiornato per la nostra bacheca di classe (${cfg.name}) per seguire compiti, orari, menu mensa e fondo cassa:\n\n🔗 *Link Bacheca (Sincronizzazione Automatica):*\n${inviteUrl}\n*(Basta cliccare sul link per collegarsi subito alla classe)*\n\n📱 *Come installare l'app sul telefono:*\n\n🤖 *Per Android:* \n1. Clicca per scaricare l'app:\n${apkUrl}\n2. Installa e apri l'app.\n\n🍏 *Per Apple (iPhone / iPad):*\n1. Apri il link in *Safari*:\n${inviteUrl}\n2. Tocca il tasto *Condividi* e seleziona *"Aggiungi alla schermata Home"*.\n3. *(Nota: per aprire correttamente i PDF, installa l'app gratuita Google Drive)*.`);
-            
             window.open(`https://api.whatsapp.com/send?text=${waText}`, '_blank');
         }
 
-        function openTokenInfoModal() {
-            document.getElementById('tokenInfoModal').classList.remove('hidden');
-        }
-        function closeTokenInfoModal() {
-            document.getElementById('tokenInfoModal').classList.add('hidden');
-        }
+        function openTokenInfoModal() { document.getElementById('tokenInfoModal').classList.remove('hidden'); }
+        function closeTokenInfoModal() { document.getElementById('tokenInfoModal').classList.add('hidden'); }
 
         let isAdmin = localStorage.getItem('isAdmin_app') === 'true';
         let dbData = { 
@@ -1067,92 +1028,22 @@
                 adminPassword: "3e", 
                 recoveryCode: "segreto",
                 materie: ["Italiano", "Matematica", "Inglese", "Storia", "Geografia", "Scienze", "Tecnologia", "Arte e Immagine", "Musica", "Religione / Alternativa", "Educazione Fisica", "Altro"],
-                sections: {
-                    compiti: true,
-                    orario: true,
-                    mensa: true,
-                    libri: true,
-                    countdown: true,
-                    sondaggi: true,
-                    ruota: true,
-                    snake: true,
-                    fondo: true,
-                    avvisi: true,
-                    ricevimento: true,
-                    circolari: true,
-                    meriti: true,
-                    smarriti: true,
-                    galleria: true,
-                    linkutili: true,
-                    compleanni: true,
-                    promemoria: true,
-                    guida: true
-                }
+                sections: { compiti: true, orario: true, mensa: true, libri: true, countdown: true, sondaggi: true, ruota: true, snake: true, fondo: true, avvisi: true, ricevimento: true, circolari: true, meriti: true, smarriti: true, galleria: true, linkutili: true, compleanni: true, promemoria: true, guida: true }
             },
-            compiti: {}, 
-            orario: {}, 
-            mensa: {}, 
-            libri: {}, 
-            countdown: {}, 
-            sondaggi: {}, 
-            fondo: {}, 
-            fondoIniziale: 0, 
-            avvisi: {}, 
-            ricevimento: {},
-            circolari: {},
-            meriti: {},
-            smarriti: {},
-            galleria: {}, 
-            linkutili: {}, 
-            compleanni: {}, 
-            promemoria: {}, 
-            snakeScores: {}, 
-            stats: { visits: 0 } 
+            compiti: {}, orario: {}, mensa: {
+                m_default: { id: 'm_default', title: 'Portale Mensa Ufficiale L\'Aquila', details: 'Consultazione menu giornalieri e prenotazioni.', fileUrl: 'https://www4.eticasoluzioni.com/laquilaportalegen/Home/Index' }
+            }, libri: {
+                l_default: { id: 'l_default', title: 'Raffaello Digitale - Letture Classe 3ª', details: 'Materiale didattico digitale e letture consigliate.', fileUrl: 'https://rp.raffaellodigitale.it/?open=verdeprato-classe-3-studente/7408/C1' }
+            }, countdown: {}, sondaggi: {}, fondo: {}, fondoIniziale: 0, avvisi: {}, ricevimento: {}, circolari: {}, meriti: {}, smarriti: {}, galleria: {}, linkutili: {}, compleanni: {}, promemoria: {}, snakeScores: {}, stats: { visits: 0 } 
         };
         let activeVoterSession = {}; 
 
         const sectionNames = {
-            compiti: "Diario / Attività",
-            orario: "Orario",
-            mensa: "Menu Mensa",
-            libri: "Libri & Materiale",
-            countdown: "Countdown",
-            sondaggi: "Sondaggi",
-            ruota: "Ruota Festa",
-            snake: "Snake Game",
-            fondo: "Fondo Cassa",
-            avvisi: "Avvisi",
-            ricevimento: "Ricevimento Genitori",
-            circolari: "Circolari",
-            meriti: "Meriti",
-            smarriti: "Oggetti Smarriti",
-            galleria: "Foto & Video",
-            linkutili: "Link Utili",
-            compleanni: "Compleanni",
-            promemoria: "Promemoria",
-            guida: "Guida & Info"
+            compiti: "Diario / Attività", orario: "Orario", mensa: "Menu Mensa", libri: "Libri & Materiale", countdown: "Countdown", sondaggi: "Sondaggi", ruota: "Ruota Festa", snake: "Snake Game", fondo: "Fondo Cassa", avvisi: "Avvisi", ricevimento: "Ricevimento Genitori", circolari: "Circolari", meriti: "Meriti", smarriti: "Oggetti Smarriti", galleria: "Foto & Video", linkutili: "Link Utili", compleanni: "Compleanni", promemoria: "Promemoria", guida: "Guida & Info"
         };
 
         const sectionIcons = {
-            compiti: "fa-book-open",
-            orario: "fa-calendar-days",
-            mensa: "fa-utensils",
-            libri: "fa-book",
-            countdown: "fa-hourglass-half",
-            sondaggi: "fa-square-poll-vertical",
-            ruota: "fa-dharmachakra",
-            snake: "fa-gamepad",
-            fondo: "fa-wallet",
-            avvisi: "fa-bullhorn",
-            ricevimento: "fa-chalkboard-user",
-            circolari: "fa-file-lines",
-            meriti: "fa-award",
-            smarriti: "fa-box-archive",
-            galleria: "fa-images",
-            linkutili: "fa-link",
-            compleanni: "fa-cake-candles",
-            promemoria: "fa-clock",
-            guida: "fa-circle-question"
+            compiti: "fa-book-open", orario: "fa-calendar-days", mensa: "fa-utensils", libri: "fa-book", countdown: "fa-hourglass-half", sondaggi: "fa-square-poll-vertical", ruota: "fa-dharmachakra", snake: "fa-gamepad", fondo: "fa-wallet", avvisi: "fa-bullhorn", ricevimento: "fa-chalkboard-user", circolari: "fa-file-lines", meriti: "fa-award", smarriti: "fa-box-archive", galleria: "fa-images", linkutili: "fa-link", compleanni: "fa-cake-candles", promemoria: "fa-clock", guida: "fa-circle-question"
         };
 
         const sectionGuides = {
@@ -1182,23 +1073,12 @@
             document.getElementById('sectionSpecificGuideText').innerHTML = `<p class="font-semibold text-slate-700">ℹ️ ${sectionGuides[sectionKey] || 'Gestisci i contenuti di questa sezione.'}</p>`;
             document.getElementById('infoModal').classList.remove('hidden');
         }
-
-        function closeInfoModal() {
-            document.getElementById('infoModal').classList.add('hidden');
-        }
-
-        function requestBrowserNotificationPermission() {
-            if ("Notification" in window && Notification.permission === "default" && isAdmin) {
-                Notification.requestPermission();
-            }
-        }
+        function closeInfoModal() { document.getElementById('infoModal').classList.add('hidden'); }
 
         function showAdminNotification(message, type = 'success') {
             playAdminNotificationSound();
-            
             const container = document.getElementById('adminNotificationContainer');
             if (!container) return;
-
             const notif = document.createElement('div');
             notif.className = `pointer-events-auto bg-slate-900 text-white px-4 py-3 rounded-2xl shadow-2xl border ${type === 'success' ? 'border-emerald-500/50' : 'border-indigo-500/50'} flex items-center justify-between space-x-3 transition transform translate-y-2 opacity-0 duration-300`;
             notif.innerHTML = `
@@ -1210,7 +1090,6 @@
                 </div>
             `;
             container.appendChild(notif);
-
             setTimeout(() => { notif.classList.remove('translate-y-2', 'opacity-0'); }, 50);
             setTimeout(() => {
                 notif.classList.add('translate-y-2', 'opacity-0');
@@ -1233,9 +1112,7 @@
             const visitedKey = sessionStorage.getItem('visited_' + classToken);
             if (!visitedKey) {
                 const visitsRef = ref(db, firebaseNodePath + '/stats/visits');
-                runTransaction(visitsRef, (currentVisits) => {
-                    return (currentVisits || 0) + 1;
-                }).then(() => {
+                runTransaction(visitsRef, (currentVisits) => { return (currentVisits || 0) + 1; }).then(() => {
                     sessionStorage.setItem('visited_' + classToken, 'true');
                 });
             }
@@ -1262,29 +1139,24 @@
                 renderSnakeLeaderboard();
                 updateVisitsCounter();
                 renderFondoSummary();
+                updateAdminUI();
             });
         });
 
         function populateMaterieSelects() {
             const materie = dbData.appConfig.materie || ["Italiano", "Matematica"];
-            
             const filterSelect = document.getElementById('materiaFilterSelect');
             if (filterSelect) {
                 const currentFilter = filterSelect.value || 'Tutte';
                 let html = `<option value="Tutte">Tutte le materie</option>`;
-                materie.forEach(m => {
-                    html += `<option value="${escapeHtml(m)}" ${currentFilter === m ? 'selected' : ''}>${escapeHtml(m)}</option>`;
-                });
+                materie.forEach(m => { html += `<option value="${escapeHtml(m)}" ${currentFilter === m ? 'selected' : ''}>${escapeHtml(m)}</option>`; });
                 filterSelect.innerHTML = html;
             }
-
             const modalSelect = document.getElementById('inputMateria');
             if (modalSelect) {
                 const currentModalVal = modalSelect.value;
                 let htmlModal = '';
-                materie.forEach(m => {
-                    htmlModal += `<option value="${escapeHtml(m)}" ${currentModalVal === m ? 'selected' : ''}>${escapeHtml(m)}</option>`;
-                });
+                materie.forEach(m => { htmlModal += `<option value="${escapeHtml(m)}" ${currentModalVal === m ? 'selected' : ''}>${escapeHtml(m)}</option>`; });
                 modalSelect.innerHTML = htmlModal;
             }
         }
@@ -1293,16 +1165,12 @@
             renderMaterieManagementList();
             document.getElementById('manageMaterieModal').classList.remove('hidden');
         }
-
-        function closeManageMaterieModal() {
-            document.getElementById('manageMaterieModal').classList.add('hidden');
-        }
+        function closeManageMaterieModal() { document.getElementById('manageMaterieModal').classList.add('hidden'); }
 
         function renderMaterieManagementList() {
             const container = document.getElementById('materieListContainer');
             if (!container) return;
             const materie = dbData.appConfig.materie || [];
-            
             container.innerHTML = materie.map((mat, idx) => `
                 <div class="flex items-center justify-between bg-slate-50 p-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-700">
                     <span>${escapeHtml(mat)}</span>
@@ -1317,10 +1185,8 @@
             if (!val) { alert('Inserisci il nome della materia!'); return; }
             if (!dbData.appConfig.materie) dbData.appConfig.materie = [];
             if (dbData.appConfig.materie.includes(val)) { alert('Materia già presente!'); return; }
-
             dbData.appConfig.materie.push(val);
             input.value = '';
-
             const { db, ref, set } = window.fbDB;
             set(ref(db, firebaseNodePath), dbData).then(() => {
                 populateMaterieSelects();
@@ -1335,7 +1201,6 @@
             if (confirm(`Vuoi rimuovere la materia "${materie[index]}"?`)) {
                 materie.splice(index, 1);
                 dbData.appConfig.materie = materie;
-
                 const { db, ref, set } = window.fbDB;
                 set(ref(db, firebaseNodePath), dbData).then(() => {
                     populateMaterieSelects();
@@ -1349,7 +1214,6 @@
             const navContainer = document.getElementById('navTabsContainer');
             if (!navContainer) return;
             const sections = dbData.appConfig.sections || {};
-            
             let html = '';
             for (const key in sectionNames) {
                 if (sections[key] !== false) {
@@ -1370,14 +1234,10 @@
             const snakeTitle = document.getElementById('snakeTitleText');
 
             if (nameEl) nameEl.innerText = cfg.name;
-            if (subEl) {
-                subEl.innerText = cfg.subtitle;
-                subEl.classList.toggle('hidden', !cfg.subtitle);
-            }
+            if (subEl) { subEl.innerText = cfg.subtitle; subEl.classList.toggle('hidden', !cfg.subtitle); }
             if (logoEl) logoEl.innerText = cfg.logo || "3E";
             if (titleEl) titleEl.innerText = cfg.name + (cfg.subtitle ? ' - ' + cfg.subtitle : '');
             if (snakeTitle) snakeTitle.innerText = `Snake (${cfg.name})`;
-
             saveClassToRegistry(classToken, cfg.name);
             renderMultiClassSelector();
         }
@@ -1448,6 +1308,7 @@
             renderFondoSummary();
             updateAppBranding();
             renderMultiClassSelector();
+            updateAdminUI();
             if (isAdmin) requestBrowserNotificationPermission();
         });
 
@@ -1529,7 +1390,6 @@
                 const currentToken = localStorage.getItem('active_class_token') || classToken;
                 const baseUrl = window.location.href.split('?')[0].split('#')[0];
                 const appUrl = `${baseUrl}?classe=${currentToken}`;
-
                 const waText = encodeURIComponent(`🎮 *Record Snake*\n${currentPlayer} ha totalizzato ${score} punti!\n\n🔗 *Vieni a battere il record sulla bacheca:* ${appUrl}`);
                 
                 document.getElementById('snakeShareContainer').innerHTML = `
@@ -1539,7 +1399,6 @@
                 `;
                 return;
             }
-
             clearCanvas();
             drawFood();
             moveSnake();
@@ -1621,9 +1480,7 @@
                 score += 10;
                 document.getElementById('snakeScore').innerText = score;
                 createFood();
-            } else {
-                snake.pop();
-            }
+            } else { snake.pop(); }
         }
 
         function randomTen(min, max) { return Math.round((Math.random() * (max - min) + min) / 10) * 10; }
@@ -1707,7 +1564,6 @@
                 } else {
                     if (defaultPassWarning) defaultPassWarning.classList.add('hidden');
                 }
-
                 localStorage.setItem('isAdmin_app', 'true');
                 requestBrowserNotificationPermission();
             } else {
@@ -1718,18 +1574,15 @@
                 if (adminRecoveryForm) adminRecoveryForm.classList.add('hidden');
                 if (adminLogoutDiv) adminLogoutDiv.classList.add('hidden');
                 localStorage.setItem('isAdmin_app', 'false');
-                requestBrowserNotificationPermission();
             }
             renderAll();
         }
 
         function toggleAdminModal() { document.getElementById('adminModal').classList.toggle('hidden'); }
-        
         function showRecoveryView() {
             document.getElementById('adminLoginForm').classList.add('hidden');
             document.getElementById('adminRecoveryForm').classList.remove('hidden');
         }
-
         function hideRecoveryView() {
             document.getElementById('adminRecoveryForm').classList.add('hidden');
             document.getElementById('adminLoginForm').classList.remove('hidden');
@@ -1767,10 +1620,8 @@
                 el.classList.remove('text-indigo-600', 'bg-indigo-50/80', 'shadow-sm');
                 el.classList.add('text-slate-600', 'hover:bg-slate-100/80');
             });
-
             const target = document.getElementById(tabId);
             if (target) target.classList.add('active');
-
             const activeBtn = document.querySelector(`[data-tab="${tabId}"]`);
             if (activeBtn) {
                 activeBtn.classList.add('text-indigo-600', 'bg-indigo-50/80', 'shadow-sm');
@@ -1807,7 +1658,6 @@
             const currentToken = localStorage.getItem('active_class_token') || classToken;
             const baseUrl = window.location.href.split('?')[0].split('#')[0];
             const appUrl = `${baseUrl}?classe=${currentToken}`;
-
             waTextList += `\n🔗 *Bacheca di Classe:* ${appUrl}`;
             const encodedWA = encodeURIComponent(waTextList.trim());
 
@@ -1832,23 +1682,15 @@
                 if (!isNaN(parsed)) {
                     dbData.fondoIniziale = parsed;
                     const { db, ref, set } = window.fbDB;
-                    set(ref(db, firebaseNodePath), dbData).then(() => {
-                        renderFondoSummary();
-                    });
-                } else {
-                    alert("Inserisci un numero valido!");
-                }
+                    set(ref(db, firebaseNodePath), dbData).then(() => { renderFondoSummary(); });
+                } else { alert("Inserisci un numero valido!"); }
             }
         }
 
         function renderFondoSummary() {
             const fondoData = dbData.fondo ? Object.values(dbData.fondo) : [];
             let totaleSpese = 0;
-            
-            fondoData.forEach(item => {
-                let amount = extractAmount(item.title);
-                totaleSpese += amount;
-            });
+            fondoData.forEach(item => { totaleSpese += extractAmount(item.title); });
 
             const fondoIniziale = dbData.fondoIniziale || 0;
             const saldoAttuale = fondoIniziale - totaleSpese;
@@ -1878,7 +1720,6 @@
             const inputTitle = document.getElementById('inputTitle');
             const labelDetails = document.getElementById('labelDetails');
             const inputDetails = document.getElementById('inputDetails');
-            const labelFileUrl = document.getElementById('labelFileUrl');
 
             if (section === 'orario') {
                 modalTitle.innerText = itemId ? "Modifica Giorno Orario" : "Aggiungi Giorno Orario";
@@ -1897,14 +1738,6 @@
                 materiaWrapper.classList.remove('hidden');
                 dateWrapper.classList.remove('hidden');
                 populateMaterieSelects();
-            } else if (section === 'mensa') {
-                modalTitle.innerText = itemId ? "Modifica Menu / PDF" : "Pubblica Menu / PDF";
-                labelTitle.innerText = "Titolo del Menu / Comunicazione";
-                inputTitle.placeholder = "Es. Menu Mensa Settimana X";
-                labelDetails.innerText = "Descrizione / Note (Opzionale)";
-                inputDetails.placeholder = "Note aggiuntive...";
-                materiaWrapper.classList.add('hidden');
-                dateWrapper.classList.add('hidden');
             } else if (section === 'sondaggi') {
                 modalTitle.innerText = itemId ? "Modifica Sondaggio" : "Crea Nuovo Sondaggio";
                 labelTitle.innerText = "Titolo del Sondaggio / Domanda";
@@ -1931,10 +1764,7 @@
                 inputDetails.value = section === 'sondaggi' && item.options ? item.options.join('\n') : (item.details || '');
                 document.getElementById('inputFileUrl').value = item.fileUrl || '';
                 saveBtn.innerText = "Salva Modifiche";
-            } else {
-                saveBtn.innerText = "Pubblica";
-            }
-
+            } else { saveBtn.innerText = "Pubblica"; }
             document.getElementById('dataModal').classList.remove('hidden');
         }
 
@@ -1956,7 +1786,6 @@
 
             const { db, ref, set } = window.fbDB;
             if (!dbData[section]) dbData[section] = {};
-            
             const idToUse = itemId ? itemId : ('item_' + Date.now());
             const createdAtTime = (itemId && dbData[section][itemId]) ? dbData[section][itemId].createdAt : Date.now();
 
@@ -2023,7 +1852,6 @@
             const currentToken = localStorage.getItem('active_class_token') || classToken;
             const baseUrl = window.location.href.split('?')[0].split('#')[0];
             const appUrl = `${baseUrl}?classe=${currentToken}`;
-
             let summaryTextForWA = `📊 *Sondaggio: ${poll.title}*\n\n`;
 
             if (optionIndex !== null) {
@@ -2118,7 +1946,6 @@
             if (countdownData.length === 0) return;
             const latestCD = countdownData.sort((a, b) => b.createdAt - a.createdAt)[0];
             if (!latestCD.date) return;
-
             const t = getTimeRemaining(latestCD.date);
             const isUrgent = t.days <= 2 && t.total > 0;
             const homeCDHtml = document.getElementById('homeCountdownContent');
@@ -2170,19 +1997,12 @@
                 }
             }
 
-            // Compiti / Attività
+            // Compiti
             renderCustomSection('compiti', 'list-compiti', compitiArr, item => {
                 let waText = `📚 *Attività (${item.materia || 'Generale'})*\n*${item.title}*\n`;
                 if (item.date) waText += `⏰ Scadenza: ${new Date(item.date).toLocaleString('it-IT')}\n`;
                 if (item.details) waText += `${item.details}\n`;
-                
-                if (item.fileUrl) {
-                    const urls = item.fileUrl.split(/[\s,]+/).filter(u => u.trim().startsWith('http'));
-                    if (urls.length === 1) waText += `🔗 *Link:* ${urls[0]}\n`;
-                    else if (urls.length > 1) {
-                        urls.forEach((u, idx) => { waText += `Link ${idx + 1}: ${u}\n`; });
-                    }
-                }
+                if (item.fileUrl) waText += `🔗 *Link:* ${item.fileUrl}\n`;
                 waText += `\n📲 *Bacheca di Classe:* ${appUrl}`;
                 const encodedWA = encodeURIComponent(waText.trim());
                 const badgeNew = isNewItem(item.createdAt) ? `<span class="bg-emerald-500 text-white text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider ml-2 animate-pulse">Nuovo</span>` : '';
@@ -2191,17 +2011,14 @@
                 return `
                 <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex justify-between items-start space-x-3 transition hover:shadow-md">
                     <div class="space-y-2.5 flex-1">
-                        <div class="flex items-center flex-wrap gap-2">
-                            ${materiaBadge}
-                            ${badgeNew}
-                        </div>
+                        <div class="flex items-center flex-wrap gap-2">${materiaBadge}${badgeNew}</div>
                         <h3 class="font-black text-slate-900 text-base">${escapeHtml(item.title)}</h3>
                         ${item.date ? `<p class="text-xs text-indigo-600 font-bold flex items-center gap-1.5"><i class="fa-regular fa-clock"></i>Scadenza: ${new Date(item.date).toLocaleString('it-IT')}</p>` : ''}
                         ${item.details ? `<p class="text-sm text-slate-600 font-medium leading-relaxed">${escapeHtml(item.details)}</p>` : ''}
                         ${renderMultipleLinks(item.fileUrl)}
                     </div>
                     <div class="flex items-center space-x-2 shrink-0">
-                        <a href="https://api.whatsapp.com/send?text=${encodedWA}" target="_blank" class="bg-emerald-50 hover:bg-emerald-100 text-emerald-600 p-3 rounded-2xl transition border border-emerald-100 flex items-center justify-center" title="Condividi su WhatsApp"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+                        <a href="https://api.whatsapp.com/send?text=${encodedWA}" target="_blank" class="bg-emerald-50 hover:bg-emerald-100 text-emerald-600 p-3 rounded-2xl transition border border-emerald-100 flex items-center justify-center"><i class="fa-brands fa-whatsapp text-lg"></i></a>
                         ${getAdminButtons('compiti', item.id)}
                     </div>
                 </div>`;
@@ -2224,21 +2041,19 @@
             // Menu Mensa
             renderCustomSection('mensa', 'list-mensa', null, item => {
                 let waText = `🍽️ *Menu / Ristorazione (${item.title})*\n${item.details ? item.details + '\n' : ''}`;
-                if (item.fileUrl) {
-                    const urls = item.fileUrl.split(/[\s,]+/).filter(u => u.trim().startsWith('http'));
-                    if (urls.length > 0) waText += `🔗 *PDF Ufficiale:* ${urls[0]}\n`;
-                }
+                if (item.fileUrl) waText += `🔗 *Link:* ${item.fileUrl}\n`;
                 waText += `\n📲 *Bacheca di Classe:* ${appUrl}`;
                 const encodedWA = encodeURIComponent(waText.trim());
                 return `
                 <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex justify-between items-start space-x-3 transition hover:shadow-md">
                     <div class="space-y-2.5 flex-1">
-                        <span class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider border border-emerald-100"><i class="fa-solid fa-file-pdf"></i> Menu Mensa Ufficiale</span>
+                        <span class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider border border-emerald-100"><i class="fa-solid fa-utensils"></i> Menu Ufficiale / Portale</span>
                         <h3 class="font-black text-slate-900 text-base">${escapeHtml(item.title)}</h3>
                         ${item.details ? `<p class="text-sm text-slate-600 font-medium leading-relaxed">${escapeHtml(item.details)}</p>` : ''}
                         ${renderMultipleLinks(item.fileUrl)}
                     </div>
                     <div class="flex items-center space-x-2 shrink-0">
+                        ${item.fileUrl ? `<a href="${escapeHtml(item.fileUrl)}" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold px-4 py-2.5 rounded-2xl transition shadow-md whitespace-nowrap flex items-center gap-1.5"><i class="fa-solid fa-arrow-right"></i>Apri</a>` : ''}
                         <a href="https://api.whatsapp.com/send?text=${encodedWA}" target="_blank" class="bg-emerald-50 hover:bg-emerald-100 text-emerald-600 p-3 rounded-2xl transition border border-emerald-100 flex items-center justify-center"><i class="fa-brands fa-whatsapp text-lg"></i></a>
                         ${getAdminButtons('mensa', item.id)}
                     </div>
@@ -2248,10 +2063,7 @@
             // Libri & Materiale
             renderCustomSection('libri', 'list-libri', null, item => {
                 let waText = `📚 *Materiale e Documenti*\n*${item.title}*\n${item.details ? item.details + '\n' : ''}`;
-                if (item.fileUrl) {
-                    const urls = item.fileUrl.split(/[\s,]+/).filter(u => u.trim().startsWith('http'));
-                    if (urls.length > 0) waText += `🔗 *Link / Allegato:* ${urls[0]}\n`;
-                }
+                if (item.fileUrl) waText += `🔗 *Link:* ${item.fileUrl}\n`;
                 waText += `\n📲 *Bacheca di Classe:* ${appUrl}`;
                 const encodedWA = encodeURIComponent(waText.trim());
                 return `
@@ -2270,7 +2082,7 @@
                 </div>`;
             });
 
-            // Countdown Tab
+            // Countdown
             renderCustomSection('countdown', 'list-countdown', null, item => {
                 const t = item.date ? getTimeRemaining(item.date) : { days: 0, hours: 0, minutes: 0, seconds: 0 };
                 const isUrgent = t.days <= 2 && t.total > 0;
@@ -2380,10 +2192,7 @@
             // Avvisi
             renderCustomSection('avvisi', 'list-avvisi', null, item => {
                 let waText = `📢 *Avviso Importante*\n*${item.title}*\n${item.details ? item.details + '\n' : ''}`;
-                if (item.fileUrl) {
-                    const urls = item.fileUrl.split(/[\s,]+/).filter(u => u.trim().startsWith('http'));
-                    if (urls.length > 0) waText += `🔗 *Allegato:* ${urls[0]}\n`;
-                }
+                if (item.fileUrl) waText += `🔗 *Link:* ${item.fileUrl}\n`;
                 waText += `\n📲 *Bacheca di Classe:* ${appUrl}`;
                 const encodedWA = encodeURIComponent(waText.trim());
                 return `
@@ -2417,7 +2226,7 @@
                 </div>
             `);
 
-            // Circolari & Modulistica
+            // Circolari
             renderCustomSection('circolari', 'list-circolari', null, item => `
                 <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex justify-between items-start space-x-3 transition hover:shadow-md">
                     <div class="space-y-2.5 flex-1">
@@ -2432,7 +2241,7 @@
                 </div>
             `);
 
-            // Meriti & Riconoscimenti
+            // Meriti
             renderCustomSection('meriti', 'list-meriti', null, item => `
                 <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex justify-between items-start space-x-3 transition hover:shadow-md">
                     <div class="space-y-2.5 flex-1">
@@ -2447,7 +2256,7 @@
                 </div>
             `);
 
-            // Oggetti Smarriti
+            // Smarriti
             renderCustomSection('smarriti', 'list-smarriti', null, item => `
                 <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex justify-between items-start space-x-3 transition hover:shadow-md">
                     <div class="space-y-2.5 flex-1">
@@ -2534,7 +2343,6 @@
                 container.innerHTML = `<p class="text-slate-400 text-center py-8 text-xs font-medium italic">Nessun elemento presente in questa sezione.</p>`;
                 return;
             }
-
             arr.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
             container.innerHTML = arr.map(item => cardTemplateFn(item)).join('');
         }
