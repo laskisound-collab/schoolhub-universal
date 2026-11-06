@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
@@ -500,11 +500,14 @@
         }
 
         let isAdmin = false;
-        // Password di default richiesta: "3e"
-        let adminToken = localStorage.getItem('admin_token_univ') || '3e';
-        if(!localStorage.getItem('admin_token_univ')) {
+        
+        // Forziamo l'inizializzazione pulita della password admin a "3e" se non esiste
+        let adminToken = localStorage.getItem('admin_token_univ');
+        if(!adminToken) {
+            adminToken = '3e';
             localStorage.setItem('admin_token_univ', '3e');
         }
+
         let schoolLevel = 'elementari';
 
         let datiApp = JSON.parse(localStorage.getItem('dati_schoolhub_univ')) || {
@@ -538,9 +541,15 @@
 
         function toggleAdminMode() {
             let t = dict[currentLang];
+            
+            // Rileggiamo sempre il token aggiornato dal localStorage
+            let currentAdminPw = localStorage.getItem('admin_token_univ') || '3e';
+
             if (!isAdmin) {
                 let inputKey = prompt(currentLang === 'it' ? "Inserisci la password admin (default: 3e):" : "Enter admin password (default: 3e):");
-                if (inputKey === adminToken) {
+                
+                // Confronto pulito (rimuovendo spazi accidentali)
+                if (inputKey && inputKey.trim() === currentAdminPw.trim()) {
                     isAdmin = true;
                     document.getElementById('adminStatusText').innerText = t.adminUnlock;
                     document.getElementById('adminToggleBtn').innerText = t.btnLock;
@@ -553,8 +562,8 @@
                     document.getElementById('cassaAdminBox').style.display = 'block';
                     document.getElementById('sondaggiAdminBox').style.display = 'block';
 
-                    // Se l'utente sta usando la password di default, chiedi subito di cambiarla per sicurezza
-                    if(adminToken === '3e') {
+                    // Se l'utente sta usando la password di default "3e", chiedi subito di cambiarla
+                    if(currentAdminPw.trim() === '3e') {
                         setTimeout(() => {
                             cambiaPasswordAdmin();
                         }, 300);
@@ -581,8 +590,7 @@
         function cambiaPasswordAdmin() {
             let nuovaPw = prompt(currentLang === 'it' ? "Inserisci la nuova password admin personalizzata:" : "Enter new custom admin password:");
             if(nuovaPw && nuovaPw.trim() !== "") {
-                adminToken = nuovaPw.trim();
-                localStorage.setItem('admin_token_univ', adminToken);
+                localStorage.setItem('admin_token_univ', nuovaPw.trim());
                 alert(currentLang === 'it' ? "Password admin aggiornata con successo!" : "Admin password successfully updated!");
             }
         }
@@ -683,8 +691,8 @@
         }
 
         function resettaTuttiDati() {
-            if(confirm("Vuoi azzerare tutti i dati?")) {
-                localStorage.removeItem('dati_schoolhub_univ');
+            if(confirm("Vuoi azzerare tutti i dati e ripristinare la password di default (3e)?")) {
+                localStorage.clear();
                 location.reload();
             }
         }
