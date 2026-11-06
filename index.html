@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
@@ -49,7 +49,7 @@
             gap: 0.5rem;
         }
 
-        .lang-btn, .admin-quick-btn {
+        .lang-btn {
             background: rgba(255,255,255,0.2);
             border: 1px solid rgba(255,255,255,0.4);
             color: white;
@@ -66,7 +66,6 @@
             padding: 0 1rem;
         }
 
-        /* Selettore Ciclo Scolastico */
         .school-level-bar {
             background: var(--card-bg);
             padding: 0.75rem;
@@ -96,7 +95,6 @@
             color: white;
         }
 
-        /* Tabs di Navigazione */
         .tabs {
             display: flex;
             overflow-x: auto;
@@ -156,9 +154,6 @@
             font-size: 0.85rem;
             color: #1e40af;
             margin-bottom: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
         .card-item {
@@ -253,7 +248,6 @@
 </head>
 <body>
 
-    <!-- Admin Status Bar -->
     <div class="admin-bar">
         <span id="adminStatusText">🔒 Modalità Genitore / Studente (Read-Only)</span>
         <button onclick="toggleAdminMode()" id="adminToggleBtn">Sblocca Admin</button>
@@ -270,7 +264,6 @@
 
     <div class="container">
         
-        <!-- Selettore Ciclo Scolastico -->
         <div class="school-level-bar">
             <button class="level-btn active" onclick="setSchoolLevel('asilo')" id="lvlAsilo">🍼 Asilo</button>
             <button class="level-btn" onclick="setSchoolLevel('elementari')" id="lvlElem">🏫 Elementari</button>
@@ -279,7 +272,6 @@
             <button class="level-btn" onclick="setSchoolLevel('universita')" id="lvlUniv">🏛️ Università</button>
         </div>
 
-        <!-- Tabs di Navigazione -->
         <div class="tabs">
             <button class="tab-btn active" onclick="switchTab('compiti')" id="tabCompiti">📚 Compiti / Esami</button>
             <button class="tab-btn" onclick="switchTab('diario')" id="tabDiario">📌 Diario & Avvisi</button>
@@ -291,7 +283,7 @@
             <button class="tab-btn" id="adminTabBtn" style="display:none;" onclick="switchTab('adminPanel')">⚙️ Admin</button>
         </div>
 
-        <!-- 1. COMPITI / ESAMI -->
+        <!-- 1. COMPITI -->
         <div id="compiti" class="section-content active">
             <h2 id="titleCompiti">Compiti e Attività</h2>
             <div class="section-guide">
@@ -305,7 +297,7 @@
                     <input type="text" id="compitoMateria" placeholder="Es. Matematica / Physics">
                 </div>
                 <div class="form-group">
-                    <label id="lblDescCompito">Descrizione e Link Documento (PDF/Word)</label>
+                    <label id="lblDescCompito">Descrizione e Link Documento (PDF/Word/Excel)</label>
                     <textarea id="compitoDesc" rows="2" placeholder="Esercizi pag. 40 + Link Drive del documento..."></textarea>
                 </div>
                 <div class="form-group">
@@ -318,7 +310,7 @@
             <div id="listaCompiti"></div>
         </div>
 
-        <!-- 2. DIARIO & AVVISI -->
+        <!-- 2. DIARIO -->
         <div id="diario" class="section-content">
             <h2 id="titleDiario">Diario & Circolari</h2>
             <div class="section-guide">
@@ -332,8 +324,8 @@
                     <input type="text" id="avvisoTitolo" placeholder="Es. Uscita didattica / Exam schedule">
                 </div>
                 <div class="form-group">
-                    <label id="lblDettagliAvviso">Dettagli</label>
-                    <textarea id="avvisoDesc" rows="2" placeholder="Inserisci dettagli o link al PDF della circolare..."></textarea>
+                    <label id="lblDettagliAvviso">Dettagli / Circolare</label>
+                    <textarea id="avvisoDesc" rows="2" placeholder="Inserisci dettagli o link al file..."></textarea>
                 </div>
                 <button class="btn" onclick="aggiungiAvviso()" id="btnPubblicaAvviso">Pubblica Avviso</button>
             </div>
@@ -345,7 +337,7 @@
         <div id="compleanni" class="section-content">
             <h2 id="titleCompleanni">Anagrafica & Compleanni 🎂</h2>
             <div class="section-guide">
-                <span id="guideCompleanni">ℹ️ Elenco dei bambini/studenti registrati. L'app calcola i compleanni imminenti e permette di inviare auguri via chat.</span>
+                <span id="guideCompleanni">ℹ️ Elenco dei bambini/studenti registrati. L'app calcola i compleanni e permette di inviare auguri via chat.</span>
             </div>
 
             <div id="compleanniAdminBox" style="display:none; background:#f3f4f6; padding:1rem; border-radius:8px; margin-bottom:1rem;">
@@ -364,7 +356,7 @@
             <div id="listaCompleanni"></div>
         </div>
 
-        <!-- 4. BLOCCO NOTE CONDIVISO -->
+        <!-- 4. NOTE -->
         <div id="note" class="section-content">
             <h2 id="titleNote">Blocco Note Condiviso</h2>
             <div class="section-guide">
@@ -380,7 +372,7 @@
             </div>
         </div>
 
-        <!-- 5. CASSA / SPESE -->
+        <!-- 5. CASSA -->
         <div id="cassa" class="section-content">
             <h2 id="titleCassa">Fondo Cassa / Budget</h2>
             <div class="section-guide">
@@ -414,36 +406,36 @@
 
         <!-- 6. SONDAGGI -->
         <div id="sondaggi" class="section-content">
-            <h2 id="titleSondaggi">Sondaggi & Votazioni</h2>
+            <h2>Sondaggi & Votazioni</h2>
             <div class="section-guide">
-                <span id="guideSondaggi">ℹ️ Esprimi la tua preferenza per le decisioni di classe o universitarie.</span>
+                <span>ℹ️ Esprimi la tua preferenza per le decisioni di classe o universitarie.</span>
             </div>
 
             <div id="sondaggiAdminBox" style="display:none; background:#f3f4f6; padding:1rem; border-radius:8px; margin-bottom:1rem;">
-                <h3 style="font-size:1rem; margin-bottom:0.5rem;" id="lblAddSondaggio">Crea Sondaggio Multiplo</h3>
+                <h3 style="font-size:1rem; margin-bottom:0.5rem;">Crea Sondaggio Multiplo</h3>
                 <div class="form-group">
-                    <label id="lblDomandaSondaggio">Domanda</label>
+                    <label>Domanda</label>
                     <input type="text" id="sondaggioDomanda" placeholder="Es. Destinazione gita / Data esame">
                 </div>
                 <div class="form-group">
-                    <label id="lblOpzioniSondaggio">Opzioni (una per riga)</label>
+                    <label>Opzioni (una per riga)</label>
                     <textarea id="sondaggioOpzioni" rows="3" placeholder="Opzione A\nOpzione B\nOpzione C"></textarea>
                 </div>
-                <button class="btn" onclick="creaSondaggio()" id="btnCreaSondaggio">Crea Sondaggio</button>
+                <button class="btn" onclick="creaSondaggio()">Crea Sondaggio</button>
             </div>
 
             <div id="listaSondaggi"></div>
         </div>
 
-        <!-- 7. AREA LUDICA -->
+        <!-- 7. GIOCHI -->
         <div id="giochi" class="section-content">
-            <h2 id="titleGiochi">Area Ludica & Quiz</h2>
+            <h2>Area Ludica & Quiz</h2>
             <div class="section-guide">
-                <span id="guideGiochi">ℹ️ Mini-giochi e quiz interattivi adattati al ciclo scolastico selezionato.</span>
+                <span>ℹ️ Mini-giochi e quiz interattivi adattati al ciclo scolastico selezionato.</span>
             </div>
             <div style="text-align: center; padding: 1.5rem; background: #f8fafc; border-radius: 8px;">
                 <p id="gameTextPrompt" style="font-size: 1.1rem; font-weight: bold; margin-bottom: 1rem;">Pronto per una sfida di ripasso?</p>
-                <button class="btn" onclick="avviaMiniGioco()" id="btnAvviaGioco" style="max-width: 250px; margin: 0 auto;">Inizia Mini-Quiz 🎮</button>
+                <button class="btn" onclick="avviaMiniGioco()" style="max-width: 250px; margin: 0 auto;">Inizia Mini-Quiz 🎮</button>
                 <div id="gameResultBox" style="margin-top: 1rem; font-size: 1rem; color: var(--primary);"></div>
             </div>
         </div>
@@ -452,30 +444,36 @@
         <div id="adminPanel" class="section-content">
             <h2>⚙️ Master Admin Control</h2>
             <div class="section-guide">
-                <span>ℹ️ Gestisci credenziali, codici invito classe e manutenzione generale.</span>
+                <span>ℹ️ Pannello di controllo centrale. Da qui puoi gestire la password admin, i file e la manutenzione dei dati.</span>
             </div>
+            
             <div style="background: #fffbeb; border: 1px solid #fcd34d; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
-                <h3 style="font-size: 0.95rem; color: #b45309; margin-bottom: 0.5rem;" id="lblAdminKeyTitle">Codice Invito e Token</h3>
-                <p style="font-size: 0.85rem; color: #78350f; margin-bottom: 0.5rem;" id="lblAdminKeyDesc">Condividi il codice classe per sincronizzare altri genitori o studenti:</p>
-                <input type="text" id="codiceClasseInput" value="CLASS-3E-2026" style="margin-bottom: 0.5rem;" readonly>
-                <button class="btn" style="background: #b45309; font-size: 0.85rem; padding: 0.5rem 1rem;" onclick="rigeneraTokenAdmin()">Rigenera Token</button>
+                <h3 style="font-size: 0.95rem; color: #b45309; margin-bottom: 0.5rem;">🔑 Gestione Password e Sicurezza Admin</h3>
+                <p style="font-size: 0.85rem; color: #78350f; margin-bottom: 0.5rem;">La password corrente protegge la scrittura dei dati.</p>
+                <button class="btn" style="background: #b45309; font-size: 0.85rem; padding: 0.5rem 1rem; width: auto;" onclick="cambiaPasswordAdmin()">Cambia Password Admin</button>
             </div>
+
+            <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                <h3 style="font-size: 0.95rem; color: #166534; margin-bottom: 0.5rem;">📁 Info Gestione File e Documenti (PDF, Word, Excel)</h3>
+                <p style="font-size: 0.85rem; color: #14532d; line-height: 1.4;">
+                    Per caricare documenti pesanti o file multipli (PDF, Excel, Word, Immagini), puoi caricarli sul tuo cloud (Google Drive, OneDrive) e incollare il link condiviso nella descrizione dei compiti o degli avvisi. L'app li aprirà istantaneamente con un tap.
+                </p>
+            </div>
+
             <div style="background: #f3f4f6; padding: 1rem; border-radius: 8px;">
-                <h3 style="font-size: 0.95rem; margin-bottom: 0.5rem;" id="lblResetTitle">Manutenzione Dati</h3>
-                <button class="btn btn-danger" style="width: auto; font-size: 0.85rem; padding: 0.5rem 1rem;" onclick="resettaTuttiDati()" id="btnResetData">Svuota Tutti i Dati</button>
+                <h3 style="font-size: 0.95rem; margin-bottom: 0.5rem;">🧹 Manutenzione Dati</h3>
+                <button class="btn btn-danger" style="width: auto; font-size: 0.85rem; padding: 0.5rem 1rem;" onclick="resettaTuttiDati()">Svuota Tutti i Dati</button>
             </div>
         </div>
 
-        <!-- Footer -->
         <div class="stats-footer">
-            <p><span id="txtSessions">Sessioni Attive</span>: <span id="statSessioni">1</span> | <span id="txtDownloads">Download</span>: <span id="statDownload">184</span></p>
+            <p><span id="txtSessions">Sessioni Attive</span>: <span id="statSessioni">1</span> | <span id="txtDownloads">Download</span>: <span id="statDownload">192</span></p>
             <p style="margin-top: 0.25rem;">Support: <span style="font-family: monospace;">laskisound@gmail.com</span> | <a href="https://paypal.me/bachecascolastica" target="_blank" style="color:var(--primary);">PayPal Support</a></p>
         </div>
 
     </div>
 
     <script>
-        // Dizinario bilingue IT / EN
         let currentLang = 'it';
         const dict = {
             it: {
@@ -484,54 +482,7 @@
                 adminLock: "🔒 Modalità Genitore / Studente (Read-Only)",
                 adminUnlock: "🔓 Modalità Admin Attiva (Modifica Abilitata)",
                 btnUnlock: "Sblocca Admin",
-                btnLock: "Blocca Admin",
-                tabCompiti: "📚 Compiti / Esami",
-                tabDiario: "📌 Diario & Avvisi",
-                tabCompleanni: "🎂 Compleanni",
-                tabNote: "📝 Blocco Note",
-                tabCassa: "💰 Cassa / Spese",
-                tabSondaggi: "📊 Sondaggi",
-                tabGiochi: "🎮 Area Ludica",
-                titleCompiti: "Compiti e Attività",
-                guideCompiti: "ℹ️ Visualizza compiti e scadenze. Puoi allegare documenti inserendo il link cloud (Google Drive/OneDrive) o note esplicative.",
-                lblAddCompito: "Aggiungi Attività / Compito",
-                lblMateria: "Materia / Corso",
-                lblDescCompito: "Descrizione e Link Documento (PDF/Word)",
-                lblDataScadenza: "Data Scadenza",
-                btnPubblicaCompito: "Pubblica Attività",
-                titleDiario: "Diario & Circolari",
-                guideDiario: "ℹ️ Avvisi importanti, circolari scolastiche e promemoria gite o appelli.",
-                lblAddAvviso: "Nuovo Avviso",
-                lblTitoloAvviso: "Titolo",
-                lblDettagliAvviso: "Dettagli / Circolare",
-                btnPubblicaAvviso: "Pubblica Avviso",
-                titleCompleanni: "Anagrafica & Compleanni 🎂",
-                guideCompleanni: "ℹ️ Elenco dei bambini/studenti registrati. L'app calcola i compleanni imminenti e permette di inviare auguri via chat.",
-                lblAddStudente: "Aggiungi Studente / Bambino",
-                lblNomeStudente: "Nome e Cognome",
-                lblDataNascita: "Data di Nascita",
-                btnSalvaStudente: "Salva in Anagrafica",
-                titleNote: "Blocco Note Condiviso",
-                guideNote: "ℹ️ Spazio collaborativo per appunti, verbali di riunione o promemoria condivisi con la classe.",
-                titleCassa: "Fondo Cassa / Budget",
-                guideCassa: "ℹ️ Gestione trasparente delle quote comuni o delle spese di corso.",
-                lblSaldo: "Saldo Attuale",
-                lblAddMovimento: "Nuovo Movimento",
-                lblDescMov: "Descrizione",
-                lblImportoMov: "Importo (€) [Usa segno meno per spese]",
-                btnSalvaMov: "Registra Movimento",
-                titleSondaggi: "Sondaggi & Votazioni",
-                guideSondaggi: "ℹ️ Esprimi la tua preferenza per le decisioni di classe o universitarie.",
-                lblAddSondaggio: "Crea Sondaggio Multiplo",
-                lblDomandaSondaggio: "Domanda",
-                lblOpzioniSondaggio: "Opzioni (una per riga)",
-                btnCreaSondaggio: "Crea Sondaggio",
-                titleGiochi: "Area Ludica & Quiz",
-                guideGiochi: "ℹ️ Mini-giochi e quiz interattivi adattati al ciclo scolastico selezionato.",
-                gamePrompt: "Pronto per una sfida di ripasso?",
-                btnPlayGame: "Inizia Mini-Quiz 🎮",
-                txtSessions: "Sessioni Attive",
-                txtDownloads: "Download"
+                btnLock: "Blocca Admin"
             },
             en: {
                 title: "SchoolHub Universal",
@@ -539,126 +490,21 @@
                 adminLock: "🔒 Parent / Student Mode (Read-Only)",
                 adminUnlock: "🔓 Admin Mode Active (Editing Enabled)",
                 btnUnlock: "Unlock Admin",
-                btnLock: "Lock Admin",
-                tabCompiti: "📚 Homework / Exams",
-                tabDiario: "📌 Diary & Notices",
-                tabCompleanni: "🎂 Birthdays",
-                tabNote: "📝 Shared Notes",
-                tabCassa: "💰 Budget / Expenses",
-                tabSondaggi: "📊 Polls",
-                tabGiochi: "🎮 Play Area",
-                titleCompiti: "Homework & Assignments",
-                guideCompiti: "ℹ️ View assignments and deadlines. You can attach documents via cloud links (Google Drive/OneDrive).",
-                lblAddCompito: "Add Assignment",
-                lblMateria: "Subject / Course",
-                lblDescCompito: "Description & Document Link (PDF/Word)",
-                lblDataScadenza: "Due Date",
-                btnPubblicaCompito: "Publish Assignment",
-                titleDiario: "Diary & Circulars",
-                guideDiario: "ℹ️ Important notices, school circulars and exam reminders.",
-                lblAddAvviso: "New Notice",
-                lblTitoloAvviso: "Title",
-                lblDettagliAvviso: "Details / Circular Link",
-                btnPubblicaAvviso: "Publish Notice",
-                titleCompleanni: "Directory & Birthdays 🎂",
-                guideCompleanni: "ℹ️ Registered students directory. Automatically tracks birthdays and enables greeting via chat.",
-                lblAddStudente: "Add Student / Child",
-                lblNomeStudente: "Full Name",
-                lblDataNascita: "Date of Birth",
-                btnSalvaStudente: "Save to Directory",
-                titleNote: "Shared Notes",
-                guideNote: "ℹ️ Collaborative space for meeting notes, study summaries and reminders.",
-                titleCassa: "Class Fund / Budget",
-                guideCassa: "ℹ️ Transparent management of class fees or course expenses.",
-                lblSaldo: "Current Balance",
-                lblAddMovimento: "New Transaction",
-                lblDescMov: "Description",
-                lblImportoMov: "Amount (€) [Use minus for expenses]",
-                btnSalvaMov: "Save Transaction",
-                titleSondaggi: "Polls & Voting",
-                guideSondaggi: "ℹ️ Cast your vote for class or academic decisions.",
-                lblAddSondaggio: "Create Multiple Poll",
-                lblDomandaSondaggio: "Question",
-                lblOpzioniSondaggio: "Options (one per line)",
-                btnCreaSondaggio: "Create Poll",
-                titleGiochi: "Play Area & Quizzes",
-                guideGiochi: "ℹ️ Interactive mini-games and quizzes tailored to the school level.",
-                gamePrompt: "Ready for a quick review challenge?",
-                btnPlayGame: "Start Mini-Quiz 🎮",
-                txtSessions: "Active Sessions",
-                txtDownloads: "Downloads"
+                btnLock: "Lock Admin"
             }
         };
 
         function toggleLanguage() {
             currentLang = currentLang === 'it' ? 'en' : 'it';
             document.getElementById('langToggleBtn').innerText = currentLang === 'it' ? '🇬🇧 English' : '🇮🇹 Italiano';
-            applicaTraduzioni();
         }
 
-        function applicaTraduzioni() {
-            let t = dict[currentLang];
-            document.getElementById('appTitle').innerText = t.title;
-            document.getElementById('appSubtitle').innerText = t.subtitle;
-            document.getElementById('tabCompiti').innerText = t.tabCompiti;
-            document.getElementById('tabDiario').innerText = t.tabDiario;
-            document.getElementById('tabCompleanni').innerText = t.tabCompleanni;
-            document.getElementById('tabNote').innerText = t.tabNote;
-            document.getElementById('tabCassa').innerText = t.tabCassa;
-            document.getElementById('tabSondaggi').innerText = t.tabSondaggi;
-            document.getElementById('tabGiochi').innerText = t.tabGiochi;
-
-            document.getElementById('titleCompiti').innerText = t.titleCompiti;
-            document.getElementById('guideCompiti').innerText = t.guideCompiti;
-            document.getElementById('lblAddCompito').innerText = t.lblAddCompito;
-            document.getElementById('lblMateria').innerText = t.lblMateria;
-            document.getElementById('lblDescCompito').innerText = t.lblDescCompito;
-            document.getElementById('lblDataScadenza').innerText = t.lblDataScadenza;
-            document.getElementById('btnPubblicaCompito').innerText = t.btnPubblicaCompito;
-
-            document.getElementById('titleDiario').innerText = t.titleDiario;
-            document.getElementById('guideDiario').innerText = t.guideDiario;
-            document.getElementById('lblAddAvviso').innerText = t.lblAddAvviso;
-            document.getElementById('lblTitoloAvviso').innerText = t.lblTitoloAvviso;
-            document.getElementById('lblDettagliAvviso').innerText = t.lblDettagliAvviso;
-            document.getElementById('btnPubblicaAvviso').innerText = t.btnPubblicaAvviso;
-
-            document.getElementById('titleCompleanni').innerText = t.titleCompleanni;
-            document.getElementById('guideCompleanni').innerText = t.guideCompleanni;
-            document.getElementById('lblAddStudente').innerText = t.lblAddStudente;
-            document.getElementById('lblNomeStudente').innerText = t.lblNomeStudente;
-            document.getElementById('lblDataNascita').innerText = t.lblDataNascita;
-            document.getElementById('btnSalvaStudente').innerText = t.btnSalvaStudente;
-
-            document.getElementById('titleNote').innerText = t.titleNote;
-            document.getElementById('guideNote').innerText = t.guideNote;
-
-            document.getElementById('titleCassa').innerText = t.titleCassa;
-            document.getElementById('guideCassa').innerText = t.guideCassa;
-            document.getElementById('lblSaldo').innerText = t.lblSaldo;
-            document.getElementById('lblAddMovimento').innerText = t.lblAddMovimento;
-            document.getElementById('lblDescMov').innerText = t.lblDescMov;
-            document.getElementById('lblImportoMov').innerText = t.lblImportoMov;
-            document.getElementById('btnSalvaMov').innerText = t.btnSalvaMov;
-
-            document.getElementById('titleSondaggi').innerText = t.titleSondaggi;
-            document.getElementById('guideSondaggi').innerText = t.guideSondaggi;
-            document.getElementById('lblAddSondaggio').innerText = t.lblAddSondaggio;
-            document.getElementById('lblDomandaSondaggio').innerText = t.lblDomandaSondaggio;
-            document.getElementById('lblOpzioniSondaggio').innerText = t.lblOpzioniSondaggio;
-            document.getElementById('btnCreaSondaggio').innerText = t.btnCreaSondaggio;
-
-            document.getElementById('titleGiochi').innerText = t.titleGiochi;
-            document.getElementById('guideGiochi').innerText = t.guideGiochi;
-            document.getElementById('gameTextPrompt').innerText = t.gamePrompt;
-            document.getElementById('btnAvviaGioco').innerText = t.btnPlayGame;
-            document.getElementById('txtSessions').innerText = t.txtSessions;
-            document.getElementById('txtDownloads').innerText = t.txtDownloads;
-        }
-
-        // Stato app e persistenza
         let isAdmin = false;
-        let adminToken = localStorage.getItem('admin_token_univ') || 'CLASS-3E-2026';
+        // Password di default richiesta: "3e"
+        let adminToken = localStorage.getItem('admin_token_univ') || '3e';
+        if(!localStorage.getItem('admin_token_univ')) {
+            localStorage.setItem('admin_token_univ', '3e');
+        }
         let schoolLevel = 'elementari';
 
         let datiApp = JSON.parse(localStorage.getItem('dati_schoolhub_univ')) || {
@@ -693,7 +539,7 @@
         function toggleAdminMode() {
             let t = dict[currentLang];
             if (!isAdmin) {
-                let inputKey = prompt(currentLang === 'it' ? "Inserisci la chiave admin:" : "Enter admin key:");
+                let inputKey = prompt(currentLang === 'it' ? "Inserisci la password admin (default: 3e):" : "Enter admin password (default: 3e):");
                 if (inputKey === adminToken) {
                     isAdmin = true;
                     document.getElementById('adminStatusText').innerText = t.adminUnlock;
@@ -706,8 +552,15 @@
                     document.getElementById('compleanniAdminBox').style.display = 'block';
                     document.getElementById('cassaAdminBox').style.display = 'block';
                     document.getElementById('sondaggiAdminBox').style.display = 'block';
+
+                    // Se l'utente sta usando la password di default, chiedi subito di cambiarla per sicurezza
+                    if(adminToken === '3e') {
+                        setTimeout(() => {
+                            cambiaPasswordAdmin();
+                        }, 300);
+                    }
                 } else {
-                    alert(currentLang === 'it' ? "Chiave errata!" : "Incorrect key!");
+                    alert(currentLang === 'it' ? "Password errata!" : "Incorrect password!");
                 }
             } else {
                 isAdmin = false;
@@ -722,6 +575,15 @@
                 document.getElementById('cassaAdminBox').style.display = 'none';
                 document.getElementById('sondaggiAdminBox').style.display = 'none';
                 switchTab('compiti');
+            }
+        }
+
+        function cambiaPasswordAdmin() {
+            let nuovaPw = prompt(currentLang === 'it' ? "Inserisci la nuova password admin personalizzata:" : "Enter new custom admin password:");
+            if(nuovaPw && nuovaPw.trim() !== "") {
+                adminToken = nuovaPw.trim();
+                localStorage.setItem('admin_token_univ', adminToken);
+                alert(currentLang === 'it' ? "Password admin aggiornata con successo!" : "Admin password successfully updated!");
             }
         }
 
@@ -820,16 +682,6 @@
             document.getElementById('gameResultBox').innerText = "Quiz: " + q;
         }
 
-        function rigeneraTokenAdmin() {
-            let n = prompt("Nuovo token:", "CLASS-" + Math.floor(Math.random()*10000));
-            if(n) {
-                adminToken = n;
-                localStorage.setItem('admin_token_univ', adminToken);
-                document.getElementById('codiceClasseInput').value = adminToken;
-                alert("Token aggiornato!");
-            }
-        }
-
         function resettaTuttiDati() {
             if(confirm("Vuoi azzerare tutti i dati?")) {
                 localStorage.removeItem('dati_schoolhub_univ');
@@ -838,7 +690,6 @@
         }
 
         function renderTutto() {
-            // Compiti
             let htmlCompiti = '';
             datiApp.compiti.forEach(c => {
                 let share = encodeURIComponent(`Task: ${c.materia} - ${c.desc} (Due: ${c.data})`);
@@ -856,7 +707,6 @@
             });
             document.getElementById('listaCompiti').innerHTML = htmlCompiti || '<p style="color:var(--text-muted);">Nessuna attività.</p>';
 
-            // Avvisi
             let htmlAvvisi = '';
             datiApp.avvisi.forEach(a => {
                 let shareA = encodeURIComponent(`Notice: ${a.titolo} - ${a.desc}`);
@@ -874,7 +724,6 @@
             });
             document.getElementById('listaAvvisi').innerHTML = htmlAvvisi || '<p style="color:var(--text-muted);">Nessun avviso.</p>';
 
-            // Studenti / Compleanni
             let htmlCompleanni = '';
             datiApp.studenti.forEach(s => {
                 let wMsg = encodeURIComponent(`Tanti auguri di buon compleanno a ${s.nome}! 🎂🎉`);
@@ -893,11 +742,9 @@
             });
             document.getElementById('listaCompleanni').innerHTML = htmlCompleanni || '<p style="color:var(--text-muted);">Nessun anagrafica inserita.</p>';
 
-            // Blocco Note
             document.getElementById('bloccoNoteArea').value = datiApp.notaCondivisa;
             updateShareLinks();
 
-            // Cassa
             let saldo = 0, entrate = 0, uscite = 0;
             let htmlMov = '';
             datiApp.movimenti.forEach(m => {
@@ -914,7 +761,6 @@
             document.getElementById('saldoCassa').innerText = `€ ${saldo.toFixed(2)}`;
             document.getElementById('listaMovimenti').innerHTML = htmlMov;
 
-            // Grafico cassa
             const ctx = document.getElementById('cassaChart').getContext('2d');
             if(cassaChartInstance) cassaChartInstance.destroy();
             cassaChartInstance = new Chart(ctx, {
@@ -926,7 +772,6 @@
                 options: { responsive: true, maintainAspectRatio: false }
             });
 
-            // Sondaggi
             let htmlSond = '';
             datiApp.sondaggi.forEach(s => {
                 let opH = '';
@@ -943,8 +788,6 @@
             document.getElementById('listaSondaggi').innerHTML = htmlSond || '<p style="color:var(--text-muted);">Nessun sondaggio.</p>';
         }
 
-        // Init
-        document.getElementById('codiceClasseInput').value = adminToken;
         renderTutto();
     </script>
 </body>
