@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <link rel="manifest" href="./manifest.json">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">SchoolHub Universal - Bacheca Scolastica</title>
+    <title id="pageTitle">SchoolHub Universal - Bacheca Scolastica & Universitaria</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -76,7 +76,7 @@
                 <div>
                     <h1 class="text-base sm:text-lg font-black tracking-tight leading-tight text-white flex items-center gap-2">
                         <span id="displayAppName">SchoolHub Universal</span> 
-                        <span id="displayAppSubtitle" class="text-xs font-semibold px-2 py-0.5 rounded-full bg-white/10 text-indigo-200 border border-white/10 hidden sm:inline-block">Piattaforma Integrata</span>
+                        <span id="displayAppSubtitle" class="text-xs font-semibold px-2 py-0.5 rounded-full bg-white/10 text-indigo-200 border border-white/10 hidden sm:inline-block">Piattaforma Multilivello (Scuola & Università)</span>
                     </h1>
                     <div class="flex items-center space-x-2 text-xs text-indigo-200 mt-1">
                         <span class="live-clock inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-sm shadow-emerald-400"></span>
@@ -118,7 +118,7 @@
                         <i class="fa-solid fa-clipboard-list text-xl"></i>
                     </div>
                     <div>
-                        <h4 class="font-black text-sm tracking-tight text-white">Riepilogo Attività Attive</h4>
+                        <h4 class="font-black text-sm tracking-tight text-white">Riepilogo Attività & Esami Attivi</h4>
                         <p class="text-xs text-indigo-200 font-medium mt-0.5" id="homeworkSummaryText">Caricamento stato...</p>
                     </div>
                 </div>
@@ -131,9 +131,9 @@
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
                         <span class="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-sm"><i class="fa-solid fa-book-open"></i></span>
-                        Compiti e Attività
+                        Diario Attività & Esami
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Attività e consegne con supporto multi-allegato editabile</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5">Gestione flessibile per scuola e corsi universitari</p>
                 </div>
                 <div class="flex items-center gap-2.5 flex-wrap">
                     <select id="materiaFilterSelect" onchange="renderAll()" class="bg-slate-50 border border-slate-200 rounded-2xl px-3.5 py-2.5 text-xs font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-inner">
@@ -141,7 +141,7 @@
                     <button onclick="openManageMaterieModal()" class="admin-only hidden bg-slate-100 hover:bg-slate-200 text-slate-700 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-slate-300" title="Gestisci / Aggiungi Materie"><i class="fa-solid fa-list-check text-sm"></i></button>
                     <button onclick="openInfoModal('compiti')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
                     <button onclick="openAddModal('compiti')" class="admin-only hidden bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2.5 rounded-2xl text-xs font-bold shadow-lg shadow-indigo-200 transition whitespace-nowrap flex items-center space-x-1.5">
-                        <i class="fa-solid fa-plus"></i><span>Nuovo Compito</span>
+                        <i class="fa-solid fa-plus"></i><span>Nuovo Elemento</span>
                     </button>
                 </div>
             </div>
@@ -154,9 +154,9 @@
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
                         <span class="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-sm"><i class="fa-solid fa-calendar-days"></i></span>
-                        Orario Settimanale
+                        Orario Settimanale / Lezioni
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Quadro delle lezioni interamente modificabile dall'Admin</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5">Quadro orario modificabile per ogni indirizzo di studio</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openInfoModal('orario')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
@@ -176,7 +176,7 @@
                         <span class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-sm"><i class="fa-solid fa-utensils"></i></span>
                         Menu Mensa / Ristorazione
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Pubblicazione e modifica menu ufficiali e portali</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5">Portali di ristorazione e menu ufficiali</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openInfoModal('mensa')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
@@ -188,20 +188,20 @@
             <div id="list-mensa" class="space-y-3.5"></div>
         </section>
 
-        <!-- SEZIONE LIBRI & MATERIALE -->
+        <!-- SEZIONE LIBRI & MATERIALE / PDF -->
         <section id="libri" class="tab-content space-y-4">
             <div class="flex justify-between items-center bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80">
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
-                        <span class="w-8 h-8 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center text-sm"><i class="fa-solid fa-book"></i></span>
-                        Materiale & Documenti Consigliati
+                        <span class="w-8 h-8 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center text-sm"><i class="fa-solid fa-file-pdf"></i></span>
+                        Documenti, PDF & Libri di Testo
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Elenchi, libri e materiali modificabili</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5">Archivio condiviso di dispense, PDF e materiale didattico</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openInfoModal('libri')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
                     <button onclick="openAddModal('libri')" class="admin-only hidden bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2.5 rounded-2xl text-xs font-bold shadow-lg shadow-indigo-200 transition flex items-center space-x-1.5">
-                        <i class="fa-solid fa-plus"></i><span>Aggiungi Materiale</span>
+                        <i class="fa-solid fa-plus"></i><span>Aggiungi PDF / Libro</span>
                     </button>
                 </div>
             </div>
@@ -216,7 +216,7 @@
                         <span class="w-8 h-8 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-sm"><i class="fa-solid fa-hourglass-half"></i></span>
                         Conto alla Rovescia
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Eventi importanti e scadenze modificabili</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5">Scadenze esami, verifiche ed eventi</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openInfoModal('countdown')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
@@ -234,9 +234,9 @@
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
                         <span class="w-8 h-8 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center text-sm"><i class="fa-solid fa-square-poll-vertical"></i></span>
-                        Sondaggi e Votazioni
+                        Sondaggi e Votazioni in Tempo Reale
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Votazioni in tempo reale interamente gestibili</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5">Votazioni con monitoraggio adesioni e condivisione esito</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openInfoModal('sondaggi')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
@@ -254,9 +254,9 @@
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
                         <span class="w-8 h-8 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center text-sm"><i class="fa-solid fa-dharmachakra"></i></span>
-                        Ruota delle Assegnazioni
+                        Ruota delle Assegnazioni / Sorteggi
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Associa automaticamente partecipanti e mansioni con coriandoli</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5">Assegna casualmente ruoli o compiti con animazione coriandoli</p>
                 </div>
                 <button onclick="openInfoModal('ruota')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
             </div>
@@ -269,8 +269,8 @@
                         <textarea id="wheelNames" rows="4" class="w-full bg-slate-50 border border-slate-200 rounded-2xl p-3 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-inner" placeholder="Mario&#10;Anna&#10;Luigi"></textarea>
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1">Mansioni / Cose da portare (una per riga)</label>
-                        <textarea id="wheelTasks" rows="4" class="w-full bg-slate-50 border border-slate-200 rounded-2xl p-3 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-inner" placeholder="Compito A&#10;Compito B&#10;Compito C"></textarea>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Mansioni / Argomenti (uno per riga)</label>
+                        <textarea id="wheelTasks" rows="4" class="w-full bg-slate-50 border border-slate-200 rounded-2xl p-3 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-inner" placeholder="Argomento A&#10;Argomento B&#10;Argomento C"></textarea>
                     </div>
                     <button onclick="spinWheel()" class="w-full bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 text-white py-3.5 rounded-2xl text-xs font-black uppercase tracking-wider transition shadow-lg shadow-pink-200 flex items-center justify-center space-x-2">
                         <i class="fa-solid fa-dharmachakra text-base animate-spin"></i><span>Gira la Ruota e Assegna!</span>
@@ -301,7 +301,7 @@
                         <span class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-sm"><i class="fa-solid fa-gamepad"></i></span>
                         <span id="snakeTitleText">Snake Game</span> - Hall of Fame & Classifica
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Inserisci il tuo nome, gioca e scala la classifica ufficiale!</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5">Mini-gioco integrato con classifica cloud in tempo reale</p>
                 </div>
                 <button onclick="openInfoModal('snake')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
             </div>
@@ -364,15 +364,15 @@
             </div>
         </section>
 
-        <!-- SEZIONE FONDO CASSA -->
+        <!-- SEZIONE FONDO CASSA / BILANCIO -->
         <section id="fondo" class="tab-content space-y-4">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 gap-3">
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
                         <span class="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-sm"><i class="fa-solid fa-wallet"></i></span>
-                        Fondo Cassa / Bilancio
+                        Fondo Cassa / Bilancio Trasparente
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Bilancio e spese trasparenti completamente gestibili</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5">Gestione entrate, spese e donazioni PayPal di supporto</p>
                 </div>
                 <div class="flex items-center gap-2 w-full sm:w-auto flex-wrap">
                     <button onclick="openInfoModal('fondo')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
@@ -401,18 +401,34 @@
                 </div>
             </div>
 
+            <!-- Box Donazione PayPal di supporto -->
+            <div class="bg-gradient-to-r from-blue-900 to-indigo-950 text-white p-5 rounded-3xl shadow-md flex flex-col sm:flex-row items-center justify-between border border-blue-700/50 gap-4">
+                <div class="flex items-center space-x-3.5">
+                    <div class="bg-white/10 backdrop-blur-md p-3 rounded-2xl text-blue-200 border border-white/20 shrink-0">
+                        <i class="fa-brands fa-paypal text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-black text-sm tracking-tight text-white">Supporto Sviluppo App di Classe</h4>
+                        <p class="text-xs text-blue-200 font-medium mt-0.5">Contribuisci liberamente al mantenimento e allo sviluppo della piattaforma.</p>
+                    </div>
+                </div>
+                <a href="https://paypal.me/bachecascolastica" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-5 py-3 rounded-2xl shadow-lg transition whitespace-nowrap flex items-center gap-2">
+                    <i class="fa-solid fa-heart text-rose-400"></i> Dona con PayPal
+                </a>
+            </div>
+
             <div id="list-fondo" class="space-y-3.5"></div>
         </section>
 
-        <!-- SEZIONE AVVISI -->
+        <!-- SEZIONE AVVISI & CANALI (WhatsApp / Telegram) -->
         <section id="avvisi" class="tab-content space-y-4">
             <div class="flex justify-between items-center bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80">
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
                         <span class="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-sm"><i class="fa-solid fa-bullhorn"></i></span>
-                        Avvisi Importanti
+                        Avvisi Importanti & Canali Ufficiali (WhatsApp / Telegram)
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Comunicazioni ufficiali modificabili con allegati</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5">Comunicazioni ufficiali e link ai gruppi di classe</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openInfoModal('avvisi')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
@@ -421,6 +437,31 @@
                     </button>
                 </div>
             </div>
+            
+            <!-- Widget Canali Social -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <a href="https://whatsapp.com" target="_blank" class="bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 p-4 rounded-3xl flex items-center justify-between transition shadow-sm">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-lg"><i class="fa-brands fa-whatsapp"></i></div>
+                        <div>
+                            <h4 class="font-black text-xs text-emerald-950 uppercase">Gruppo WhatsApp</h4>
+                            <p class="text-[11px] text-emerald-800 font-medium">Chat ufficiale genitori / studenti</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-right text-emerald-600 text-sm pr-1"></i>
+                </a>
+                <a href="https://telegram.org" target="_blank" class="bg-sky-50 hover:bg-sky-100 border border-sky-200 p-4 rounded-3xl flex items-center justify-between transition shadow-sm">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-2xl bg-sky-600 text-white flex items-center justify-center text-lg"><i class="fa-brands fa-telegram"></i></div>
+                        <div>
+                            <h4 class="font-black text-xs text-sky-950 uppercase">Canale Telegram</h4>
+                            <p class="text-[11px] text-sky-800 font-medium">Broadcast avvisi in tempo reale</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-right text-sky-600 text-sm pr-1"></i>
+                </a>
+            </div>
+
             <div id="list-avvisi" class="space-y-3.5"></div>
         </section>
 
@@ -430,9 +471,9 @@
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
                         <span class="w-8 h-8 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-sm"><i class="fa-solid fa-chalkboard-user"></i></span>
-                        Ricevimento Genitori / Colloqui
+                        Ricevimento / Colloqui Docenti
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Orari, date e modalità dei colloqui con i docenti</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5">Orari e modalità dei colloqui individuali o generali</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openInfoModal('ricevimento')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
@@ -472,7 +513,7 @@
                         <span class="w-8 h-8 rounded-xl bg-yellow-50 text-yellow-600 flex items-center justify-center text-sm"><i class="fa-solid fa-award"></i></span>
                         Bacheca Meriti & Riconoscimenti
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Attestati, progetti speciali e premi della classe</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5">Attestati, progetti speciali e premi</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openInfoModal('meriti')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
@@ -492,7 +533,7 @@
                         <span class="w-8 h-8 rounded-xl bg-red-50 text-red-600 flex items-center justify-center text-sm"><i class="fa-solid fa-box-archive"></i></span>
                         Oggetti Smarriti / "Chi l'ha visto?"
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Segnalazioni felpe, libri o oggetti dimenticati a scuola</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5">Segnalazioni oggetti dimenticati a scuola o in aula</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openInfoModal('smarriti')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
@@ -512,7 +553,7 @@
                         <span class="w-8 h-8 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-sm"><i class="fa-solid fa-images"></i></span>
                         Galleria Foto & Video
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Ricordi e contenuti multimediali modificabili</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5">Ricordi multimediali e foto di gruppo</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openInfoModal('galleria')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
@@ -530,9 +571,9 @@
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
                         <span class="w-8 h-8 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-sm"><i class="fa-solid fa-link"></i></span>
-                        Link Utili & Portali
+                        Link Utili & Portali Esterni
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Portali scolastici e collegamenti modificabili</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5">Registri elettronici, portali universitari e collegamenti</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openInfoModal('linkutili')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
@@ -552,7 +593,7 @@
                         <span class="w-8 h-8 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center text-sm"><i class="fa-solid fa-cake-candles"></i></span>
                         Compleanni / Ricorrenze
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Date importanti e compleanni modificabili</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5">Date importanti e compleanni con auguri rapidi WhatsApp</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openInfoModal('compleanni')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
@@ -572,7 +613,7 @@
                         <span class="w-8 h-8 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-sm"><i class="fa-solid fa-clock"></i></span>
                         Promemoria e Scadenze
                     </h2>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Eventi e cose da ricordare interamente modificabili</p>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5">Impegni e cose da ricordare</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openInfoModal('promemoria')" class="bg-sky-50 hover:bg-sky-100 text-sky-600 p-2.5 rounded-2xl text-xs font-bold transition flex items-center justify-center border border-sky-200" title="Guida sezione"><i class="fa-solid fa-circle-info text-base"></i></button>
@@ -590,19 +631,19 @@
                 <div>
                     <span class="bg-emerald-50 text-emerald-700 text-[10px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider border border-emerald-100">Manuale d'Uso della Bacheca</span>
                     <h2 class="text-2xl font-black text-slate-900 tracking-tight mt-2 flex items-center gap-2.5">
-                        <i class="fa-solid fa-circle-question text-indigo-600"></i> Guida Completa, Multi-Figlio, Dispositivi & Sincronizzazione
+                        <i class="fa-solid fa-circle-question text-indigo-600"></i> Guida Completa, Multilivello (Scuola/Università), Android & iOS
                     </h2>
-                    <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1">Procedura dettagliata per l'installazione su Android, Apple iOS, gestione multi-figlio per genitori con più figli o admin di più gruppi.</p>
+                    <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1">Procedura dettagliata per l'installazione su Android, Apple iOS, gestione multi-classe e contatti di supporto.</p>
                 </div>
 
                 <div class="bg-indigo-50/80 p-5 rounded-3xl border border-indigo-200 space-y-3">
-                    <h3 class="font-black text-sm text-indigo-950 flex items-center gap-2"><i class="fa-solid fa-users-rectangle text-indigo-600"></i> Gestione Multi-Figlio / Multi-Classe (Nello stesso telefono)</h3>
+                    <h3 class="font-black text-sm text-indigo-950 flex items-center gap-2"><i class="fa-solid fa-users-rectangle text-indigo-600"></i> Gestione Multi-Classe / Multi-Corso</h3>
                     <p class="text-xs text-indigo-950 font-medium leading-relaxed">
-                        Se hai due o più figli in classi diverse (o se sei un amministratore che segue più gruppi), puoi gestirli comodamente dallo stesso smartphone senza installare app separate:
+                        SchoolHub Universal nasce per adattarsi sia alle scuole (primarie/secondarie) che ai corsi universitari:
                     </p>
                     <ul class="list-disc list-inside text-xs text-indigo-900 space-y-1.5 font-medium leading-relaxed">
-                        <li><strong>Come aggiungere una nuova classe:</strong> Ti basta aprire il link di invito WhatsApp della seconda classe. L'app salverà automaticamente entrambe le classi nella tua memoria.</li>
-                        <li><strong>Come passare da una classe all'altra:</strong> Usa il menu a tendina con l'icona delle classi situato in alto a destra nell'intestazione dell'app: un solo tap e passerai all'istante alla bacheca dell'altra classe!</li>
+                        <li><strong>Come aggiungere un nuovo corso o classe:</strong> Clicca sul tasto <em>"Condividi App per Nuova Classe"</em> nell'Area Admin per generare un nuovo database indipendente.</li>
+                        <li><strong>Come passare da un gruppo all'altro:</strong> Usa il selettore a tendina in alto a destra per saltare istantaneamente da una bacheca all'altra senza reinstallare nulla.</li>
                     </ul>
                 </div>
 
@@ -620,17 +661,19 @@
                         <ol class="list-decimal list-inside text-xs text-slate-300 space-y-1 font-medium leading-relaxed">
                             <li>I dispositivi Apple non supportano file APK. Apri il link ricevuto su WhatsApp in <strong>Safari</strong> (o usa il tasto "Apri Bacheca Apple").</li>
                             <li>Tocca il tasto <strong>Condividi</strong> (il quadratino con la freccia) e seleziona <strong>"Aggiungi alla schermata Home"</strong>.</li>
-                            <li>Il codice della classe viene letto ed memorizzato automaticamente dal link. Per visualizzare correttamente i PDF, installa l'app gratuita <strong>Google Drive</strong>.</li>
+                            <li>Il codice della classe viene memorizzato automaticamente. Per visualizzare correttamente i PDF, installa l'app gratuita <strong>Google Drive</strong>.</li>
                         </ol>
                     </div>
                 </div>
 
-                <div class="bg-amber-50/80 p-5 rounded-3xl border border-amber-200 space-y-3">
-                    <h3 class="font-black text-sm text-amber-950 flex items-center gap-2"><i class="fa-solid fa-mobile-screen-button text-amber-600"></i> Cosa succede se cambi telefono o pulisci la cache?</h3>
-                    <p class="text-xs text-amber-950 font-medium leading-relaxed">
-                        L'app memorizza il codice della tua classe nella memoria del browser (`localStorage`). Se cambi telefono o pulisci la cronologia/cache, aprendo l'app potresti visualizzare un codice vuoto o nuovo. <br>
-                        <strong>Come risolvere in 2 secondi:</strong> Ti basta riaprire il link di invito WhatsApp che avevi inviato ai genitori (oppure usare il link con il tuo token `?classe=TUO_TOKEN`) e l'app si ricollegherà immediatamente alla tua bacheca e ai tuoi dati su Firebase senza perdere nulla!
-                    </p>
+                <div class="bg-sky-50 p-5 rounded-3xl border border-sky-200 flex items-center justify-between">
+                    <div class="space-y-1">
+                        <h4 class="font-black text-xs text-sky-950 uppercase">Assistenza & Contatto Sviluppatore</h4>
+                        <p class="text-xs text-sky-800 font-medium">Hai bisogno di supporto tecnico o personalizzazioni? Scrivici direttamente.</p>
+                    </div>
+                    <a href="mailto:laskisound@gmail.com" class="bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold px-4 py-2.5 rounded-2xl shadow-sm transition whitespace-nowrap flex items-center gap-1.5">
+                        <i class="fa-solid fa-envelope"></i> Contatta laski
+                    </a>
                 </div>
             </div>
         </section>
@@ -659,7 +702,7 @@
             </div>
 
             <div class="flex items-center space-x-3">
-                <span class="text-indigo-600 font-black tracking-wider bg-indigo-50 border border-indigo-100 px-3 py-1.5 rounded-xl text-[11px]">POWER_laski</span>
+                <a href="mailto:laskisound@gmail.com" class="text-indigo-600 hover:underline font-black tracking-wider bg-indigo-50 border border-indigo-100 px-3 py-1.5 rounded-xl text-[11px]" title="Contatta laski">POWER_laski</a>
                 <div class="flex items-center space-x-2 bg-indigo-50 border border-indigo-100 px-3.5 py-1.5 rounded-xl text-indigo-900 font-bold shadow-2xs">
                     <i class="fa-solid fa-eye text-indigo-600"></i>
                     <span>Visite: <strong id="totalVisitsCounter" class="text-indigo-700">...</strong></span>
@@ -678,11 +721,11 @@
             <div class="text-xs sm:text-sm text-slate-600 space-y-3 font-medium leading-relaxed">
                 <div class="bg-emerald-50 p-3.5 rounded-2xl border border-emerald-100 text-emerald-950 space-y-1.5">
                     <p class="font-black text-xs uppercase tracking-wider text-emerald-700"><i class="fa-solid fa-link mr-1"></i> Come funziona il link di invito:</p>
-                    <p>Il pulsante <strong>"Invito WhatsApp"</strong> (presente nell'Area Admin) genera un messaggio con il link della bacheca che include già il codice della classe. Quando un genitore clicca sul link, l'app si sincronizza automaticamente senza digitare nulla.</p>
+                    <p>Il pulsante <strong>"Invito WhatsApp"</strong> genera un messaggio con il link della bacheca che include già il codice della classe. Quando un genitore o studente clicca sul link, l'app si sincronizza automaticamente senza digitare nulla.</p>
                 </div>
                 <div class="bg-indigo-50 p-3.5 rounded-2xl border border-indigo-100 text-indigo-950 space-y-1.5">
-                    <p class="font-black text-xs uppercase tracking-wider text-indigo-700"><i class="fa-solid fa-users-rectangle mr-1"></i> Gestione Multi-Figlio / Multi-Classe:</p>
-                    <p>Se hai più figli in classi diverse o gestisci più gruppi, l'app salva tutte le classi nella tua rubrica e ti permette di passare da una all'altra usando il selettore in alto a destra.</p>
+                    <p class="font-black text-xs uppercase tracking-wider text-indigo-700"><i class="fa-solid fa-users-rectangle mr-1"></i> Gestione Multi-Classe / Università:</p>
+                    <p>Se segui più classi o corsi universitari, l'app salva tutti i gruppi nella tua rubrica e ti permette di passare da uno all'altra usando il selettore in alto a destra.</p>
                 </div>
             </div>
             <button onclick="closeTokenInfoModal()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-2xl text-xs font-bold transition">Ho capito</button>
@@ -693,12 +736,12 @@
     <div id="manageMaterieModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md hidden z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl space-y-4 border border-slate-100 flex flex-col max-h-[90vh]">
             <div class="flex justify-between items-center">
-                <h3 class="text-lg font-black text-slate-900">Gestisci Materie</h3>
+                <h3 class="text-lg font-black text-slate-900">Gestisci Materie / Corsi</h3>
                 <button onclick="closeManageMaterieModal()" class="text-slate-400 hover:text-slate-600 p-1.5 rounded-xl hover:bg-slate-100 transition"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
-            <p class="text-xs text-slate-500 font-medium">Aggiungi una nuova materia o elimina quelle esistenti:</p>
+            <p class="text-xs text-slate-500 font-medium">Aggiungi una nuova materia o corso oppure elimina quelli esistenti:</p>
             <div class="flex gap-2">
-                <input type="text" id="newMateriaInput" placeholder="Nome nuova materia..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <input type="text" id="newMateriaInput" placeholder="Nome materia/corso..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-indigo-500">
                 <button onclick="addNewMateria()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl text-xs font-bold transition shadow-md whitespace-nowrap">Aggiungi</button>
             </div>
             <div id="materieListContainer" class="space-y-2 overflow-y-auto flex-1 pr-1 max-h-[220px]"></div>
@@ -741,7 +784,7 @@
                 <div class="space-y-2 pt-2">
                     <button onclick="shareClassInvite()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 px-4 rounded-2xl text-xs font-bold transition flex items-center justify-center space-x-2 shadow-sm">
                         <i class="fa-brands fa-whatsapp"></i>
-                        <span>Invito WhatsApp Genitori</span>
+                        <span>Invito WhatsApp Genitori / Studenti</span>
                     </button>
                     <button onclick="toggleAdminModal(); openConfigModal();" class="w-full bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 py-3 px-4 rounded-2xl text-xs font-bold transition flex items-center justify-center space-x-2">
                         <i class="fa-solid fa-gear"></i>
@@ -767,11 +810,11 @@
             </div>
             <div class="space-y-4">
                 <div>
-                    <label class="block text-xs font-black text-slate-700 mb-1">Titolo Principale (es. Classe 3E)</label>
+                    <label class="block text-xs font-black text-slate-700 mb-1">Titolo Principale (es. Classe 3E / Università)</label>
                     <input type="text" id="configInputName" placeholder="Es. Classe 3E" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-inner">
                 </div>
                 <div>
-                    <label class="block text-xs font-black text-slate-700 mb-1">Sottotitolo / Scuola (es. Scuola Primaria)</label>
+                    <label class="block text-xs font-black text-slate-700 mb-1">Sottotitolo / Indirizzo (es. Scuola Primaria / Università)</label>
                     <input type="text" id="configInputSubtitle" placeholder="Es. Scuola Primaria" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-inner">
                 </div>
                 <div>
@@ -806,10 +849,10 @@
             </div>
             <div id="infoModalContent" class="text-xs sm:text-sm text-slate-600 space-y-3 font-medium leading-relaxed">
                 <div class="bg-indigo-50 p-3.5 rounded-2xl border border-indigo-100 text-indigo-950 space-y-2">
-                    <p class="font-black text-xs uppercase tracking-wider text-indigo-700">💡 Come caricare file, PDF o foto:</p>
-                    <p>1. Carica il documento o la foto sul tuo <strong>Google Drive</strong> personale.</p>
+                    <p class="font-black text-xs uppercase tracking-wider text-indigo-700">💡 Come caricare file, PDF o dispense:</p>
+                    <p>1. Carica il documento o la dispensa sul tuo <strong>Google Drive</strong> personale.</p>
                     <p>2. Imposta la condivisione su <em>"Chiunque abbia il link può visualizzare"</em> e copia il link.</p>
-                    <p>3. Incolla il link nel campo <strong>"Link Google Drive (PDF o Foto)"</strong> quando pubblichi o modifichi un elemento.</p>
+                    <p>3. Incolla il link nel campo <strong>"Link Google Drive / Web (PDF o Foto)"</strong> quando pubblichi o modifichi un elemento.</p>
                 </div>
                 <div id="sectionSpecificGuideText"></div>
             </div>
@@ -829,10 +872,10 @@
                 <input type="hidden" id="editItemId">
                 <div id="titleWrapper">
                     <label class="block text-xs font-black text-slate-700 mb-1.5" id="labelTitle">Titolo / Argomento</label>
-                    <input type="text" id="inputTitle" placeholder="Es. Menu della Settimana" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-inner font-medium">
+                    <input type="text" id="inputTitle" placeholder="Es. Esame / Compito" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-inner font-medium">
                 </div>
                 <div id="materiaWrapper">
-                    <label class="block text-xs font-black text-slate-700 mb-1.5">Materia / Categoria</label>
+                    <label class="block text-xs font-black text-slate-700 mb-1.5">Materia / Corso</label>
                     <select id="inputMateria" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-inner font-medium"></select>
                 </div>
                 <div id="dateWrapper">
@@ -867,7 +910,7 @@
         </div>
     </div>
 
-    <!-- Script Audio Notifica -->
+    <!-- Script Audio Notifica & Push -->
     <script>
         function playAdminNotificationSound() {
             try {
@@ -953,7 +996,7 @@
 
         function shareAppForNewClass() {
             const cleanBaseUrl = window.location.href.split('?')[0].split('#')[0];
-            const waText = encodeURIComponent(`👋 Ciao! Se vuoi usare anche tu la Bacheca Scolastica Universale per gestire la tua classe in autonomia e senza conflitti con altre classi, clicca su questo link pulito:\n\n👉 ${cleanBaseUrl}\n\n🤖 *Come funziona per te:*\n1. Appena apri il link, l'app genererà in automatico un archivio e un database completamente nuovo e indipendente solo per la tua classe.\n2. Entra nell'*Area Admin* con la password predefinita (*3e*).\n3. Vai su *Impostazioni Classe* per personalizzare il nome della tua classe, impostare la tua password e il codice di recupero.\n4. Da quel momento potrai invitare i genitori della tua classe con il tasto di invito WhatsApp dedicato nell'Area Admin!`);
+            const waText = encodeURIComponent(`👋 Ciao! Se vuoi usare anche tu la Bacheca Scolastica e Universitaria (SchoolHub Universal) per gestire la tua classe o corso in autonomia, clicca su questo link pulito:\n\n👉 ${cleanBaseUrl}\n\n🤖 *Come funziona per te:*\n1. Appena apri il link, l'app genera un archivio e un database completamente nuovo e indipendente.\n2. Entra nell'*Area Admin* con la password predefinita (*3e*).\n3. Vai su *Impostazioni Classe* per personalizzare il nome e la password.\n4. Invita gli altri studenti con il tasto di invito WhatsApp dedicato!`);
             window.open(`https://api.whatsapp.com/send?text=${waText}`, '_blank');
         }
 
@@ -1026,7 +1069,7 @@
             const apkUrl = `${baseUrl}app-release.apk`;
             const cfg = dbData.appConfig || { name: "Bacheca Scolastica" };
             
-            const waText = encodeURIComponent(`👋 Buongiorno genitori!\n\nEcco il link ufficiale aggiornato per la nostra bacheca di classe (${cfg.name}) per seguire compiti, orari, menu mensa e fondo cassa:\n\n🔗 *Link Bacheca (Sincronizzazione Automatica):*\n${inviteUrl}\n*(Basta cliccare sul link per collegarsi subito alla classe)*\n\n📱 *Come installare l'app sul telefono:*\n\n🤖 *Per Android:* \n1. Clicca per scaricare l'app:\n${apkUrl}\n2. Installa e apri l'app.\n\n🍏 *Per Apple (iPhone / iPad):*\n1. Apri il link in *Safari*:\n${inviteUrl}\n2. Tocca il tasto *Condividi* e seleziona *"Aggiungi alla schermata Home"*.\n3. *(Nota: per aprire correttamente i PDF, installa l'app gratuita Google Drive)*.`);
+            const waText = encodeURIComponent(`👋 Buongiorno gruppo!\n\nEcco il link ufficiale aggiornato per la nostra bacheca (${cfg.name}) per seguire compiti, esami, orari, menu mensa e fondo cassa:\n\n🔗 *Link Bacheca (Sincronizzazione Automatica):*\n${inviteUrl}\n*(Basta cliccare sul link per collegarsi subito)*\n\n📱 *Come installare l'app sul telefono:*\n\n🤖 *Per Android:* \n1. Clicca per scaricare l'app:\n${apkUrl}\n2. Installa e apri l'app.\n\n🍏 *Per Apple (iPhone / iPad):*\n1. Apri il link in *Safari*:\n${inviteUrl}\n2. Tocca il tasto *Condividi* e seleziona *"Aggiungi alla schermata Home"*.\n3. *(Nota: per aprire correttamente i PDF, installa l'app gratuita Google Drive)*.`);
             window.open(`https://api.whatsapp.com/send?text=${waText}`, '_blank');
         }
 
@@ -1037,7 +1080,7 @@
         let dbData = { 
             appConfig: { 
                 name: "Classe 3E", 
-                subtitle: "Scuola Primaria", 
+                subtitle: "Scuola Primaria / Università", 
                 logo: "3E", 
                 adminPassword: "3e", 
                 recoveryCode: "segreto",
@@ -1045,41 +1088,41 @@
                 sections: { compiti: true, orario: true, mensa: true, libri: true, countdown: true, sondaggi: true, ruota: true, snake: true, fondo: true, avvisi: true, ricevimento: true, circolari: true, meriti: true, smarriti: true, galleria: true, linkutili: true, compleanni: true, promemoria: true, guida: true }
             },
             compiti: {}, orario: {}, mensa: {
-                m_default: { id: 'm_default', title: 'Portale Mensa Ufficiale L\'Aquila', details: 'Consultazione menu giornalieri e prenotazioni.', fileUrl: 'https://www4.eticasoluzioni.com/laquilaportalegen/Home/Index' }
+                m_default: { id: 'm_default', title: 'Portale Mensa Ufficiale / Ristorazione', details: 'Consultazione menu giornalieri e prenotazioni.', fileUrl: 'https://www4.eticasoluzioni.com/laquilaportalegen/Home/Index' }
             }, libri: {
-                l_default: { id: 'l_default', title: 'Raffaello Digitale - Letture Classe 3ª', details: 'Materiale didattico digitale e letture consigliate.', fileUrl: 'https://rp.raffaellodigitale.it/?open=verdeprato-classe-3-studente/7408/C1' }
+                l_default: { id: 'l_default', title: 'Archivio Dispense & PDF Ufficiali', details: 'Materiale didattico digitale e documenti condivisi.', fileUrl: 'https://drive.google.com' }
             }, countdown: {}, sondaggi: {}, fondo: {}, fondoIniziale: 0, avvisi: {}, ricevimento: {}, circolari: {}, meriti: {}, smarriti: {}, galleria: {}, linkutili: {}, compleanni: {}, promemoria: {}, snakeScores: {}, stats: { visits: 0 } 
         };
         let activeVoterSession = {}; 
 
         const sectionNames = {
-            compiti: "Diario / Attività", orario: "Orario", mensa: "Menu Mensa", libri: "Libri & Materiale", countdown: "Countdown", sondaggi: "Sondaggi", ruota: "Ruota Festa", snake: "Snake Game", fondo: "Fondo Cassa", avvisi: "Avvisi", ricevimento: "Ricevimento Genitori", circolari: "Circolari", meriti: "Meriti", smarriti: "Oggetti Smarriti", galleria: "Foto & Video", linkutili: "Link Utili", compleanni: "Compleanni", promemoria: "Promemoria", guida: "Guida & Info"
+            compiti: "Diario / Esami", orario: "Orario", mensa: "Menu Mensa", libri: "PDF & Libri", countdown: "Countdown", sondaggi: "Sondaggi", ruota: "Ruota Sorteggi", snake: "Snake Game", fondo: "Fondo Cassa", avvisi: "Avvisi & Canali", ricevimento: "Ricevimento", circolari: "Circolari", meriti: "Meriti", smarriti: "Oggetti Smarriti", galleria: "Foto & Video", linkutili: "Link Utili", compleanni: "Compleanni", promemoria: "Promemoria", guida: "Guida & Info"
         };
 
         const sectionIcons = {
-            compiti: "fa-book-open", orario: "fa-calendar-days", mensa: "fa-utensils", libri: "fa-book", countdown: "fa-hourglass-half", sondaggi: "fa-square-poll-vertical", ruota: "fa-dharmachakra", snake: "fa-gamepad", fondo: "fa-wallet", avvisi: "fa-bullhorn", ricevimento: "fa-chalkboard-user", circolari: "fa-file-lines", meriti: "fa-award", smarriti: "fa-box-archive", galleria: "fa-images", linkutili: "fa-link", compleanni: "fa-cake-candles", promemoria: "fa-clock", guida: "fa-circle-question"
+            compiti: "fa-book-open", orario: "fa-calendar-days", mensa: "fa-utensils", libri: "fa-file-pdf", countdown: "fa-hourglass-half", sondaggi: "fa-square-poll-vertical", ruota: "fa-dharmachakra", snake: "fa-gamepad", fondo: "fa-wallet", avvisi: "fa-bullhorn", ricevimento: "fa-chalkboard-user", circolari: "fa-file-lines", meriti: "fa-award", smarriti: "fa-box-archive", galleria: "fa-images", linkutili: "fa-link", compleanni: "fa-cake-candles", promemoria: "fa-clock", guida: "fa-circle-question"
         };
 
         const sectionGuides = {
-            compiti: "Gestisce i compiti giornalieri e le verifiche suddivise per materia con supporto multi-allegato Google Drive e auto-cancellazione dopo 12h dalla scadenza.",
+            compiti: "Gestisce i compiti giornalieri, i progetti o le date degli esami universitari suddivisi per materia con supporto multi-allegato.",
             orario: "Mostra il quadro delle lezioni o delle attività settimanali organizzate giorno per giorno ed è interamente modificabile dall'Admin.",
-            mensa: "Consente di pubblicare, modificare e consultare i PDF ufficiali, i menu e i portali di ristorazione scolastica.",
-            libri: "Raccoglie i libri di testo, i materiali didattici e i documenti consigliati con link diretti modificabili.",
-            countdown: "Imposta scadenze e conti alla rovescia per eventi importanti, gite o verifiche.",
-            sondaggi: "Crea votazioni in tempo reale con inserimento nominativo, monitoraggio delle percentuali e condivisione esito su WhatsApp.",
-            ruota: "Strumento interattivo per estrazioni casuali di partecipanti e mansioni con animazione e coriandoli.",
+            mensa: "Consente di pubblicare, modificare e consultare i PDF ufficiali, i menu e i portali di ristorazione.",
+            libri: "Archivio condiviso per dispense universitarie, PDF, libri di testo e materiale didattico con link diretti.",
+            countdown: "Imposta scadenze e conti alla rovescia per esami, verifiche o eventi importanti.",
+            sondaggi: "Crea votazioni in tempo reale con inserimento nominativo, monitoraggio percentuali e condivisione esito su WhatsApp.",
+            ruota: "Strumento interattivo per sorteggi casuali di partecipanti e mansioni con animazione e coriandoli.",
             snake: "Mini-gioco integrato con classifica ufficiale e sincronizzazione in tempo reale su Firebase.",
-            fondo: "Gestisce il bilancio di classe in modo trasparente, registrando il totale raccolto iniziale e le spese sostenute.",
-            avvisi: "Pubblica comunicazioni ufficiali con evidenza automatica e supporto per allegati multipli.",
-            ricevimento: "Raccoglie le date, gli orari e le modalità dei colloqui individuali o generali con i docenti.",
-            circolari: "Raccoglie le circolari scolastiche, i moduli di autorizzazione per le gite e i documenti ufficiali della scuola.",
-            meriti: "Bacheca dedicata ai riconoscimenti, agli attestati e ai progetti speciali completati dai bambini.",
-            smarriti: "Spazio per segnalare e ritrovare felpe, astucci, libri o oggetti dimenticati a scuola o sul pulman.",
-            galleria: "Archivia i ricordi fotografici e video delle attività scolastiche e delle feste.",
-            linkutili: "Fornisce accesso rapido a portali esterni, registri o modulistica utile.",
-            compleanni: "Memorizza le date di compleanno dei bambini per festeggiarli insieme.",
-            promemoria: "Segna impegni e scadenze da ricordare per la classe o i rappresentanti.",
-            guida: "Spiega come installare l'app su Android e iOS, come gestire i file su Google Drive e il funzionamento della gestione multi-figlio/multi-classe."
+            fondo: "Gestisce il bilancio di classe o del corso in modo trasparente, registrando il totale raccolto e le spese sostenute.",
+            avvisi: "Pubblica comunicazioni ufficiali, avvisi e link rapidi ai gruppi WhatsApp e ai canali Telegram.",
+            ricevimento: "Raccoglie le date, gli orari e le modalità dei colloqui individuali o generali con i docenti o professori.",
+            circolari: "Raccoglie le circolari scolastiche, i moduli di autorizzazione o i documenti ufficiali.",
+            meriti: "Bacheca dedicata ai riconoscimenti, agli attestati e ai progetti speciali completati.",
+            smarriti: "Spazio per segnalare e ritrovare felpe, libri, appunti o oggetti dimenticati.",
+            galleria: "Archivia i ricordi fotografici e video delle attività e delle feste di gruppo.",
+            linkutili: "Fornisce accesso rapido a portali esterni, registri o piattaforme didattiche.",
+            compleanni: "Memorizza le date di compleanno per festeggiarli insieme con auguri WhatsApp.",
+            promemoria: "Segna impegni e scadenze da ricordare per il gruppo.",
+            guida: "Spiega come installare l'app su Android e iOS, come gestire i file su Google Drive e il supporto multilivello."
         };
 
         function openInfoModal(sectionKey) {
@@ -1135,17 +1178,16 @@
             onValue(dataRef, (snapshot) => {
                 const val = snapshot.val();
                 if (val) {
-                    // Controllo se sono arrivati nuovi compiti o avvisi per inviare notifica push
                     if (!isFirstLoad && dbData.compiti && val.compiti) {
                         const oldKeys = Object.keys(dbData.compiti);
                         const newKeys = Object.keys(val.compiti);
                         if (newKeys.length > oldKeys.length) {
-                            sendBrowserNotification("Nuovo Compito Pubblicato!", "Controlla subito la bacheca di classe.");
+                            sendBrowserNotification("Nuovo Compito / Esame Pubblicato!", "Controlla subito la bacheca.");
                         }
                     }
 
                     dbData = { ...dbData, ...val };
-                    if (!dbData.appConfig) dbData.appConfig = { name: "Classe 3E", subtitle: "Scuola Primaria", logo: "3E", adminPassword: "3e", recoveryCode: "segreto", materie: [], sections: {} };
+                    if (!dbData.appConfig) dbData.appConfig = { name: "Classe 3E", subtitle: "Scuola / Università", logo: "3E", adminPassword: "3e", recoveryCode: "segreto", materie: [], sections: {} };
                     if (!dbData.appConfig.adminPassword) dbData.appConfig.adminPassword = "3e";
                     if (!dbData.appConfig.recoveryCode) dbData.appConfig.recoveryCode = "segreto";
                     if (!dbData.appConfig.materie || dbData.appConfig.materie.length === 0) {
@@ -1173,7 +1215,7 @@
             const filterSelect = document.getElementById('materiaFilterSelect');
             if (filterSelect) {
                 const currentFilter = filterSelect.value || 'Tutte';
-                let html = `<option value="Tutte">Tutte le materie</option>`;
+                let html = `<option value="Tutte">Tutte le materie / corsi</option>`;
                 materie.forEach(m => { html += `<option value="${escapeHtml(m)}" ${currentFilter === m ? 'selected' : ''}>${escapeHtml(m)}</option>`; });
                 filterSelect.innerHTML = html;
             }
@@ -1207,7 +1249,7 @@
         function addNewMateria() {
             const input = document.getElementById('newMateriaInput');
             const val = input.value.trim();
-            if (!val) { alert('Inserisci il nome della materia!'); return; }
+            if (!val) { alert('Inserisci il nome della materia o del corso!'); return; }
             if (!dbData.appConfig.materie) dbData.appConfig.materie = [];
             if (dbData.appConfig.materie.includes(val)) { alert('Materia già presente!'); return; }
             dbData.appConfig.materie.push(val);
@@ -1251,7 +1293,7 @@
         }
 
         function updateAppBranding() {
-            const cfg = dbData.appConfig || { name: "Classe 3E", subtitle: "Scuola Primaria", logo: "3E" };
+            const cfg = dbData.appConfig || { name: "Classe 3E", subtitle: "Scuola / Università", logo: "3E" };
             const nameEl = document.getElementById('displayAppName');
             const subEl = document.getElementById('displayAppSubtitle');
             const logoEl = document.getElementById('headerAppLogo');
@@ -1268,7 +1310,7 @@
         }
 
         function openConfigModal() {
-            const cfg = dbData.appConfig || { name: "Classe 3E", subtitle: "Scuola Primaria", logo: "3E", adminPassword: "3e", recoveryCode: "segreto" };
+            const cfg = dbData.appConfig || { name: "Classe 3E", subtitle: "Scuola / Università", logo: "3E", adminPassword: "3e", recoveryCode: "segreto" };
             document.getElementById('configInputName').value = cfg.name || '';
             document.getElementById('configInputSubtitle').value = cfg.subtitle || '';
             document.getElementById('configInputLogo').value = cfg.logo || '';
@@ -1663,7 +1705,7 @@
             if (names.length === 0 || tasks.length === 0) { alert('Inserisci almeno un nome e un compito!'); return; }
 
             const shuffledNames = [...names].sort(() => Math.random() - 0.5);
-            let outputHtml = '', waTextList = `🎉 *Assegnazioni / Estrazione*\n\n`;
+            let outputHtml = '', waTextList = `🎉 *Assegnazioni / Sorteggio*\n\n`;
 
             tasks.forEach((task, index) => {
                 const assignedName = shuffledNames[index % shuffledNames.length];
@@ -1683,7 +1725,7 @@
             const currentToken = localStorage.getItem('active_class_token') || classToken;
             const baseUrl = window.location.href.split('?')[0].split('#')[0];
             const appUrl = `${baseUrl}?classe=${currentToken}`;
-            waTextList += `\n🔗 *Bacheca di Classe:* ${appUrl}`;
+            waTextList += `\n🔗 *Bacheca:* ${appUrl}`;
             const encodedWA = encodeURIComponent(waTextList.trim());
 
             document.getElementById('wheelWhatsAppContainer').innerHTML = `
@@ -1750,14 +1792,14 @@
                 modalTitle.innerText = itemId ? "Modifica Giorno Orario" : "Aggiungi Giorno Orario";
                 labelTitle.innerText = "Inserire il Giorno (es. Lunedì)";
                 inputTitle.placeholder = "Es. Lunedì";
-                labelDetails.innerText = "Inserire materie giornaliere";
-                inputDetails.placeholder = "8:00 - Italiano\n9:00 - Matematica...";
+                labelDetails.innerText = "Inserire lezioni giornaliere";
+                inputDetails.placeholder = "8:00 - Lezione A\n10:00 - Lezione B...";
                 materiaWrapper.classList.add('hidden');
                 dateWrapper.classList.add('hidden');
             } else if (section === 'compiti') {
-                modalTitle.innerText = itemId ? "Modifica Compito" : "Nuovo Compito";
+                modalTitle.innerText = itemId ? "Modifica Elemento" : "Nuovo Compito / Esame";
                 labelTitle.innerText = "Titolo / Argomento";
-                inputTitle.placeholder = "Es. Esercizi di Matematica";
+                inputTitle.placeholder = "Es. Preparazione Esame / Compiti";
                 labelDetails.innerText = "Descrizione / Note (Opzionale)";
                 inputDetails.placeholder = "Note o istruzioni...";
                 materiaWrapper.classList.remove('hidden');
@@ -1766,7 +1808,7 @@
             } else if (section === 'sondaggi') {
                 modalTitle.innerText = itemId ? "Modifica Sondaggio" : "Crea Nuovo Sondaggio";
                 labelTitle.innerText = "Titolo del Sondaggio / Domanda";
-                inputTitle.placeholder = "Es. Scelta gita scolastica";
+                inputTitle.placeholder = "Es. Data appello d'esame";
                 labelDetails.innerText = "Opzioni di voto (una per riga)";
                 inputDetails.placeholder = "Opzione A\nOpzione B\nOpzione C";
                 materiaWrapper.classList.add('hidden');
@@ -1847,8 +1889,8 @@
         function resetVoter(pollId) { delete activeVoterSession[pollId]; renderAll(); }
 
         function votePoll(pollId, optionIndex) {
-            const childName = activeVoterSession[pollId];
-            if (!childName) { alert('Prima di votare devi inserire il nome!'); return; }
+            const voterName = activeVoterSession[pollId];
+            if (!voterName) { alert('Prima di votare devi inserire il nome!'); return; }
             const { db, ref, set } = window.fbDB;
             if (!dbData.sondaggi || !dbData.sondaggi[pollId]) return;
 
@@ -1857,11 +1899,11 @@
 
             for (const idx in poll.votes) {
                 if (!Array.isArray(poll.votes[idx])) poll.votes[idx] = [];
-                poll.votes[idx] = poll.votes[idx].filter(name => name.toLowerCase() !== childName.toLowerCase());
+                poll.votes[idx] = poll.votes[idx].filter(name => name.toLowerCase() !== voterName.toLowerCase());
             }
 
             if (!poll.votes[optionIndex]) poll.votes[optionIndex] = [];
-            poll.votes[optionIndex].push(childName);
+            poll.votes[optionIndex].push(voterName);
 
             set(ref(db, firebaseNodePath), dbData).then(() => { renderAll(); });
         }
@@ -1918,7 +1960,7 @@
                 contentEl.innerHTML = summaryHtml || `<p class="text-slate-400 text-xs text-center py-4 font-medium">Nessun voto registrato.</p>`;
             }
 
-            summaryTextForWA += `\n🔗 *Bacheca di Classe:* ${appUrl}`;
+            summaryTextForWA += `\n🔗 *Bacheca:* ${appUrl}`;
             const encodedWA = encodeURIComponent(summaryTextForWA.trim());
             whatsappContainer.innerHTML = `
                 <a href="https://api.whatsapp.com/send?text=${encodedWA}" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 px-4 rounded-2xl text-xs font-bold transition flex items-center justify-center space-x-2 shadow-md">
@@ -1941,8 +1983,8 @@
         function renderMultipleLinks(fileUrlStr) {
             if (!fileUrlStr) return '';
             const urls = fileUrlStr.split(/[\s,]+/).filter(u => u.trim().startsWith('http'));
-            if (urls.length === 0) return `<div class="pt-2"><a href="${escapeHtml(fileUrlStr)}" target="_blank" class="inline-flex items-center space-x-2 text-xs bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-4 py-2.5 rounded-2xl font-bold transition border border-indigo-100"><i class="fa-solid fa-paperclip"></i><span>Apri Allegato / Link</span></a></div>`;
-            return `<div class="pt-2 flex flex-wrap gap-2">` + urls.map((url, index) => `<a href="${escapeHtml(url.trim())}" target="_blank" class="inline-flex items-center space-x-2 text-xs bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-3.5 py-2.5 rounded-2xl font-bold transition border border-indigo-100"><i class="fa-solid fa-paperclip"></i><span>Allegato ${index + 1}</span></a>`).join('') + `</div>`;
+            if (urls.length === 0) return `<div class="pt-2"><a href="${escapeHtml(fileUrlStr)}" target="_blank" class="inline-flex items-center space-x-2 text-xs bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-4 py-2.5 rounded-2xl font-bold transition border border-indigo-100"><i class="fa-solid fa-paperclip"></i><span>Apri Allegato / Dispensa</span></a></div>`;
+            return `<div class="pt-2 flex flex-wrap gap-2">` + urls.map((url, index) => `<a href="${escapeHtml(url.trim())}" target="_blank" class="inline-flex items-center space-x-2 text-xs bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-3.5 py-2.5 rounded-2xl font-bold transition border border-indigo-100"><i class="fa-solid fa-file-pdf"></i><span>Dispensa / PDF ${index + 1}</span></a>`).join('') + `</div>`;
         }
 
         function getAdminButtons(section, id) {
@@ -1989,7 +2031,7 @@
             }
 
             const summaryTextEl = document.getElementById('homeworkSummaryText');
-            if (summaryTextEl) summaryTextEl.innerText = compitiArr.length === 0 ? "Nessuna attività registrata per questa selezione." : `Ci sono ${compitiArr.length} attività attive nel diario.`;
+            if (summaryTextEl) summaryTextEl.innerText = compitiArr.length === 0 ? "Nessuna attività o esame registrato per questa selezione." : `Ci sono ${compitiArr.length} elementi attivi nel diario.`;
 
             const homeCountdownContainer = document.getElementById('homeCountdownBox');
             const countdownData = dbData.countdown ? Object.values(dbData.countdown) : [];
@@ -2022,13 +2064,13 @@
                 }
             }
 
-            // Compiti
+            // Compiti / Esami
             renderCustomSection('compiti', 'list-compiti', compitiArr, item => {
-                let waText = `📚 *Attività (${item.materia || 'Generale'})*\n*${item.title}*\n`;
+                let waText = `📚 *Attività / Esame (${item.materia || 'Generale'})*\n*${item.title}*\n`;
                 if (item.date) waText += `⏰ Scadenza: ${new Date(item.date).toLocaleString('it-IT')}\n`;
                 if (item.details) waText += `${item.details}\n`;
                 if (item.fileUrl) waText += `🔗 *Link:* ${item.fileUrl}\n`;
-                waText += `\n📲 *Bacheca di Classe:* ${appUrl}`;
+                waText += `\n📲 *Bacheca:* ${appUrl}`;
                 const encodedWA = encodeURIComponent(waText.trim());
                 const badgeNew = isNewItem(item.createdAt) ? `<span class="bg-emerald-500 text-white text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider ml-2 animate-pulse">Nuovo</span>` : '';
                 const materiaBadge = item.materia ? `<span class="inline-flex items-center gap-1.5 bg-indigo-50 text-indigo-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider border border-indigo-100"><i class="fa-solid fa-bookmark text-indigo-500"></i>${escapeHtml(item.materia)}</span>` : '';
@@ -2067,7 +2109,7 @@
             renderCustomSection('mensa', 'list-mensa', null, item => {
                 let waText = `🍽️ *Menu / Ristorazione (${item.title})*\n${item.details ? item.details + '\n' : ''}`;
                 if (item.fileUrl) waText += `🔗 *Link:* ${item.fileUrl}\n`;
-                waText += `\n📲 *Bacheca di Classe:* ${appUrl}`;
+                waText += `\n📲 *Bacheca:* ${appUrl}`;
                 const encodedWA = encodeURIComponent(waText.trim());
                 return `
                 <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex justify-between items-start space-x-3 transition hover:shadow-md">
@@ -2085,16 +2127,16 @@
                 </div>`;
             });
 
-            // Libri & Materiale
+            // Libri & PDF (Universitario / Scolastico)
             renderCustomSection('libri', 'list-libri', null, item => {
-                let waText = `📚 *Materiale e Documenti*\n*${item.title}*\n${item.details ? item.details + '\n' : ''}`;
+                let waText = `📚 *Dispense / PDF e Materiale*\n*${item.title}*\n${item.details ? item.details + '\n' : ''}`;
                 if (item.fileUrl) waText += `🔗 *Link:* ${item.fileUrl}\n`;
-                waText += `\n📲 *Bacheca di Classe:* ${appUrl}`;
+                waText += `\n📲 *Bacheca:* ${appUrl}`;
                 const encodedWA = encodeURIComponent(waText.trim());
                 return `
                 <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex justify-between items-start space-x-3 transition hover:shadow-md">
                     <div class="space-y-2.5 flex-1">
-                        <span class="inline-flex items-center gap-1.5 bg-sky-50 text-sky-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider border border-sky-100"><i class="fa-solid fa-book"></i> Materiale</span>
+                        <span class="inline-flex items-center gap-1.5 bg-sky-50 text-sky-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider border border-sky-100"><i class="fa-solid fa-file-pdf"></i> PDF & Dispense</span>
                         <h3 class="font-black text-slate-900 text-base">${escapeHtml(item.title)}</h3>
                         ${item.details ? `<p class="text-sm text-slate-600 font-medium leading-relaxed">${escapeHtml(item.details)}</p>` : ''}
                         ${renderMultipleLinks(item.fileUrl)}
@@ -2175,7 +2217,7 @@
                     <div class="bg-indigo-50/70 border border-indigo-100 p-3 rounded-2xl flex flex-col sm:flex-row items-center gap-2">
                         <span class="text-xs font-bold text-indigo-900 w-full sm:w-auto">Inserisci nome prima di votare:</span>
                         <div class="flex gap-2 w-full sm:w-auto flex-1">
-                            <input type="text" id="voterInput_${item.id}" placeholder="Es. Nome Bambino" class="bg-white border border-indigo-200 rounded-xl px-3 py-1.5 text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 flex-1">
+                            <input type="text" id="voterInput_${item.id}" placeholder="Es. Il tuo nome" class="bg-white border border-indigo-200 rounded-xl px-3 py-1.5 text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 flex-1">
                             <button onclick="validateVoter('${item.id}')" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-1.5 rounded-xl text-xs font-bold transition shadow-sm whitespace-nowrap">Conferma Nome</button>
                         </div>
                     </div>
@@ -2218,7 +2260,7 @@
             renderCustomSection('avvisi', 'list-avvisi', null, item => {
                 let waText = `📢 *Avviso Importante*\n*${item.title}*\n${item.details ? item.details + '\n' : ''}`;
                 if (item.fileUrl) waText += `🔗 *Link:* ${item.fileUrl}\n`;
-                waText += `\n📲 *Bacheca di Classe:* ${appUrl}`;
+                waText += `\n📲 *Bacheca:* ${appUrl}`;
                 const encodedWA = encodeURIComponent(waText.trim());
                 return `
                 <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex justify-between items-start space-x-3 transition hover:shadow-md">
@@ -2235,11 +2277,11 @@
                 </div>`;
             });
 
-            // Ricevimento Genitori
+            // Ricevimento Genitori / Professori
             renderCustomSection('ricevimento', 'list-ricevimento', null, item => `
                 <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex justify-between items-start space-x-3 transition hover:shadow-md">
                     <div class="space-y-2.5 flex-1">
-                        <span class="inline-flex items-center gap-1.5 bg-teal-50 text-teal-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider border border-teal-100"><i class="fa-solid fa-chalkboard-user"></i> Colloquio</span>
+                        <span class="inline-flex items-center gap-1.5 bg-teal-50 text-teal-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider border border-teal-100"><i class="fa-solid fa-chalkboard-user"></i> Colloquio / Ricevimento</span>
                         <h3 class="font-black text-slate-900 text-base">${escapeHtml(item.title)}</h3>
                         ${item.date ? `<p class="text-xs text-indigo-600 font-bold flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i>${new Date(item.date).toLocaleString('it-IT')}</p>` : ''}
                         ${item.details ? `<p class="text-sm text-slate-600 font-medium leading-relaxed">${escapeHtml(item.details)}</p>` : ''}
@@ -2324,7 +2366,7 @@
 
             // Compleanni
             renderCustomSection('compleanni', 'list-compleanni', null, item => {
-                let waText = `🎂 *Compleanno*\nTanti auguri di buon compleanno a *${item.title}*! 🎉🎈\n\n📲 *Bacheca di Classe:* ${appUrl}`;
+                let waText = `🎂 *Compleanno*\nTanti auguri di buon compleanno a *${item.title}*! 🎉🎈\n\n📲 *Bacheca:* ${appUrl}`;
                 let encodedWA = encodeURIComponent(waText.trim());
                 return `
                 <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex justify-between items-center transition hover:shadow-md">
