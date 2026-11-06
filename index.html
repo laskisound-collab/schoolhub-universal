@@ -592,7 +592,7 @@
                     <h2 class="text-2xl font-black text-slate-900 tracking-tight mt-2 flex items-center gap-2.5">
                         <i class="fa-solid fa-circle-question text-indigo-600"></i> Guida Completa, Multi-Figlio, Dispositivi & Sincronizzazione
                     </h2>
-                    <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1">Procedura dettagliata per l'installazione su Android, Apple iOS, gestione multi-classe per genitori con più figli o admin di più gruppi.</p>
+                    <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1">Procedura dettagliata per l'installazione su Android, Apple iOS, gestione multi-figlio per genitori con più figli o admin di più gruppi.</p>
                 </div>
 
                 <div class="bg-indigo-50/80 p-5 rounded-3xl border border-indigo-200 space-y-3">
@@ -885,6 +885,20 @@
                 osc.stop(audioCtx.currentTime + 0.4);
             } catch (e) {}
         }
+
+        function requestBrowserNotificationPermission() {
+            if ("Notification" in window && Notification.permission === "default") {
+                Notification.requestPermission();
+            }
+        }
+
+        function sendBrowserNotification(title, body) {
+            if ("Notification" in window && Notification.permission === "granted") {
+                try {
+                    new Notification(title, { body: body, icon: './favicon.ico' });
+                } catch (e) {}
+            }
+        }
     </script>
 
     <!-- Script Logica -->
@@ -1117,9 +1131,19 @@
                 });
             }
 
+            let isFirstLoad = true;
             onValue(dataRef, (snapshot) => {
                 const val = snapshot.val();
                 if (val) {
+                    // Controllo se sono arrivati nuovi compiti o avvisi per inviare notifica push
+                    if (!isFirstLoad && dbData.compiti && val.compiti) {
+                        const oldKeys = Object.keys(dbData.compiti);
+                        const newKeys = Object.keys(val.compiti);
+                        if (newKeys.length > oldKeys.length) {
+                            sendBrowserNotification("Nuovo Compito Pubblicato!", "Controlla subito la bacheca di classe.");
+                        }
+                    }
+
                     dbData = { ...dbData, ...val };
                     if (!dbData.appConfig) dbData.appConfig = { name: "Classe 3E", subtitle: "Scuola Primaria", logo: "3E", adminPassword: "3e", recoveryCode: "segreto", materie: [], sections: {} };
                     if (!dbData.appConfig.adminPassword) dbData.appConfig.adminPassword = "3e";
@@ -1131,6 +1155,7 @@
                     updateAppBranding();
                     checkAndCleanExpiredCompiti();
                 }
+                isFirstLoad = false;
                 saveClassToRegistry(classToken, dbData.appConfig.name);
                 renderMultiClassSelector();
                 renderNavTabs();
